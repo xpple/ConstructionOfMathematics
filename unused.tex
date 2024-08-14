@@ -1,0 +1,10 @@
+\begin{lemma}[Predecessor function]
+    The predecessor function $P:\bbN\setminus\{0\}\to\bbN$ is explicitly given by $P(n)=\bigcup n$.
+\end{lemma}
+\begin{proof}
+    We will prove by induction that for all $n\in\bbN$ we have $n=\bigcup S(n)$. The base case follows as $\bigcup S(0)=\bigcup(0\cup\{0\})=\bigcup\{0\}=0$. Now suppose $n=\bigcup S(n)$ for some $n\in\bbN$. Then
+    \begin{align*}
+        \bigcup S(S(n)) & =\bigcup(S(n)\cup\{S(n)\})=\bigcup S(n)\cup\bigcup\{S(n)\} \\
+        & =n\cup S(n)=n\cup n\cup\{n\}=n\cup\{n\}=S(n).
+    \end{align*}
+\end{proof}

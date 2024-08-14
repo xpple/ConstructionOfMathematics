@@ -1,0 +1,8 @@
+\begin{tikzpicture}[node distance=2cm, auto]
+    \node (X) {$X$};
+    \node (Y) [right of=X] {$Y$};
+    \node (Z) [below of=Y] {$Z$};
+    \draw[->] (X) to node {$f$} (Y);
+    \draw[->] (Y) to node {$g$} (Z);
+    \draw[->] (X) to node [below=0.25cm, left] {$g\circ f$} (Z);
+\end{tikzpicture}

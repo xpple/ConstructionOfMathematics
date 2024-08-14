@@ -1,0 +1,121 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+\setcounter{section}{1}
+Zermelo–Fraenkel set theory, as the name suggests, is a theory. Without going go too deep into mathematical logic, a theory is a collection of statements, formally called sentences. The axioms of $\mathbf{ZF}$, being by assumption true sentences, are therefore part of the theory. Using the axioms, one can prove more statements, which are also part of the theory. The theory of $\mathbf{ZF}$ thus consists of all the statements one can prove from the axioms by the rules of inference\footnote{Mendelson defines a theory just to be the set of axioms \cite{Mendelson1997}.}.
+
+In particular, $\mathbf{ZF}$ is a first-order theory with equality. First-order refers to the logical framework that is being worked in; first-order logic. With equality means that an additional primitive symbol (``$=$") is added into the language that expresses equality between two objects. First-order logic is an extension of zeroth-order logic, or more commonly called propositional logic. A proposition is a statement that can be true or false. For instance, $\pi=3$ is a proposition, in this case a false proposition. Propositional logic is the study of combining these propositions, usually denoted by variables, using logical connectives. The logical connectives generally include $\land$ (``and"), $\lor$ (``or"), $\implies$ (``implies"), $\iff$ (``is equivalent to") and $\lnot$ (``not"). See Tables~\ref{tab:first_order_logic:logical_conjuction}\nobreakdash-\ref{tab:first_order_logic:logical_negation} for how these connectives behave. Here $\mathbf{T}$ denotes truth and $\mathbf{F}$ denotes falsity.
+\begin{table}[!hbp]
+    \begin{minipage}{.5\linewidth}
+        \centering
+        \begin{tabular}{c|c||c}
+            $P$ & $Q$ & $P\land Q$ \\
+            \hline
+            $\mathbf{F}$ & $\mathbf{F}$ & $\mathbf{F}$ \\
+            $\mathbf{F}$ & $\mathbf{T}$ & $\mathbf{F}$ \\
+            $\mathbf{T}$ & $\mathbf{F}$ & $\mathbf{F}$ \\
+            $\mathbf{T}$ & $\mathbf{T}$ & $\mathbf{T}$
+        \end{tabular}
+        \captionof{table}{Logical conjuction}
+        \label{tab:first_order_logic:logical_conjuction}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \centering
+        \begin{tabular}{c|c||c}
+            $P$ & $Q$ & $P\lor Q$ \\
+            \hline
+            $\mathbf{F}$ & $\mathbf{F}$ & $\mathbf{F}$ \\
+            $\mathbf{F}$ & $\mathbf{T}$ & $\mathbf{T}$ \\
+            $\mathbf{T}$ & $\mathbf{F}$ & $\mathbf{T}$ \\
+            $\mathbf{T}$ & $\mathbf{T}$ & $\mathbf{T}$
+        \end{tabular}
+        \captionof{table}{Logical disjunction}
+        \label{tab:first_order_logic:logical_disjunction}
+    \end{minipage}
+
+    \begin{minipage}{.5\linewidth}
+        \centering
+        \begin{tabular}{c|c||c}
+            $P$ & $Q$ & $P\implies Q$ \\
+            \hline
+            $\mathbf{F}$ & $\mathbf{F}$ & $\mathbf{T}$ \\
+            $\mathbf{F}$ & $\mathbf{T}$ & $\mathbf{T}$ \\
+            $\mathbf{T}$ & $\mathbf{F}$ & $\mathbf{F}$ \\
+            $\mathbf{T}$ & $\mathbf{T}$ & $\mathbf{T}$
+        \end{tabular}
+        \captionof{table}{Logical implication}
+        \label{tab:first_order_logic:logical_implication}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \centering
+        \begin{tabular}{c|c||c}
+            $P$ & $Q$ & $P\iff Q$ \\
+            \hline
+            $\mathbf{F}$ & $\mathbf{F}$ & $\mathbf{T}$ \\
+            $\mathbf{F}$ & $\mathbf{T}$ & $\mathbf{F}$ \\
+            $\mathbf{T}$ & $\mathbf{F}$ & $\mathbf{F}$ \\
+            $\mathbf{T}$ & $\mathbf{T}$ & $\mathbf{T}$
+        \end{tabular}
+        \captionof{table}{Logical biconditional}
+        \label{tab:first_order_logic:logical_biconditional}
+    \end{minipage}
+
+    \begin{center}
+        \begin{tabular}{c||c}
+            $P$ & $\lnot P$ \\
+            \hline
+            $\mathbf{F}$ & $\mathbf{T}$ \\
+            $\mathbf{T}$ & $\mathbf{F}$
+        \end{tabular}
+        \captionof{table}{Logical negation}
+        \label{tab:first_order_logic:logical_negation}
+    \end{center}
+\end{table}
+Along with parentheses (``$($" and ``$)$") to disambiguate the notation, one can then combine these symbols to create more complex propositions. First-order logic expands upon propositional logic by allowing to make statements that quantify over objects. Where propositional logic is all about propositions, first-order logic is all about predicates. The universal quantifier (``$\forall$") allows the creation of a predicate that mandates a certain proposition to be true for all objects. Similarly, the existential quantifier (``$\exists$") allows the creation of a predicate that mandates a certain proposition to be true for at least one object. Additionally, the theory of $\mathbf{ZF}$ adds one more nonlogical symbol to the language. This is the symbol ``$\in$", which denotes set membership. To summarise, the language of a first-order theory with equality consists of the following symbols.
+\begin{itemize}
+    \item Variables (letters, subscripted letters, etc.)
+    \item Logical connectives (``$\land$", ``$\lor$", ``$\implies$", ``$\iff$" and ``$\lnot$")
+    \item Quantifiers (``$\forall$", ``$\exists$")
+    \item Equality symbol (``$=$")
+    \item Set membership symbol (``$\in$")
+    \item Parentheses (``$($" and ``$)$")
+\end{itemize}
+A sequence of symbols of the language of a first-order theory is called a formula. Not any sequence of symbols is valid, though. Clearly ``$)\in\implies x\exists\lnot)$" is rubbish. One can define well-formed formulas recursively as follows.
+\begin{itemize}
+    \item $x=y$ and $x\in y$ are well-formed formulas.
+    \item If $\varphi$ is a well-formed formula, so is $\lnot\varphi$.
+    \item If $\varphi$ and $\psi$ are well-formed formulas, so are $\varphi\mathrel{\bullet}\psi$, where $\bullet$ denotes any of $\land$, $\lor$, $\implies$ or $\iff$.
+    \item If $\varphi$ is a well-formed formula, so are $\forall x(\varphi)$ and $\exists x(\varphi)$.
+\end{itemize}
+Because general formulas are of little interest, henceforth we will refer to well-formed formulas as just formulas. To declare dependence of formulas on variables, the notion of free and bound variables is used. A variable is free in a formula if it can be changed freely; it is a placeholder. A variable is bound if it is bound by a specific operator, like a quantifier.
+
+The universal quantifier is defined formally by the rule of universal instantiation. This rule states the following. Let $\varphi$ be a formula with free variables among $x$. Then
+\begin{equation*}
+    \forall x(\varphi(x))\implies A\{x\mapsto t\},
+\end{equation*}
+where $A\{x\mapsto t\}$ means replacing every occurrence of $x$ in $A$ with $t$. The existential quantifier is then usually defined in terms of the universal quantifier: we write $\exists x(\varphi(x))$ to mean $\lnot(\forall x(\lnot\varphi(x)))$.
+
+The axioms of equality can then be formulated as follows.
+\begin{description}
+    \item[Reflexivity.] $\forall x(x=x)$.
+    \item[Symmetry.] $\forall x\forall y(x=y\implies y=x)$.
+    \item[Transitivity.] $\forall x\forall y\forall z(x=y\land y=z\implies x=z)$.
+    \item[Substitution for function symbols.] Let $f$ be a function symbol of arity at least one. Then $\forall x\forall y(x=y\implies f(x)=f(y))$.
+    \item[Substitution for formulas.] Let $\varphi$ be a formula with free variables among $x$ and nonfree variable $y$. Then $\forall x\forall y(x=y\implies(\varphi(x)\implies(\varphi(y))))$.
+\end{description}
+Note that the substitution axioms are actually axiom schemas, one for each function symbol or formula. With this, all of mathematics can be formulated. However, one has to look no further than elementary school mathematics to find symbols that are not part of this language. For instance, numbers are not part of the language, nor is addition of them. For this reason, definitional extensions exist. One can simply add to the alphabet of a theory to create a larger language. Proposition~\ref{prp:first_order_logic:definitional_extension_with_function_symbol} asserts that this extension is indeed formally logically justified. A similar result can be proven for relation symbols.
+\begin{proposition}[Definitional extension with function symbol, Proposition~2.28 in \cite{Mendelson1997}]\label{prp:first_order_logic:definitional_extension_with_function_symbol}
+    Let $T$ be a theory with equality. Assume that \linebreak$\vdash_T\exists!y\varphi(y,x_1,\dots,x_n)$. Let $T'$ be the theory (with equality) obtained by adding the $n$-ary function symbol $f$ and the proper axiom $\varphi(f(x_1,\dots,x_n),x_1,\dots,x_n)$, as well as all logical axioms. Then there exists a transformation of each wff $\phi$ of $T'$ onto a wff $\phi'$ of $T$ such that
+    \begin{enumerate}
+        \item If $f$ does not occur in $\phi$, then $\phi'$ is $\phi$.
+        \item $(\lnot\phi)'$ is $\lnot(\phi')$.
+        \item $(\phi\implies\psi)'$ is $\phi'\implies\psi'$.
+        \item $(\forall x\phi)'$ is $\forall x(\phi')$.
+        \item $\vdash_{T'}(\phi\iff\phi')$.
+        \item If $\vdash_{T'}\phi$ then $\vdash_T\phi'$.
+    \end{enumerate}
+    Hence if $\phi$ does not contain $f$ and $\vdash_{T'}\phi$, then $\vdash_T\phi$. In particular, adding the function symbol does not add to the theory.
+\end{proposition}
+
+There is a last, yet exceptionally important thing we have not mentioned. This concerns first-order theories, in our case $\mathbf{ZF}$. Technically one does not work in just $\mathbf{ZF}$, one works in a model of $\mathbf{ZF}$. A model or interpretation of a theory is a structure in which the theory is true. The model contains all the sets one can work with, and is therefore also known as the domain of discourse. When working in a particular model of a first-order theory, all quantifiers are bound by the model; they only see what is inside the model. This means that when working in a model $M$, the assumed domain of discourse is $M$, meaning that every quantification $\forall x$ or $\exists x$ is to be interpreted as $\forall x\in M$ and $\exists x\in M$. This may seem unimportant, but has real implications. For example, when one makes a statement about every subset of an arbitrary set, the statement may not have the intended meaning. That is because to actually quantify over arbitrary subsets, the sets would have to be members of $\mathcal{P}(M)$, which is strictly larger than $M$. Therefore in first-order logic, the statement only says something about the subsets present in $M$, but fails to state something about all the subsets in $\mathcal{P}(M)\setminus M$. This renders the statement much weaker than intended. One example of this is the definition of well-foundedness as stated in Definition~\ref{dfn:the_natural_numbers_integers_and_rational_numbers:well_order}. Thus, when working in $\mathbf{ZF}$, being a first-order theory, one cannot prove well-foundedness of the natural numbers for all subsets. This means that even though one can prove well-foundedness for subsets that are members of $M$, it may be the case that some subsets that are members of $\mathcal{P}(M)\setminus M$ are not well-founded. In this sense, every property can be axiomatisable in some order of logic. Here well-foundedness is axiomatisable in second-order logic and provably not in any lesser order logic, so it is a second-order property. That is, in second-order logic the quantifiers are bound by $\mathcal{P}(M)$, which is sufficient for the definition of well-foundedness. When it is the case that a model of some structure is not isomorphic to the intended structure, the model is called nonstandard. And indeed, in a first-order theory nonstandard models of any infinite number system exist, which is a consequence of a theorem due to Löwenheim and Skolem \cite{Skolem1934}. A nonstandard model has real implications. For example, there exists models of the real numbers that do not contain $\pi$, or any transcendental number for that matter. This is because any first-order statement involving the real numbers is also true for just the real algebraic numbers. Yet in a standard model of the real numbers almost all numbers are transcendental. Related to this is the case when the model $M$ of $\mathbf{ZF}$ is countable. Since $\mathbf{ZF}$ can prove the existence of uncountable ordinals, it can prove the existence of sets which are strictly larger than the model itself. This peculiar result is known as Skolem's paradox. It is not actually a paradox, but merely a peculiarity, because the uncountable ordinal is not actually uncountable. From inside the model it ``thinks" it is, but from the outside it is not.
+\end{document}

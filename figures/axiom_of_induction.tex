@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+    \foreach \i in {0, ..., 5} {
+        \fill (\i*360/6-60: 1) coordinate (n\i) node {$\i'$};
+    }
+    \foreach \i in {0, ..., 4} {
+        \pgfmathtruncatemacro{\next}{\i + 1}
+        \draw[->, shorten <= .25cm, shorten >= .25cm] (n\i) -- (n\next);
+    }
+    \draw[->, shorten <= .25cm, shorten >= .25cm] (n5) -- (n0);
+
+    \foreach \i in {0, ..., 6} {
+        \pgfmathtruncatemacro{\x}{\i + 2}
+        \fill (\x, 0) coordinate (m\i) node {$\i$};
+    }
+    \fill (9, 0) coordinate (m7) node[anchor=west, xshift=-.25cm] {$\cdots$};
+    \foreach \i in {0, ..., 6} {
+        \pgfmathtruncatemacro{\next}{\i + 1}
+        \draw[->, shorten <= .25cm, shorten >= .25cm] (m\i) -- (m\next);
+    }
+\end{tikzpicture}

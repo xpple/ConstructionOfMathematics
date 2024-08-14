@@ -1,0 +1,604 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+\section*{Introduction}
+Before constructing the real numbers, we will construct the intermediate number systems. Their constructions will be based on properties that should intuitively be true. For every number system we will both prove what properties they satisfy and in what way these properties make them unique.
+
+First in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_natural_numbers} the natural numbers will be constructed. It will be in this section that we start defining algebraic structures with which the uniqueness of all number systems will be formulated. These structures are induced by the respective properties of the number system we are working in. The integers are then constructed in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_integers}. The algebraic structures are expanded upon based on the new property the integers enjoy which the natural numbers do not. Lastly the rational numbers are constructed in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_rational_numbers}, where also the most rich algebraic structure is defined.
+
+\section{The natural numbers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_natural_numbers}
+In his work \textit{\textgerman{Was sind und was sollen die Zahlen}} \cite{Dedekind1888} Dedekind asked the right questions. Before defining what the natural numbers are, we should think about what they should be. One thing that we use the natural numbers for is counting things. Three apples, two books, etc. The gerund (a noun formed from a verb by adding ``-ing") ``counting" suggests this is a process. We do not instantly count three apples. Instead, we start with a count of zero, and for each apple we increment the count by one\footnote{There are all kinds of psychological exceptions to this, where we do instantly count three objects by the shape they are arranged in! This is called ``subitising", but is beyond the scope of this thesis.}. This intuition of counting apples in succession will form the foundation of the natural numbers.
+
+With this in mind, mathematicians have attempted to characterise the natural numbers. The very first characterisation was given in the aforementioned work by Dedekind. He stated a list of properties that the natural numbers should satisfy. Today, these are known as the Dedekind-Peano axioms ($\mathbf{PA}$). Dedekind initially stated these axioms in \cite{Dedekind1888} and Peano later formalised these statements into a larger theory of sets in \cite{Peano1889}. The axioms are stated in terms of a nullary function symbol $0$ (``zero") and unary function symbol $S$. The function symbol $S$ is called the successor function. Notably, in the formulations of both Dedekind and Peano the first axiom was that $1$ (``one") is a natural number. Today it is more common to start counting from $0$ (``zero"), in accordance with the intuition of starting with a count of zero. Below is an overview of the axioms. Even though these axioms are stated using sets, it should be noted that they are logically separate from $\mathbf{ZF}$.
+\begin{enumerate}[label=PA\arabic*]
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_1} $0\in\bbN$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_2} $\forall x\in\bbN(x=x)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_3} $\forall x\in\bbN\forall y\in\bbN(x=y\implies y=x)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_4} $\forall x\in\bbN\forall y\in\bbN\forall z\in\bbN(x=y\land y=z\implies x=z)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_5} $\forall x\forall y\in\bbN(x=y\implies x\in\bbN)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_6} $\forall x\in\bbN(S(x)\in\bbN)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_7} $\forall x\in\bbN\forall y\in\bbN(S(x)=S(y)\implies x=y)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_8} $\forall x\in\bbN(S(x)\neq0)$.
+    \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} $\forall N((0\in N\land\forall x\in N(S(x)\in N))\implies N=\bbN)$.
+\end{enumerate}
+These axioms capture the intuition related to counting we alluded to above. Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1} asserts that there is a count of zero. Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_6} asserts that we can increment this count by one. That is, we can continue counting. Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} makes sure that if another set behaves exactly like the natural numbers in the sense of Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1} and Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_6}, then this set is the set of natural numbers. Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_8} says that a count of zero cannot be achieved by incrementing another count, and so on. When these axioms are stated in terms of sets within $\mathbf{ZF}$, as we did here, the Axioms~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_2}\nobreakdashes-\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_5} are trivially logically valid since $\mathbf{ZF}$ is a first-order theory with equality.
+
+To construct the natural numbers, we will give an explicit definition of a suitable set of natural numbers along with a successor function and prove that they satisfy the Peano-Dedekind axioms. This characterises the natural numbers by their intuition of counting things. Afterwards, we will introduce algebraic operations that one can perform on the natural numbers. We will show these operations also satisfy the properties we expect them to satisfy. We will then give a characterisation of the natural numbers in terms of these operations and their properties.
+
+Now, $\mathbf{ZF}$ comes with the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}. Notice the similarity of this axiom with the Axioms~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1}~and~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_6}. We will use the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} to construct the natural numbers. Note that the it does not produce a unique set however, nor a set that only contains the natural numbers; we will have to extract them. Intuitively, we will define the natural numbers as the smallest set satisfying the requirement in the statement of the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}.
+\begin{definition}[Natural numbers]\label{dfn:the_natural_numbers_integers_and_rational_numbers:natural_numbers}
+    Let $S$ be the unary function symbol defined by $S(x)=x\cup\{x\}$. Let $\varphi(X)$ mean $\varnothing\in X\land\forall x\in X(S(x)\in X)$. Define the set $\bbN$ of natural numbers as the unique set satisfying the below formula with free variable $N$.
+    \begin{equation*}
+        \forall n(n\in N\iff\forall X(\varphi(X)\implies n\in X)).
+    \end{equation*}
+    If $\bbN$ exists, it is clear it is unique. We will have to prove that $\bbN$ exists.
+\end{definition}
+\begin{proof}
+    Let $N$ be a set that exists by the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}. Take $\bbN=\{n\in N\mid\forall X(\varphi(X)\implies n\in X)\}$. Then if $n\in\bbN$ we clearly have $\forall X(\varphi(X)\implies n\in X)$. On the other hand, if $\forall X(\varphi(X)\implies n\in X)$, we may choose $X=N$ so that we find $n\in N$ and hence $n\in\bbN$.
+\end{proof}
+It is easy to see that $\bbN$ satisfies $\varphi$ as well. In particular $\varnothing\in\bbN$, and if $n\in\bbN$ then also $S(n)\in\bbN$ because $n\in N$. This allows us to transform the successor function symbol to an actual function on $\bbN$.
+\begin{definition}[Successor function]
+    We define $0:=\varnothing$. Define the successor function $S:\bbN\to\bbN\setminus\{0\}$ by $S(n)=n\cup\{n\}$, and also define
+    \begin{align*}
+        1 & :=S(0), & 4 & :=S(3), & 7 & :=S(6), \\
+        2 & :=S(1), & 5 & :=S(4), & 8 & :=S(7), \\
+        3 & :=S(2), & 6 & :=S(5), & 9 & :=S(8).
+    \end{align*}
+    Notice that $0\notin\range(S)$ because $S(n)$ is nonempty for all $n\in\bbN$. We continue counting according to any positional number system.
+\end{definition}
+Notice that each natural number contains all ``previous" natural numbers as elements. For example, $4=\{0,1,2,3\}$. Previous is in quotes, because we have not technically defined yet what it means for two natural numbers to be less than each other. This definition yields a straightforward way to do so, as we will see later.
+
+As the name suggests, the successor function resembles the successor function symbol from the Dedekind-Peano axioms. It differs in a key aspect, though. Its codomain by definition does not include $0$, making Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_8} satisfied by definition. This is by design, and will prove useful.
+
+Integrally tied to the successor function is the principle of mathematical induction. For this reason Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} is sometimes also called the ``axiom of induction". It states that if a statement is true for $0$, and its truth for any $n\in\bbN$ implies the truth of the statement for $S(n)$, then the statement is true for all $n\in\bbN$. Figure~\ref{fig:the_natural_numbers_integers_and_rational_numbers:axiom_of_induction} illustrates how this idea of induction forces $\bbN$ to exclude any unreachable numbers.
+
+\begin{figure}[!htbp]
+    \centering
+    \input{figures/axiom_of_induction}
+    \caption{The accented natural numbers along with the regular natural numbers together satisfy Axioms~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1}\nobreakdashes-\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_8}, but not Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9}.}
+    \label{fig:the_natural_numbers_integers_and_rational_numbers:axiom_of_induction}
+\end{figure}
+\begin{theorem}[Mathematical induction]\label{thm:the_natural_numbers_integers_and_rational_numbers:mathematical_induction}
+    Let $\varphi$ be a formula with free variables among which $n$. Then
+    \begin{equation*}
+        \left(\varphi(0)\land\forall n\in\bbN(\varphi(n)\implies\varphi(S(n)))\right)\implies\forall n\in\bbN(\varphi(n)).
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    To prove induction holds, we will prove Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} holds in $\bbN$ first. Let $N$ be a set such that $0\in N$ and for all $x\in N$ we have $S(x)\in N$. It is clear that $N\subseteq\bbN$. Also, $N$ witnesses the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}. Since we defined $\bbN$ as the smallest set satisfying this axiom, we must have $\bbN\subseteq N$, completing the proof of Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9}. Now define $N=\{n\in\bbN\mid\varphi(n)\}$. Clearly $0\in N$. Suppose $n\in N$ for some $n\in\bbN$. Then $\varphi(S(n))$ holds, so $S(n)\in N$. By Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} we have $N=\bbN$.
+\end{proof}
+Notably, the proof of such a strong mathematical rule of inference is this short because it was essentially assumed as axiom. The \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} and Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} are at the heart of the statement of mathematical induction; Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:mathematical_induction} only rephrases them as mathematical induction explicitly.
+
+We have now shown that all but one of the Dedekind-Peano axioms apply in $\bbN$. We will capture the final result in a proposition.
+\begin{proposition}[$(\bbN,S)$ is a model of $\mathbf{PA}$]
+    The set $\bbN$ along with the function $S$ satisfies the Dedekind-Peano axioms.
+\end{proposition}
+\begin{proof}
+    All axioms but Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_7} have been shown to apply. This last axiom corresponds to showing injectivity of $S$. Since its codomain excludes $0$, we can make a stronger claim; $S$ is bijective.
+    \begin{description}
+        \item[Injective.] Suppose $S(m)=S(n)$. We will show $m=n$. By definition $m\cup\{m\}=n\cup\{n\}$, so $m\in n\cup\{n\}$ and $n\in m\cup\{m\}$. If $m\in n$, then we must have $n\notin m$. Hence $n\in\{m\}$ and so $m=n$. But then $m\notin n$, a contradiction. Thus $m\in\{n\}$, so $m=n$.
+        \item[Surjective.] Both induction and surjectivity pertain to the successor function reaching all natural numbers. Induction is a much stronger property though, and surjectivity follows from it. Since the codomain of $S$ excludes $0$, we will have to rephrase surjectivity of $S$ in the following way to be able to use induction.
+        \begin{equation*}
+            \forall m\in\bbN(m\neq0\implies\exists n\in\bbN(S(n)=m)).
+        \end{equation*}
+        The base case follows vacuously. For the induction step, suppose $m\neq0$ implies the existence of an $n\in\bbN$ such that $S(n)=m$. Suppose $S(m)\neq0$. If $m=0$ then we can take $n=0$ so that $S(n)=S(m)$. Else by the induction hypothesis there exists an $n_1\in\bbN$ such that $S(n_1)=m$. Hence for $n_2=S(n_1)$ we find $S(n_2)=S(m)$.
+    \end{description}
+\end{proof}
+
+With the definition of the natural numbers out of the way, we can start to define the basic operations on them. To characterise these operations, we will use some algebraic structures. We will state their definitions as we will need them.
+
+A consequence of the fact that $S$ is is bijective, is that we can define its inverse function.
+\begin{definition}[Predecessor function]\label{dfn:the_natural_numbers_integers_and_rational_numbers:predecessor_function}
+    We define the predecessor function $P:\bbN\setminus\{0\}\to\bbN$ to be the inverse of $S$. That is $P=S^{-1}$.
+\end{definition}
+The predecessor function is not part of the language of $\mathbf{PA}$, but the notion is convenient to have. We did not make the distinction here, but the predecessor is the algebraic predecessor. Order predecessors of a natural number also exist, which are natural numbers that precede that number. It is not always clear from the context which of the two is meant. In this thesis we will only consider the algebraic predecessor.
+
+To define addition, one may think of it as repeated succession. The following definition captures this intuition.
+\begin{definition}[Addition of natural numbers]
+    We define addition as the map $\bbN\times\bbN\to\bbN$ defined by
+    \begin{align*}
+        m+0 & =m, \\
+        m+S(n) & =S(m+n).
+    \end{align*}
+\end{definition}
+This definition indeed boils down to repeatedly applying the successor function. This is illustrated by the following example.
+\begin{example}
+    To evaluate $2+2$ we will simply follow the recursion.
+    \begin{align*}
+        2+2 & =2+S(1)=S(2+1) \\
+        & =S(2+S(0))=S(S(2+0)) \\
+        & =S(S(2))=S(3)=4.
+    \end{align*}
+\end{example}
+One could use the predecessor function to find a direct expression for $m+n$. Namely for $n\neq0$ we have $m+n=S(m+P(n))$. It is however more common to adhere to the language of $\mathbf{PA}$, only using the successor function.
+
+The first step into characterising the natural numbers is to show some properties of addition we expect addition to have. That is, if we add zero to something it remains unchanged, the grouping with which we evaluate a sum like ``$1+2+3$" (either as ``$(1+2)+3$" or as ``$1+(2+3)$") should not matter and the order should not matter. Structures where these rules apply, are called commutative monoids.
+\begin{definition}[Commutative monoid]
+    Let $+$ be a binary operation on $X$. Then $(X,+)$ is a commutative monoid if the following properties apply.
+    \begin{description}
+        \item[Identity.] $\exists0\in X\forall x\in X(0+x=x+0=x)$.
+        \item[Associative.] $\forall x\in X\forall y\in X\forall z\in X(x+(y+z)=(x+y)+z)$.
+        \item[Commutative.] $\forall x\in X\forall y\in X(x+y=y+x)$.
+    \end{description}
+\end{definition}
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:commutative_monoid_natural_numbers}
+    $(\bbN,+)$ is a commutative monoid.
+\end{proposition}
+\begin{proof}
+    Note that $x+1=x+S(0)=S(x+0)=S(x)$.
+    \begin{description}
+        \item[Identity.] Take the identity to be $0\in\bbN$. We will argue by induction. The base case is trivially satisfied. Suppose $x+0=0+x=x$ for some $x\in\bbN$. Then $0+S(x)=S(0+x)=S(x)=S(x)+0$.
+        \item[Associative.] We will argue by induction on $z$. The base case holds as $(x+y)+0=x+y=x+(y+0)$. Now suppose $(x+y)+z=x+(y+z)$ for some $z\in\bbN$. Then
+        \begin{equation*}
+            (x+y)+S(z)=S((x+y)+z)=S(x+(y+z))=x+S(y+z)=x+(y+S(z)).
+        \end{equation*}
+        \item[Commutative.] We will argue by induction on $x$. The base case is satisfied by the existence of an identity element. As an intermediary result we will prove $x+1=1+x$, also by induction. The base case is again already satisfied. Suppose $x+1=1+x$ for some $x\in\bbN$. Then
+        \begin{equation*}
+            S(x)+1=(x+1)+1=(1+x)+1=1+(x+1)=1+S(x).
+        \end{equation*}
+        To complete the proof, suppose $x+y=y+x$ for some $x\in\bbN$. Then
+        \begin{align*}
+            y+S(x) & =y+(x+1)=(y+x)+1=(x+y)+1 \\
+            & =x+(y+1)=x+(1+y)=(x+1)+y=S(x)+y.
+        \end{align*}
+    \end{description}
+\end{proof}
+Similar to how we defined addition as repeated succession, we can define multiplication as repeated addition. The following definition does exactly that.
+\begin{definition}[Multiplication of natural numbers]
+    We define multiplication as the map $\bbN\times\bbN\to\bbN$ defined by
+    \begin{align*}
+        m\cdot0 & =0, \\
+        m\cdot S(n) & =(m\cdot n)+m.
+    \end{align*}
+\end{definition}
+The reader is invited to evaluate $2\cdot2$ using this definition to see that this definition of multiplication indeed captures the notion of repeated addition. Like with addition, one can use the predecessor function to write $m\cdot n=(m\cdot P(n))+m$ for $n\neq0$.
+
+By convention, we will assume that multiplication has a higher precedence than addition. That is, we will read $x+y\cdot z$ as $x+(y\cdot z)$ and $x\cdot y+z$ as $(x\cdot y)+z$. Now that we have defined multiplication, we will show that it satisfies all the properties we want it to have. Along with the properties we saw addition had that multiplication should have too, we want addition and multiplication to interact as expected. That means that multiplication distributes over addition; ``$1\cdot(1+2)$" should equal ``$1\cdot 1+1\cdot 2$". This yields the definition for the following important structure.
+\begin{definition}[Commutative semiring]
+    Let $+$ and $\cdot$ be binary operations on $X$. Then $(X,+,\cdot)$ is a commutative semiring if $(X,+)$ and $(X\setminus\{0\},\cdot)$ are commutative monoids, $0\neq1$ and the distributive property applies.
+    \begin{description}
+        \item[Distributive.] $\forall x\in X\forall y\in X\forall z\in X(x\cdot(y+z)=x\cdot y+x\cdot z)$.
+    \end{description}
+\end{definition}
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:commutative_semiring_natural_numbers}
+    $(\bbN,+,\cdot)$ is a commutative semiring.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_monoid_natural_numbers} we have that $(\bbN,+)$ is a commutative monoid. It remains to show that $(\bbN\setminus\{0\},\cdot)$ is a commutative monoid too and that multiplication distributes over addition.
+    \begin{description}
+        \item[Identity.] Take $1\in\bbN$ to be the identity. We will argue by induction. The base case holds because $0\cdot1=(0\cdot0)+0=0=1\cdot0$. Suppose $x\cdot1=1\cdot x=x$ for some $x\in\bbN$. Then $1\cdot S(x)=1\cdot x+1=x+1=S(x)=S(x)\cdot 1$.
+        \item[Distributive.] We will argue by induction on $z$. The base case holds because $x\cdot(y+0)=x\cdot y=x\cdot y+x\cdot 0$. Suppose $x\cdot(y+z)=x\cdot y+x\cdot z$ for some $z\in\bbN$. Then
+        \begin{align*}
+            x\cdot(y+S(z)) & =x\cdot S(y+z)=x\cdot(y+z)+x \\
+            & =x\cdot y+x\cdot z+x=x\cdot y+x\cdot S(z).
+        \end{align*}
+        \item[Associative.] We will argue by induction on $z$. The base case holds because $x\cdot(y\cdot0)=x\cdot0=0=(x\cdot y)\cdot0$. Suppose $(x\cdot y)\cdot z=x\cdot(y\cdot z)$ for some $z\in\bbN$. Then
+        \begin{align*}
+            (x\cdot y)\cdot S(z) & =(x\cdot y)\cdot z+x\cdot y=x\cdot(y\cdot z)+x\cdot y \\
+            & =x\cdot(y\cdot z+y)=x\cdot(y\cdot S(z)).
+        \end{align*}
+        \item[Commutative.] We will argue by induction on $y$. We will prove the base case by induction as well. The base case for this inner induction is trivially satisfied. Suppose $x\cdot0=0\cdot x$ for some $x\in\bbN$. Then
+        \begin{align*}
+            0\cdot S(x) & =0\cdot x+0=0\cdot x \\
+            & =x\cdot 0=0=S(x)\cdot 0.
+        \end{align*}
+        Now suppose $x\cdot y=y\cdot x$ for some $y\in\bbN$. Then
+        \begin{align*}
+            x\cdot S(y) & =x\cdot y+x=x+y\cdot x \\
+            & =1\cdot x+y\cdot x=(1+y)\cdot x=S(y)\cdot x.
+        \end{align*}
+    \end{description}
+\end{proof}
+Lastly we will define the order on $\bbN$. The fact that each natural number contains every ``previous" natural number will allow for a very simple definition.
+\begin{definition}[Order on natural numbers]\label{dfn:the_natural_numbers_integers_and_rational_numbers:N_order}
+    For two natural numbers $m$ and $n$ define the relation $\leq$ on $\bbN$ by $m\leq n$ if $m\in n\lor m=n$.
+\end{definition}
+Orders can also be generalised to other sets. Thinking about how the order on natural numbers should work, the following definition should be reasonable.
+\begin{definition}[Total order]
+    Let $\leq$ be a relation on $X$. Then $(X,\leq)$ is a total order if the following properties apply.
+    \begin{description}
+        \item[Reflexive.] $\forall x\in X(x\leq x)$.
+        \item[Transitive.] $\forall x\in X\forall y\in X\forall z\in X(x\leq y\land y\leq z\implies x\leq z)$.
+        \item[Antisymmetric.] $\forall x\in X\forall y\in X(x\leq y\land y\leq x\implies x=y)$.
+        \item[Strongly connected.] $\forall x\in X\forall y\in X(x\leq y\lor y\leq x)$.
+    \end{description}
+    Note that reflexivity follows from strongly connectedness. It is included for emphasis. We write $x<y$ to mean $x\leq y\land x\neq y$. Moreover $x>y$ and $x\geq y$ are to be interpreted as $y<x$ and $y\leq x$ respectively.
+\end{definition}
+Like with multiplication interacting nicely with addition, the order should interact nicely with both these operations. This yields the important fundamental structure that was alluded to in the introduction; the ordered (commutative) semiring. The precise definition of this varies throughout the literature, though. For our purposes we will use the following definition.
+\begin{definition}[Ordered commutative semiring]
+    Let $+$ and $\cdot$ be binary operations on $X$ and let $\leq$ be a relation on $X$. Then $(X,+,\cdot,\leq)$ is an ordered semiring if $(X,+,\cdot)$ is a commutative semiring, $(X,\leq)$ is a total order and the following properties apply.
+    \begin{description}
+        \item[OR1.] $\forall x\in X\forall y\in X\forall z\in X(x\leq y\iff x+z\leq y+z)$.
+        \item[OR2.] $\forall x\in X\forall y\in X\forall z\in X(x\leq y\land z\geq0\implies x\cdot z\leq y\cdot z)$.
+    \end{description}
+    The backward implication of the first property is known as the cancellation law of the order. We will call an element $x\in X$ positive if $x>0$, negative if $x<0$ and nonnegative if $x\geq0$.
+\end{definition}
+There is an additional property that the order of the natural numbers has. This property is called well-ordering principle. It states that every nonempty subset of the natural numbers has a least element. For general orders this property is called well-foundedness and gives rise to the following definition.
+\begin{definition}[Well-order]\label{dfn:the_natural_numbers_integers_and_rational_numbers:well_order}
+    Let $\leq$ be a relation on $X$. Then $(X,\leq)$ is a well-order if it is a total order and it satisfies well-foundedness.
+    \begin{description}
+        \item[Well-founded.] $\forall A\subseteq X(A\neq\varnothing\implies\exists x\in A\forall y\in A(x\leq y))$.
+    \end{description}
+\end{definition}
+The importance of the well-ordering principle for the natural numbers is because of its relation to mathematical induction. In fact, it is equivalent to mathematical induction on the natural numbers. We will prove it implies induction first. We will show the converse in the proof of $(\bbN,\leq)$ being a well-order.
+\begin{proposition}
+    If $(\bbN,\leq)$ with $\leq$ from Definition~\ref{dfn:the_natural_numbers_integers_and_rational_numbers:N_order} is a well-order, then the principle of mathematical induction holds.
+\end{proposition}
+\begin{proof}
+    Suppose $(\bbN,\leq)$ is a well-order. Let $\varphi$ be a formula with free variables among which $n$. By way of contradiction, suppose induction does not apply. Then there must be a set of counterexamples to $\varphi(n)$, so define $A=\{n\in\bbN\mid\lnot\varphi(n)\}$. By the well-ordering principle we have that $A$ has a least element $n$. Note that by assumption $\varphi(0)$ holds, so $n\neq0$. But then for the predecessor $P(n)$ of $n$ we must have that $\varphi(P(n))$ is true. However that implies $\varphi(n)$ is true, a contradiction.
+\end{proof}
+Note that this proof is technically superfluous because we already established that mathematical induction for the natural numbers holds in Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:mathematical_induction}. The proof itself is very instructive, though. The interaction between the well-ordering principle and the predecessor function actually give rise to way we will characterise the natural numbers. First though, we will verify that the operations on the natural numbers indeed satisfy all the properties of a well-ordered commutative semiring.
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:well_ordered_commutative_semiring_natural_numbers}
+    $(\bbN,+,\cdot,\leq)$ is a well-ordered commutative semiring.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_semiring_natural_numbers} we know that $(\bbN,+,\cdot)$ is a commutative semiring. It remains to show that $(\bbN,\leq)$ is a well-order and that addition and multiplication preserve the order. First we show that for all $x\in\bbN$ and $y\in\bbN$ we have that $x\in y$ implies $S(x)\in S(y)$. We will prove this by induction on $y$. The base case follows vacuously. For the induction step, suppose $x\in y$ implies $S(x)\in S(y)$ and take $x\in S(y)$. If $x\in y$ we find $S(x)\in S(y)$. Because $S(y)\subseteq S(S(y))$ we find $S(x)\in S(S(y))$. Else suppose $x\in\{y\}$, so $x=y$. Hence $S(x)=S(y)$, after which it follows that $S(x)\in S(S(y))$.
+    \begin{description}
+        \item[Transitive.] We need to show that $x\leq y$ and $y\leq z$ implies $x\leq z$. When $x=y$ or $y=z$ the statement is trivially true. The same applies to when $y=0$ or $z=0$. It therefore remains to show that $x\in y$ and $y\in z$ implies $x\in z$ when $x\neq y$, $y\neq z$, $y\neq0$ and $z\neq0$. We will argue by induction on $z$. The base case follows by vacuous truth. For the induction step suppose $x\in y$ and $y\in z$ implies $x\in z$ under the conditions above. Take $x\neq y$, $y\neq S(z)$, $y\neq0$ and $S(z)\neq0$ and suppose $x\in y$ and $y\in S(z)$. If $y\in z$ we find $x\in z$ by the induction hypothesis, so also $x\in S(z)$. Else $y\in\{z\}$, so $y=z$. Hence $x\in z$ and again $x\in S(z)$.
+        \item[Antisymmetric.] Suppose $x\leq y$ and $y\leq x$. We have $x\in y\lor x=y$ and $y\in x\lor y=x$. If $x=y$ we are done. If not, we have $x\in y$ and $y\in x$, which is impossible.
+        \item[Strongly connected.] We need to show that for all $x\in\bbN$ and $y\in\bbN$ we have either $x\leq y$ or $y\leq x$. This is equivalent to showing that $x\neq y$ implies $x\in y$ or $y\in x$. We will argue by induction on $x$. The base case follows trivially. For the induction step suppose $x\neq y$ implies $x\in y$ or $y\in x$. Take $x\in\bbN$ with $S(x)\neq y$. If $x=y$ we immediately find $y\in S(x)$. Else $x\neq y$, so by the induction hypothesis we find $x\in y$ or $y\in x$. If $y\in x$ then clearly $y\in S(x)$. If $x\in y$ then $S(x)\in S(y)$. We cannot have $S(x)\in\{y\}$ since that would imply $S(x)=y$. Hence $S(x)\in y$.
+        \item[OR1.] Suppose $x\leq y$. We need to show that for all $z\in\bbN$ we have $x+z\leq y+z$. We will argue by induction on $z$. The base case trivially holds. Suppose $x+z\leq y+z$ for some $z\in\bbN$. If $x+z=y+z$ then we are done. If not, then $x+z\in y+z$. We then have $S(x+z)\in S(y+z)$, so $x+S(z)\in y+S(z)$.
+
+        Now suppose $x+z\leq y+z$. If $x=y$ then we are done. Else suppose $y\in x$, so $y+z\in x+z$. Regardless of whether $x+z=y+z$ or $x+z\in y+z$ we find $x+z\in x+z$, a contradiction. Therefore by strongly connectedness the only remaining possibility is $x\in y$.
+        \item[Well-founded.] Let $A\subseteq\bbN$ with $A\neq\varnothing$ be arbitrary. We need to show there exists an $x\in A$ such that for all $y\in A$ we have $x\leq y$. Take $x=\bigcap A$. We will show $x\in A$ by showing that for $s\in\bbN$ and $t\in\bbN$ we have $s\cap t=s$ or $s\cap t=t$. By strongly connectedness it suffices to show that $s\in t$ implies $s\cap t=s$. We will argue by induction on $s$. The base case follows trivially. For the induction step, suppose $s\in t$ implies $s\cap t=s$ for some $s\in\bbN$. Take $S(s)\in t$. That is $s+1<t$, so $s<t$. Hence by the induction hypothesis we find $S(s)\cap t=(s\cup\{s\})\cap t=(s\cap t)\cup(\{s\}\cap t)=s\cup(\{s\}\cap t)$. Notice that $\{s\}\cap t=\{s\}$ since $s\in t$ implies $s\in\{s\}\cap t$. We conclude $S(s)\cap t=s\cup\{s\}=S(s)$. To show that $x$ is indeed the minimum of $A$, let $y\in A$ be arbitrary. Then if $x=y$ we are done. If not, we have that $x\in y$, completing the proof.
+        
+        \item[OR2.] Suppose $x\leq y$. We need to show that for all $z\in\bbN$ we have $x\cdot z\leq y\cdot z$. We will argue by induction on $z$. Suppose $x\leq y$. The base case trivially holds. Suppose $x\cdot z\leq y\cdot z$ for some $z\in\bbN$ with $z\geq0$. Then $x\cdot S(z)=x\cdot(z+1)=x\cdot z+x\leq y\cdot z+x\leq y\cdot z+y=y\cdot S(z)$.
+    \end{description}
+\end{proof}
+We have now shown various properties of $\bbN$ along with its operations $+$, $\cdot$ and $\leq$. These properties, along with the fact that every nonzero natural number has a predecessor, yield a characterisation in terms of a well-ordered semiring structure that uniquely pinpoints the natural numbers. Here unique means ``unique up to isomorphism". That is, if two sets satisfy these requirements, there exists an isomorphism between them. An isomorphism is a correspondence between two sets that preserves the operations in that set. We will only give the relevant precise definitions for ordered semiring structures; variants are easily derivable.
+\begin{definition}[Ordered semiring homomorphism]\label{dfn:the_natural_numbers_integers_and_rational_numbers:ordered_semiring_homomorphism}
+        Let $(X,+,\cdot,\leq)$ and \linebreak$(Y,\oplus,\odot,\preceq)$ be ordered semirings. Then a function $f:X\to Y$ is an ordered semiring homomorphism if $f(0_X)=0_Y$, $f(1_X)=1_Y$ and $\forall x\in X\forall y\in X$
+    \begin{align*}
+        f(x+y) & =f(x)\oplus f(y)\quad\land \\
+        f(x\cdot y) & =f(x)\odot f(y)\quad\land \\
+        x\leq y & \implies f(x)\preceq f(y),
+    \end{align*}
+    in which case we say $f$ preserves the structure of $X$ and $Y$.
+\end{definition}
+\begin{definition}[Ordered semiring isomorphism]
+    Let $(X,+,\cdot,\leq)$ and \linebreak$(Y,\oplus,\odot,\preceq)$ be ordered semirings. Then a function $f:X\to Y$ is an ordered semiring isomorphism if it is an ordered semiring homomorphism as well as bijective. We regard sets to be the same if there exists an isomorphism between them.
+\end{definition}
+One can verify that the relation ``unique op to isomorphism" satisfies the properties of an equivalence relation, which allows us to regard the structure as unique\footnote{It is not a relation in the sense of Definition~\ref{dfn:zermelo_fraenkel_set_theory:relation} because it would have to be a relation on the set of all sets, which as we have shown does not exist.}. With that, the uniqueness of $\bbN$ is expressed in the following theorem.
+\begin{theorem}[Uniqueness of $\bbN$]\label{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_N}
+    $(\bbN,+,\cdot,\leq)$ is the unique well-ordered commutative semiring in which every nonzero element has a predecessor.
+\end{theorem}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:well_ordered_commutative_semiring_natural_numbers} our set $\bbN$ is a well-ordered commutative semiring. It follows from Definition~\ref{dfn:the_natural_numbers_integers_and_rational_numbers:predecessor_function} that every nonzero element has a predecessor. Let $N$ also satisfy these requirements. Define $\varphi:\bbN\to N$ by $\varphi(0_\bbN)=0_N$ and $\varphi(n+1_\bbN)=\varphi(n)+1_N$. It will be useful to know that $0_N<1_N$. Since $0_N\neq1_N$ we either have $0_N<1_N$ or $0_N>1_N$. By way of contradiction, suppose $0_N>1_N$. We then have $\varphi(n)>\varphi(n)+1_N=\varphi(n+1_\bbN)$. That is, $\varphi$ is a strictly decreasing sequence. Then $\varphi(\bbN)$ is a subset of $N$ that has no least element, violating well-foundedness of $N$. We conclude $0_N<1_N$. This also means that the predecessors of $N$ are unique, so that the predecessor function $P:N\setminus\{0_N\}\to N$ is well-defined. We will now show $\varphi$ is an ordered semiring isomorphism.
+    \begin{description}
+        \item[Order homomorphism.] We need to show that for all $m\in\bbN$ and $n\in\bbN$ with $m\leq n$ we have $\varphi(m)\leq\varphi(n)$. We will argue by induction on $n$. The base case $n=0_\bbN$ follows because $m\leq n$ implies $m=0_\bbN$. For the induction step, suppose $m\leq n$ implies $\varphi(m)\leq\varphi(n)$ for some $n\in\bbN$. Suppose $m\leq n+1_\bbN$. If $m=n+1_\bbN$, then clearly $\varphi(m)\leq\varphi(n+1_\bbN)$. Else $m<n+1_\bbN$, so $m\leq n$. By the induction hypothesis we find $\varphi(m)\leq\varphi(n)\leq\varphi(n)+1_N=\varphi(n+1_\bbN)$.
+        \item[Injective.] We will prove the contrapositive. Suppose $m<n$, so $m+1_\bbN\leq n$. Since $\varphi$ preserves the order we have $\varphi(m)+1_N=\varphi(m+1_\bbN)\leq\varphi(n)$. Hence $\varphi(m)<\varphi(n)$.
+        \item[Surjective.] By way of contradiction, suppose there exists an $m\in N$ such that for all $n\in\bbN$ we have $\varphi(n)\neq m$. Because $N$ is well-ordered, we can take a minimal such $m$. Note that $m\neq0_N$ because $\varphi(0_\bbN)=0_N$. So $m$ has a predecessor $P(s)$ for which there exists an $n\in\bbN$ such that $\varphi(n)=P(m)$. But then $m=P(m)+1_N=\varphi(n)+1_N=\varphi(n+1_\bbN)$, a contradiction.
+        \item[Semiring homomorphism.] Clearly $\varphi(0_\bbN)=0_N$ and $\varphi(1_\bbN)=1_N$. To prove that for all $m\in\bbN$ and $n\in\bbN$ we have $\varphi(m+n)=\varphi(m)+\varphi(n)$ we will use induction on $m$. The base case follows trivially. Suppose $\varphi(m+n)=\varphi(m)+\varphi(n)$ for some $m\in\bbN$. Then
+        \begin{align*}
+            \varphi(m+1_N+n) & =\varphi(m+n+1_N) \\
+            & =\varphi(m+n)+1_N \\
+            & =\varphi(m)+\varphi(n)+1_N \\
+            & =\varphi(m)+1_N+\varphi(n)=\varphi(m+1_\bbN)+\varphi(n).
+        \end{align*}
+        Similarly for multiplication the base case is trivial. Suppose $\varphi(m\cdot n)=\varphi(m)\cdot\varphi(n)$ for some $m\in\bbN$. Then
+        \begin{align*}
+            \varphi((m+1_\bbN)\cdot n) & =\varphi(m\cdot n+n) \\
+            & =\varphi(m\cdot n)+\varphi(n) \\
+            & =\varphi(m)\cdot\varphi(n)+\varphi(n) \\
+            & =(\varphi(m)+1_N)\cdot\varphi(n)=\varphi(m+1_\bbN)\cdot\varphi(n).
+        \end{align*}
+    \end{description}
+    We conclude $N$ is isomorphic to $\bbN$.
+\end{proof}
+This characterisation of the natural numbers lets us talk about the natural numbers without explicitly giving the definition of them. This is because the properties are independent of the definition chosen. For example, one may also define the natural numbers as Zermelo did, where $0=\varnothing$ and $S(n)=\{n\}$\footnote{This was also the way in which the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} was originally stated. Notably, even without altering the axiom the existence of Zermelo's natural numbers follows from the existence of $\bbN$ and the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement}.}. Zermelo's definition is in a sense just as good, because one can prove all the same properties as we did. However, this definition turns out to be less convenient to do so with. The fact that we can now talk about the natural numbers without giving an explicit definition justifies how one has been doing arithmetic with them throughout ones life: there exists a unique structure that aligns with our intuition for the natural numbers, hence the arithmetic we have been doing was done in some model of this structure. Mathematics have allowed us to formally assure us these numbers actually exist and that they are what we think they are.
+
+Given that that the set $\bbN$ now satisfies our intuition, we can put it to use to define a sequence. Contrary to a set, a sequence is a list where we can distinguish its first, second, third, and so forth element. The natural numbers yield a simple way to define this mathematically.
+\begin{definition}[Sequence]
+    A function $f:X\to Y$ is called a sequence if $\dom(f)=\bbN$, in which case we write $f_n$ instead of $f(n)$.
+\end{definition}
+
+Another common operation on the natural numbers is exponentiation. The reader may question why we have not defined this operation yet. The reason for that is that, algebraically speaking, exponentiation does not have many nice properties. It for example lacks associativity and commutativity. It will be useful later though, which is why we will define it now. We will define it similarly to how we defined addition multiplication; exponentiation is repeated multiplication. Here we choose to define it using the predecessor function.
+\begin{definition}[Exponentiation of natural numbers]
+    We define exponentiation as the map $\bbN\times\bbN\to\bbN$ defined by\footnote{Under this definition $0^0$ is defined as $1$. This fits the definition well and is generally considered to be more useful than leaving it undefined.}
+    \begin{equation*}
+        m^n=
+        \begin{cases}
+            1 & \text{if }n=0 \\
+            m^{P(n)}\cdot m & \text{else}
+        \end{cases}.
+    \end{equation*}
+\end{definition}
+
+\section{The integers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_integers}
+For a long time negative quantities were considered nonsense. One can count to three apples, but certainly not to negative three apples. This changed when many years after the discovery of the natural numbers, Chinese mathematicians explained how to do arithmetic with them in \textit{Nine Chapters on Arithmetic} \cite{NineChapters20}:
+\begin{quote}
+    \textchinese[variant=traditional]{正負術曰：同名相除，異名相益，正無入負之，負無入正之。\\ 其異名相除，同名相益，正無入正之，負無入負之。}
+\end{quote}
+\begin{quote}
+    \textit{Like signs subtract. Opposite signs add. Positive without extra, make negative; negative without extra makes positive. Opposite signs subtract; same signs add; positive without extra, make positive; negative without extra, make negative.}
+\end{quote}
+A useful interpretation of negative numbers is debt. When in debt, ones balance would be negative. One can then nullify this debt by paying it off. This idea of being able to nullify quantities gives rise to the invertibility property of the integers.
+
+Intuitively the integers can be thought of as natural numbers with a sign; plus or minus. Mathematically, this is indeed also a way to construct them. For instance, one could consider the union of all pairs $(+,n)$ and $(-,n)$ for $n\in\bbN$ where $+$ and $-$ are any two distinct sets. Immediately a problem arises though, there should be only one additive identity, but currently both $(+,0)$ and $(-,0)$ exist. This can be fixed by excluding $0$ and manually adding in an additive identity. Already this construction creates a lot of case-work.
+
+Instead of this, one could think of the integers as differences of natural numbers. For example ``$-2=2-4$", so the integer $-2$ would be represented by the pair $(2,4)$. Of course, there are many such pairs that yield $-2$, the most natural of which being $0-2$ as we can just leave out the zero. We need to unify all these pairs in equivalence classes. Two integers should be equivalent when ``$a-b=c-d$". Since we have not defined what subtraction is, we must rephrase this in terms of addition. We reach the following definition. Define the relation $\sim$ on $\bbN\times\bbN$ by
+\begin{equation}\label{eqn:the_natural_numbers_integers_and_rational_numbers:relation_integers}
+    (a,b)\sim(c,d)\iff a+d=c+b.
+\end{equation}
+The relation is now completely stated in terms of addition of natural numbers, which we have defined in the previous section. To consider the equivalence classes as representing the integers, we need to show $\sim$ defines an equivalence relation.
+\begin{lemma}
+    The relation $\sim$ as stated in Equation~\eqref{eqn:the_natural_numbers_integers_and_rational_numbers:relation_integers} defines an equivalence relation on $\bbN\times\bbN$.
+\end{lemma}
+\begin{proof}
+    The proof is rather trivial. $\sim$ is reflexive by the reflexivity axiom of equality, symmetric by the symmetry axiom of equality and transitive by the transitivity axiom of equality.
+\end{proof}
+With this, we can define the integers as the quotient set of $\sim$.
+\begin{definition}[Integers]
+    Define the set $\bbZ$ of integers by $\bbZ:=(\bbN\times\bbN)/{\sim}$.
+\end{definition}
+For $x\in\bbN$ we will denote the integer $[(x,0)]$ by $x$ and $[(0,x)]$ by $-x$. For example, the integer $[(0,2)]$ is written $-2$. With the definition of the integers done, we can start to define the basic operations on them. Note that all these definitions can be informally derived by thinking of $[(a,b)]$ as ``$a-b$".
+\begin{definition}[Addition of integers]
+    We define addition as the map $\bbZ\times\bbZ\to\bbZ$ defined by
+    \begin{equation*}
+        [(a,b)]+[(c,d)]=[(a+c,b+d)].
+    \end{equation*}
+\end{definition}
+It should be verified that this mapping is independent of the chosen representatives. For that, suppose $(a,b)\sim(e,f)$ and $(c,d)\sim(g,h)$. Hence $a+f=e+b$ and $c+h=g+d$ so that $a+c+f+g=e+g+b+d$ and therefore $(a+c,b+d)\sim(e+g,f+h)$.
+
+Note that it is not as natural to think of addition as repeated succession anymore. This is because of the presence of negative numbers. It would be unclear how $1+(-2)$ would be the same as applying the successor function $-2$ times to $1$. This is a trend that will continue as we progress in the construction of the real numbers; our intuitive definitions of addition and multiplications will no longer hold. However, our intuition for how they should behave, guide the way to define them.
+
+As with the natural numbers, we wish to characterise the integers by proving properties they have. Importantly, unlike the natural numbers, the integers have inverses. For instance, $-2$ is the additive inverse of $2$. This fact is entirely by construction; we defined the integers to be the difference of natural numbers. This extra property leads to the following definition.
+\begin{definition}[Abelian (or commutative) group]
+    Let $+$ be a binary operation on $X$. Then $(X,+)$ is an abelian group if it is a commutative monoid and every number has an additive inverse.
+    \begin{description}
+        \item[Inverse.] $\forall x\in X\exists y\in X(x+y=0)$.
+    \end{description}
+    If $0\in X$, we will write write $-x$ to denote $y$. If not, we will write $x^{-1}$ to denote $y$. The former notation is common for addition, and the latter notation is common for multiplication.
+\end{definition}
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}
+    $(\bbZ,+)$ is an abelian group.
+\end{proposition}
+\begin{proof}
+    With all the hard word done for the natural numbers in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_monoid_natural_numbers}, we can simply delegate the proofs for the integers to properties about the natural numbers. The identity element is $[(0,0)]$ as $0$ is the identity element for the natural numbers. Associativity and commutativity follow because addition is associative and commutative in the natural numbers. What is new is that the integers have additive inverses.
+    \begin{description}
+        \item[Inverse.] Let $[(a,b)]\in\bbZ$ be arbitrary. Then for $-[(a,b)]:=[(b,a)]\in\bbZ$ we have $[(a,b)]+[(b,a)]=[(a+b,b+a)]=[(a+b,a+b)]=[(0,0)]$.
+    \end{description}
+\end{proof}
+The next operation we will define is multiplication. This definition can be derived similar to how addition was derived.
+\begin{definition}[Multiplication of integers]
+    We define multiplication as the map $\bbZ\times\bbZ\to\bbZ$ defined by
+    \begin{equation*}
+        [(a,b)]\cdot[(c,d)]=[(a\cdot c+b\cdot d,a\cdot d+b\cdot c)].
+    \end{equation*}
+\end{definition}
+To verify $\cdot$ is a function, suppose $(a,b)\sim(e,f)$ and $(c,d)\sim(g,h)$. Hence $a+f=e+b$ and $c+h=g+d$ so that $c\cdot(a+f)+d\cdot(e+b)+h\cdot(e+b)+g\cdot(a+f)=c\cdot(e+b)+d\cdot(a+f)+h\cdot(a+f)+g\cdot(e+b)$. Then by the cancellation law it follows that $a\cdot c+b\cdot d+e\cdot h+f\cdot g=e\cdot g+f\cdot h+a\cdot d+b\cdot c$. Thus $(a\cdot c+b\cdot d,a\cdot d+b\cdot c)\sim(e\cdot g+f\cdot h,e\cdot h+f\cdot g)$. Henceforth we will only state that one should verify a mapping is well-defined, but not prove it.
+
+Again, note that multiplication is no longer repeated addition as this will fail for negative numbers. Because addition now has inverses, the combined structure of addition and multiplication also improves with this change. This yields the following definition.
+\begin{definition}[Commutative ring]
+    Let $+$ and $\cdot$ be binary operations on $X$. Then $(X,+,\cdot)$ is a commutative ring if it is a commutative semiring and moreover $(X,+)$ is an abelian group.
+\end{definition}
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:commutative_ring_integers}
+    $(\bbZ,+,\cdot)$ is a commutative ring.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers} we have already established that $(\bbZ,+)$ is an abelian group. The multiplicative identity is $1:=[(1,0)]\in\bbZ$ as for all $[(a,b)]\in\bbZ$ we have $[(a,b)]\cdot[(1,0)]=[(a+0,0+b)]=[(a,b)]$. The fact that $(\bbZ,\cdot)$ is a commutative monoid follows quite directly from the properties of multiplication of natural numbers we proved in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_semiring_natural_numbers}. For instructiveness, we will give the proof for associativity.
+    \begin{description}
+        \item[Associativity.] We must show that for $x\in\bbZ$, $y\in\bbZ$ and $z\in\bbZ$ we have $(x\cdot y)\cdot z=x\cdot(y\cdot z)$. The symbol for multiplication of natural numbers will be omitted for readability. We have
+        \begin{align*}
+            & \phantom{{}={}}([(a,b)]\cdot[(c,d)])\cdot[(e,f)] \\
+            & =[(ac+bd,ad+bc)]\cdot[(e,f)] \\
+            & =[(e(ac+bd)+f(ad+bc),f(ac+bd)+e(ad+bc))] \\
+            & =[(abd+ace+adf+bcf,acf+ade+bce+bdf)]
+        \end{align*}
+        and
+        \begin{align*}
+            & \phantom{{}={}}[(a,b)]\cdot([(c,d)]\cdot[(e,f)]) \\
+            & =[(a,b)]\cdot[(ce+df,cf+de)] \\
+            & =[(a(ce+df)+b(cf+de),a(cf+de)+b(ce+df))] \\
+            & =[(abd+ace+adf+bcf,acf+ade+bce+bdf)].
+        \end{align*}
+        We see that these two expressions are equal, as required.
+    \end{description}
+\end{proof}
+The last operation we will define on the integers is the order. This operation can also be intuitively derived.
+\begin{definition}[Order on integers]
+    We define the order on $\bbZ$ as $[(a,b)]\leq[(c,d)]$ if $a+d\leq c+b$.
+\end{definition}
+One should verify that this definition is independent of the representatives chosen. Where the natural numbers had an ordered commutative semiring structure, the integers have an ordered commutative ring structure.
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:ordered_commutative_ring_integers}
+    $(\bbZ,+,\cdot,\leq)$ is an ordered commutative ring.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_ring_integers} $(\bbZ,+,\cdot)$ is a commutative ring. Showing that $(\bbZ,\leq)$ is a total-order and that the order is preserved under addition and multiplication remains.
+    \begin{description}
+        \item[Transitive.] Suppose $[(a,b)]\leq[(c,d)]$ and $[(c,d)]\leq[(e,f)]$. We want to show that $[(a,b)]\leq[(e,f)]$. We have $a+d\leq c+b$ and $c+f\leq e+d$. By adding $f$ to the first inequality and $b$ to the second, we obtain $a+d+f\leq c+b+f$ and $c+f+b\leq e+d+b$. By transitivity of the order on natural numbers we have $a+d+f\leq e+d+b$. By the cancellation law of the order on natural numbers we find $a+f\leq e+b$.
+        \item[Antisymmetric.] Suppose $[(a,b)]\leq[(c,d)]$ and $[(c,d)]\leq[(a,b)]$. We need to show that this implies $[(a,b)]=[(c,d)]$. We have $a+d\leq c+b\leq a+d$ and so $c+b=a+d$ by antisymmetry of the order on natural numbers.
+        \item[Strongly connected.] By strongly connectedness of the natural numbers we find $a+d\leq c+b$ or $c+b\leq a+d$.
+        \item[OR1.] Suppose $[(a,b)]\leq[(c,d)]$ and let $[(e,f)]$ be arbitrary. We want to show that $[(a,b)]+[(e,f)]\leq[(c,d)]+[(e,f)]$. We have
+        \begin{align*}
+            a+d\leq c+b & \iff a+d+e+f\leq c+b+e+f \\
+            & \iff[(a+e,b+f)]\leq[(c+e,d+f)] \\
+            & \iff[(a,b)]+[(e,f)]\leq[(c,d)]+[(e,f)].
+        \end{align*}
+        \item[OR2.] Suppose $[(a,b)]\leq[(c,d)]$ and $[(e,f)]\geq0$. We need to show that $[(a,b)]\cdot[(e,f)]\leq[(c,d)]\cdot[(e,f)]$. We have $a+d\leq c+b$ and $f\leq e$. Let $x=a+d$ and $y=c+b$, so $x\leq y$. We need to show that $x\cdot e+y\cdot f\leq x\cdot f+y\cdot e$. We will prove this by induction on $e$. For the base case $e=0$ we have $f\leq0$, so $f=0$ as well, after which the base case follows. Next, suppose $x\leq y$ and $f\leq e$ implies $x\cdot e+y\cdot f\leq x\cdot f+y\cdot e$ for some $e\in\bbN$. Suppose $f\leq S(e)$ and $x\leq y$. If $f=S(e)$ then the result is immediate. Else we have $f\leq e$. Then
+        \begin{align*}
+            x\cdot S(e)+y\cdot f & =x\cdot e+x+y\cdot f\leq x\cdot f+y\cdot e+x \\
+            & \leq x\cdot f+y\cdot e+y=x\cdot f+y\cdot S(e).
+        \end{align*}
+
+        The converse is true as well as long as $[(e,f)]\neq0$, which we will need later on. We need to show that $x\leq y$ when $x\cdot e+y\cdot f\leq x\cdot f+y\cdot e$ and $f<e$. We will use induction on $x$ (this is equivalent to induction on $a$ or $d$). The base case $x=0$ follows because $y\geq0$ for all $y\in\bbN$. For the induction step, suppose $x\cdot e+y\cdot f\leq x\cdot f+y\cdot e$ and $f<e$ implies $x\leq y$ for some $x\in\bbN$. Suppose $S(x)\cdot e+y\cdot f\leq S(x)\cdot f+y\cdot e$. By distributivity and the fact that $f<e$ we find $x\cdot e+e+y\cdot f\leq x\cdot f+e+y\cdot e$. Hence $x\cdot e+y\cdot f<x\cdot f+y\cdot e$ and by the induction hypothesis $x\leq y$. Now if $x=y$ we find $0<0$, so we must have $x\neq y$. Hence $S(x)\leq y$.
+    \end{description}
+\end{proof}
+Note that, in contrast to the natural numbers, the integers are not well-ordered. This is because the well-foundedness property fails. The integers, as a subset of themselves, have no least element.
+
+It is often stated that $\bbN\subseteq\bbZ$. However, this is technically false! The set $\bbN$ is a completely different set compared to $\bbZ$. Despite this, we still like to think that the integers contain the natural numbers, as well as their negatives. To rigorise this, we can embed $\bbN$ into $\bbZ$ while keeping the properties the natural numbers had. This entails showing that the addition and multiplication of integers is compatible with the addition and multiplication of natural numbers, and that the order of integers is compatible with the order of natural numbers. More formally, we show that there exists an injective totally semiring homomorphism between $(\bbN,+,\cdot,\leq)$ and $(\bbZ,+,\cdot,\leq)$.
+\begin{proposition}[Embedding of $\bbN$ in $\bbZ$]\label{prp:the_natural_numbers_integers_and_rational_numbers:embedding_B_in_Z}
+    There exists an injective ordered semiring homomorphism between $(\bbN,+,\cdot,\leq)$ and $(\bbZ,+,\cdot,\leq)$.
+\end{proposition}
+\begin{proof}
+    Define $f:\bbN\to\bbZ$ by $f(n)=[(n,0)]$. Clearly $f(0)=[(0,0)]=0$. For injectivity, suppose $f(m)=f(n)$. This implies $m=n$ as $[(m,0)]=[(n,0)]$ means $(m,0)\sim(n,0)$ and so $m=n$. We further want to show that $f(m+n)=f(m)+f(n)$. We see
+    \begin{equation*}
+        f(m+n)=[(m+n,0)]=[(m,0)]+[(n,0)]=f(m)+f(n).
+    \end{equation*}
+    Similarly for multiplication we see
+    \begin{equation*}
+        f(m\cdot n)=[(m\cdot n,0)]=[(m,0)]\cdot[(n,0)]=f(m)\cdot f(n).
+    \end{equation*}
+    For the order, suppose $m\leq n$. Then $f(m)=[(m,0)]\leq[(n,0)]=f(n)$.
+\end{proof}
+With this, the natural numbers can be viewed as a subset of the integers by considering $f(\bbN)$. Indeed, the function $f$ restricted to its range defines an ordered semiring isomorphism between $\bbN$ and $f(\bbN)\subseteq\bbZ$.
+
+Even though the integers are not well-ordered, by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:embedding_B_in_Z} its positive elements are in fact well-ordered. This might not seem like much, but along with the structure we gave the integers, this is enough to characterise the integers. This is because we can use the well-ordering of the positive integers to reason about the negative integers.
+\begin{theorem}[Uniqueness of $\bbZ$]\label{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_Z}
+    $(\bbZ,+,\cdot,\leq)$ is the unique ordered commutative ring whose positive elements are well-ordered.
+\end{theorem}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:ordered_commutative_ring_integers} we know that $\bbZ$ is an ordered commutative ring. From Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:embedding_B_in_Z} it follows that the positive elements of $\bbZ$ are well-ordered. Suppose $Z$ also satisfies these requirements. We will define $\varphi:\bbZ\to Z$ as in the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_N}. That is, define $\varphi(0_\bbZ)=0_Z$ and $\varphi(a+1_\bbZ)=\varphi(a)+1_Z$. Knowing that we want $\varphi$ to become a homomorphism, using $0_Z=\varphi(0_\bbZ)=\varphi(a+(-a))=\varphi(a)+\varphi(-a)$, the definition $\varphi(-a)=-\varphi(a)$ is induced. This defines $\varphi$ for all integers. By the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_N} we know that $\varphi$ is an ordered semiring isomorphism with respect to natural number addition, multiplication and order. Hence by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:embedding_B_in_Z} we can use that if $a\geq0$ and $b\geq0$ we have $\varphi(a+b)=\varphi(a)+\varphi(b)$ and $\varphi(a\cdot b)=\varphi(a)\cdot\varphi(b)$. If further $a\leq b$ we have $\varphi(a)\leq\varphi(b)$. We will use this to prove that $\varphi$ is an ordered ring isomorphism.
+    \begin{description}
+        \item[Ring homomorphism.] Clearly $\varphi(0_\bbZ)=0_Z$ and $\varphi(1_\bbZ)=1_Z$. We will first show addition is preserved when $a+b\geq0_\bbZ$. Then $a$ or $b$ is nonnegative. If both are, we are done. By commutativity we may assume $a\geq0_\bbZ$. We will argue by induction on $a$. The base case is trivial. For the induction step, suppose $\varphi(a+b)=\varphi(a)+\varphi(b)$ when $a+b\geq0_\bbZ$, $a\geq0_\bbZ$ and $b<0_\bbZ$. Suppose $a+1_\bbZ+b\geq0_\bbZ$, $a+1_\bbZ\geq0_\bbZ$ and $b<0_\bbZ$. If $a+b<0_\bbZ$, then $a+1_\bbZ=-b$. So $\varphi(a+1_\bbZ+b)=\varphi(0_\bbZ)=\varphi(a+1_\bbZ)+\varphi(b)$. Otherwise $a+b\geq0_\bbZ$ and therefore $a>0_\bbZ$, so by the induction hypothesis $\varphi(a+b)=\varphi(a)+\varphi(b)$. Hence $\varphi(a+1_\bbZ+b)=\varphi(a)+\varphi(b)+1_Z=\varphi(a+1_\bbZ)+\varphi(b)$.
+
+        When $a+b\leq0_\bbZ$, we have $-a-b\geq0_\bbZ$. Then for the reason as above, we may take $-a\geq0_\bbZ$. Then by the previous case $\varphi(a+b)=-\varphi(-a-b)=-\varphi(-a)-\varphi(-b)=\varphi(a)+\varphi(b)$.
+
+        Similarly for multiplication we have $\varphi(a\cdot b)=\varphi(a)\cdot\varphi(b)$ for $a\geq0_\bbZ$ and $b\geq0_\bbZ$. Then if $a<0_\bbZ$ and $b\geq0_\bbZ$ we have $\varphi(a\cdot b)=-\varphi((-a)\cdot b)=-\varphi(-a)\cdot\varphi(b)=\varphi(a)\cdot\varphi(b)$. By commutativity the case when $b<0_\bbZ$ and $a\geq0_\bbZ$ follows too. Lastly if $a<0_\bbZ$ and $b<0_\bbZ$ we have $\varphi(a\cdot b)=\varphi((-a)\cdot(-b))=\varphi(-a)\cdot\varphi(-b)=\varphi(a)\cdot\varphi(b)$.
+        \item[Injective.] Suppose $\varphi(a)=\varphi(b)$. We want to show that $a=b$. Without loss of generality, suppose $a\leq b$. Because $\varphi$ preserves addition, we have $\varphi(0_\bbZ)=0_Z=\varphi(b)-\varphi(a)=\varphi(b-a)$. Since $b-a\geq0$ we have $b-a=0_\bbZ$ as required.
+        \item[Surjective.] We will first prove every positive element is attained. By way of contradiction, suppose there exists a $z\in Z$ with $z>0_Z$ such that for all $a\in\bbZ$ we have $\varphi(a)\neq z$. Because the positive elements of $Z$ are well-ordered, we can take a minimal such element $z$. Then $z-1_Z<z$, so there exists an $a\in\bbZ$ such that $\varphi(a)=z-1_Z$. But then $z=z-1_Z+1_Z=\varphi(a)+1_Z=\varphi(a+1_\bbZ)$, a contradiction. Now let $z\leq0$ be arbitrary. Then $-z\geq0$. For $z=0_Z$ we have $\varphi(0_\bbZ)=0_Z$. Else $-z>0$, so there exists an $a\in\bbZ$ for which $\varphi(a)=-z$. We find $\varphi(-a)=-\varphi(a)=z$.
+        \item[Order homomorphism.] Suppose $a\leq b$. Then $0_\bbZ\leq b-a$, so $0_Z=\varphi(0_\bbZ)\leq\varphi(b-a)$. By the fact $\varphi$ preserves addition, we have $0_Z\leq\varphi(b)+\varphi(-a)=\varphi(b)-\varphi(a)$. Hence $\varphi(a)\leq\varphi(b)$.
+    \end{description}
+    We conclude $Z$ is isomorphic to $\bbZ$.
+\end{proof} 
+
+\section{The rational numbers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_rational_numbers}
+Rational numbers arise naturally as fractions or ratios. The following is Definition~3 in Book~V of Euclid's\footnote{Much of Book~V was likely inspired by Eudoxus' theory of proportion.} \textit{Elements} \cite{Heath1926}:
+\begin{quote}
+    \textgreek{Λόγος ἐστὶ δύο μεγεθῶν ὁμογενῶν ἡ κατὰ πηλικότητά ποια σχέσις.}
+\end{quote}
+\begin{quote}
+    \textit{A ratio is a sort of relation in respect of size between two magnitudes of the same kind.}
+\end{quote}
+That is, the fraction (ratio) ``$\frac{1}{4}$" is meant to denote one-fourths of something. Four times this quantity yields the whole. Mathematically this would mean that ``$4\cdot\frac{1}{4}=1$". In other words, by definition ``$\frac{1}{4}$" would be the multiplicative inverse of $4$. Therefore mathematically the fractions add multiplicative inverses to the integers.
+
+Out of any number system, perhaps the rational numbers have the most intuitive construction. When thinking of rational numbers as fractions, we know more than one fraction can represent a single rational number. For example $4/2=2/1$. In general, two rational numbers $a/b$ and $c/d$ are equal if $a\cdot d=c\cdot b$. This is precisely the relation that we will use to define the rational numbers. Define the relation $\sim$ on $\bbZ\times(\bbZ\setminus\{0\})$ by
+\begin{equation}\label{eqn:the_natural_numbers_integers_and_rational_numbers:relation_rational_numbers}
+    (a,b)\sim(c,d)\iff a\cdot d=c\cdot b.
+\end{equation}
+Here the pair $(a,b)$ represents the fraction $a/b$. We now wish to consider the rational numbers as equivalence classes of fractions.
+\begin{lemma}
+    The relation $\sim$ as stated in Equation~\eqref{eqn:the_natural_numbers_integers_and_rational_numbers:relation_rational_numbers} defines an equivalence relation on $\bbZ\times\bbZ$.
+\end{lemma}
+\begin{proof}
+    The proof follows immediately by the axioms of equality.
+\end{proof}
+We will now define the rational numbers.
+\begin{definition}[Rational numbers]
+    Define the set $\bbQ$ of rational numbers by $\bbQ:=(\bbZ\times\bbZ\setminus\{0\})/{\sim}$.
+\end{definition}
+We will denote the rational number $[(a,b)]$ by $a/b$ or $\frac{a}{b}$. Additionally if $b=1$ we will write just $a$. The integer $a$ is called the numerator, and the integer $b$ is called the denominator. The fact that the rational numbers are equivalence classes is baked in to the notation of them as fractions. Compare this to the integers, where one never writes $a-b$ to denote an integer. Because of the fact that fractions represent equivalence classes, we can pick representations that are convenient for proving statements about the rational numbers. For example, we can assume without loss of generality that every fraction has a positive denominator. This is because $(a,b)\sim(-a,-b)$, one of which necessarily has a positive denominator.
+
+Now we will define the operations on the rational numbers. Like with the integers, these definitions can be derived informally by performing the arithmetic one is used to on fractions. Furthermore, the proofs for the properties these operations have are quite trivial and will be mostly skipped over.
+\begin{definition}[Addition of rational numbers]
+    We define addition as the map $\bbQ\times\bbQ\to\bbQ$ defined by
+    \begin{equation*}
+        [(a,b)]+[(c,d)]=[(a\cdot d+b\cdot c,b\cdot d)].
+    \end{equation*}
+\end{definition}
+It can be verified that this defines a function. Addition of rational numbers has no new properties that addition of integers did not have. The structure of addition therefore remains an abelian group.
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_rational_numbers}
+    $(\bbQ,+)$ is an abelian group.
+\end{proposition}
+\begin{proof}
+    The properties all follow by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}. The additive identity is $0:=[(0,1)]\in\bbQ$ as $[(a,b)]+[(0,1)]=[(a+0,b)]=[(a,b)]$. The additive inverse for $[(a,b)]\in\bbQ$ is $-[(a,b)]:=[(-a,b)]\in\bbQ$ as $[(a,b)]+[(-a,b)]=[(a\cdot b+-a\cdot b,b\cdot b)]=[(0,1)]$.
+\end{proof}
+For fractions, multiplication is performed componentwise. This allows for the following simple definition.
+\begin{definition}[Multiplication of rational numbers]
+    We define multiplication as the map $\bbQ\times\bbQ\to\bbQ$ defined by
+    \begin{equation*}
+        [(a,b)]\cdot[(c,d)]=[(a\cdot c,b\cdot d)].
+    \end{equation*}
+\end{definition}
+It can be verified that $\cdot$ is a function. Unlike rational number addition, rational number multiplication does have a new property compared to integer multiplication. (Nonzero) rational numbers now have a multiplicative inverse. This gives addition and multiplication of rational numbers the most algebraically rich structure we will encounter in our construction of the real numbers. This structure has the following definition.
+\begin{definition}[Field]
+    Let $+$ and $\cdot$ be binary operations on $X$. Then $(X,+,\cdot)$ is a field if $(X,+,\cdot)$ is a commutative ring and $(X\setminus\{0\},\cdot)$ is a group.
+\end{definition}
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:field_rational_numbers}
+    $(\bbQ,+,\cdot)$ is a field.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_rational_numbers} we have that $(\bbQ,+)$ is an abelian group. It follows by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_ring_integers} that $(\bbQ,\cdot)$ is a commutative monoid. It is easy to see that the multiplicative identity is $1:=[(1,1)]\in\bbQ$. Additionally, the rational numbers have multiplicative inverses.
+    \begin{description}
+        \item[Inverse.] Let $[(a,b)]\in\bbQ$ with $[(a,b)]\neq0$ be arbitrary. Then for $[(a,b)]^{-1}:=[(b,a)]\in\bbQ$ we have $[(a,b)]\cdot[(b,a)]=[(a\cdot b,b\cdot a)]=[(1,1)]$.
+    \end{description}
+    For distributivity, one should note that $[(ca,cb)]=[(a,b)]$ for all nonzero $c\in\bbZ$ and $[(a,b)]\in\bbQ$, after which it follows quickly.
+\end{proof}
+Lastly we define the order on $\bbQ$.
+\begin{definition}[Order on rational numbers]
+    Choose representatives $[(a,b)]\in\bbQ$ and $[(c,d)]\in\bbQ$ such that $b>0$ and $c>0$. We define the order on $\bbQ$ as $[(a,b)]\leq[(c,d)]$ if $a\cdot d\leq c\cdot b$.
+\end{definition}
+It can be verified that this ordering is independent of the representatives chosen.
+\begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:ordered_field_rational_numbers}
+    $(\bbQ,+,\cdot,\leq)$ is an ordered field.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:field_rational_numbers} $(\bbQ,+,\cdot)$ is a field. It remains to show that $(\bbQ,\leq)$ is a total order and that the field operations behave well with the order. Antisymmetry and strongly connectedness follow directly by the respective properties of the order on integers. 
+    \begin{description}
+        \item[Transitive.] Suppose $[(a,b)]\leq[(c,d)]$ and $[(c,d)]\leq[(e,f)]$. We want to show that $[(a,b)]\leq[(e,f)]$. We have $a\cdot d\leq b\cdot c$ and $c\cdot f\leq d\cdot e$. Because we chose representatives with a positive denominator, we find $a\cdot d\cdot f\leq b\cdot c\cdot f\leq b\cdot d\cdot e$. By the cancellation law we additionally proved for the integers we find $a\cdot f\leq b\cdot e$.
+        \item[OR1.] Suppose $[(a,b)]\leq [(c,d)]$ and let $[(e,f)]$ be arbitrary. We want to show that $[(a,b)]+[(e,f)]\leq[(c,d)]+[(e,f)]$. We have $a\cdot d\leq c\cdot b$, so $a\cdot d\cdot f\cdot f\leq c\cdot b\cdot f\cdot f$. Adding $b\cdot d\cdot e\cdot f$ on both sides and using distributivity, we find $(a\cdot f+b\cdot e)\cdot d\cdot f\leq b\cdot f\cdot(c\cdot f+d\cdot e)$. Hence $[(a\cdot f+b\cdot e,b\cdot f)]\leq[(c\cdot f+d\cdot e,d\cdot f)]$ and so $[(a,b)]+[(e,f)]\leq [(c,d)]+[(e,f)]$ as required. Note that all steps are in fact equivalences, so the converse follows too.
+        \item[OR2.] Suppose $[(a,b)]\leq[(c,d)]]$ and let $[(e,f)]\geq0$ with $f>0$ be arbitrary. We need to show that $[(a,b)]\cdot[(e,f)]\leq[(c,d)]\cdot[(e,f)]$. We have $a\cdot d\leq c\cdot b$ and $e\geq0$. Hence $e\cdot f\geq0$ and so $a\cdot e\cdot d\cdot f\leq c\cdot e\cdot b\cdot f$. Here also all steps are equivalences, proving the converse.
+    \end{description}
+\end{proof}
+We have just shown that $\bbQ$ is an ordered field. In fact, it turns out that $\bbQ$ is in a sense the smallest ordered field. This should make sense; starting from the natural numbers the only extensions we did added in the necessary numbers so that the additive and multiplicative inverses exist. We did not add any extra numbers that were not necessary for this purpose. Before we formalise this, we will first show that $\bbZ$ can be embedded in $\bbQ$; we would like to say that $\bbZ\subseteq\bbQ$. This works transitively; because $\bbN$ could be embedded in $\bbZ$, showing that $\bbZ$ can be embedded in $\bbQ$ means that $\bbN$ can also be embedded in $\bbQ$. This allows us to say $\bbN\subseteq\bbQ$. Formally the embedding would be the composition of the embeddings of $\bbN$ in $\bbZ$ and $\bbZ$ in $\bbQ$.
+\begin{proposition}[Embedding of $\bbZ$ in $\bbQ$]\label{prp:the_natural_numbers_integers_and_rational_numbers:embedding_Z_in_Q}
+    There exists an injective ordered semiring homomorphism between $(\bbZ,+,\cdot,\leq)$ and $(\bbQ,+,\cdot,\leq)$.
+\end{proposition}
+\begin{proof}
+    Define $f:\bbZ\to\bbQ$ by $f(a)=[(a,1)]$. Clearly $f(0)=[(0,1)]=0$. Suppose $f(a)=f(b)$, then $a=b$ as we have $(a,1)\sim(b,1)$. Furthermore we will show that $f(m+n)=f(m)+f(n)$. We see
+    \begin{equation*}
+        f(a+b)=[(a+b,1)]=[(a,1)]+[(b,1)]=f(a)+f(b).
+    \end{equation*}
+    Similarly for multiplication we see
+    \begin{equation*}
+        f(a\cdot b)=[(a\cdot b,1)]=[(a,1)]\cdot[(b,1)]=f(a)\cdot f(b).
+    \end{equation*}
+    For the order, suppose $a\leq b$. Then $f(a)=[(a,1)]\leq[(b,1)]=f(b)$.
+\end{proof}
+We can now talk as the integers being contained in the rational numbers, and thereby also the natural numbers being contained in the rational numbers. With that, we now formalise the fact that $\bbQ$ is the smallest ordered field in the following theorem.
+\begin{theorem}[$\bbQ$ is the smallest ordered field]\label{thm:the_natural_numbers_integers_and_rational_numbers:Q_smallest_ordered_field}
+    Every ordered field has a subfield isomorphic to $(\bbQ,+,\cdot)$\footnote{A subfield is of a field $\bbK$ is a subset of $\bbK$ that satisfies the field axioms with respect to the operations inherited by $\bbK$.}.
+\end{theorem}
+\begin{proof}
+    Let $(\bbK,+,\cdot,\leq)$ be an ordered field. We will show that there is a field embedding of $\bbQ$ in $\bbK$. We will define $\varphi:\bbQ\to\bbK$ as in the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_Z}. In short, define $\varphi(0_\bbQ)=0_\bbK$ and $\varphi(q+1_\bbQ)=\varphi(q)+1_\bbK$. This defines $\varphi$ for all natural numbers. We extended this to the integers by defining $\varphi(-q)=-\varphi(q)$. To define $\varphi$ on all of its domain, we note that every rational number can be written as $p\cdot q^{-1}$ for integers $p$ and $q$. We thus want $1_\bbK=\varphi(1_\bbQ)=\varphi(q\cdot q^{-1})=\varphi(q)\cdot\varphi(q^{-1})$, inducing $\varphi(p\cdot q^{-1})=\varphi(p)\cdot\varphi(q)^{-1}$. Of course, the representation of a rational number as $p\cdot q^{-1}$ is not unique. It is simple to verify that $\varphi$ is well-defined.
+
+    By the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_Z} we know that $\varphi$ is an ordered ring isomorphism with respect to integer addition, multiplication and order. Hence by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:embedding_Z_in_Q} we can use that for $a\in\bbZ$ and $b\in\bbZ$ we have $\varphi(a+b)=\varphi(a)+\varphi(b)$ and $\varphi(a\cdot b)=\varphi(a)\cdot\varphi(b)$. If further $a\leq b$ then $\varphi(a)\leq\varphi(b)$. We will use this to show that $\varphi$ defines a field embedding. We will drop the equivalence class brackets in the calculations for the sake of simplicity.
+    \begin{description}
+        \item[Ring homomorphism.] Let $p=[(a,b)]\in\bbQ$ and $q=[(c,d)]\in\bbQ$ be arbitrary. Then
+        \begin{align*}
+            \varphi(p+q) & =\varphi\left(\frac{a}{b}+\frac{c}{d}\right)=\varphi\left(\frac{a\cdot d+c\cdot b}{b\cdot d}\right) \\
+            & =\varphi(a\cdot d+c\cdot b)\cdot\varphi(b\cdot d)^{-1} \\
+            & =(\varphi(a\cdot d)+\varphi(c\cdot b))\cdot\varphi(b\cdot d)^{-1} \\
+            & =\varphi(a\cdot d)\cdot\varphi(b\cdot d)^{-1}+\varphi(c\cdot b)\cdot\varphi(b\cdot d)^{-1} \\
+            & =\varphi(a\cdot d\cdot(b\cdot d)^{-1})+\varphi(c\cdot b\cdot(b\cdot d)^{-1}) \\
+            & =\varphi\left(\frac{a}{b}\right)+\varphi\left(\frac{c}{d}\right)=\varphi(p)+\varphi(q).
+        \end{align*}
+        Moreover
+        \begin{align*}
+            \varphi(p\cdot q) & =\varphi\left(\frac{a}{b}\cdot\frac{c}{d}\right)=\varphi\left(\frac{a\cdot c}{b\cdot d}\right) \\
+            & =\varphi(a\cdot c)\cdot\varphi(b\cdot d)^{-1} \\
+            & =\varphi(a)\cdot\varphi(c)\cdot(\varphi(b)\cdot\varphi(d))^{-1} \\
+            & =\varphi(a)\cdot\varphi(b)^{-1}\cdot\varphi(c)\cdot\varphi(d)^{-1} \\
+            & =\varphi\left(\frac{a}{b}\right)\cdot\varphi\left(\frac{c}{d}\right)=\varphi(p)\cdot\varphi(q).
+        \end{align*}
+        \item[Order homomorphism.] Let $p=[(a,b)]\in\bbQ$ and $q=[(c,d)]\in\bbQ$ with $b>0$ and $d>0$ be arbitrary. Suppose $p\leq q$, so $a\cdot d\leq c\cdot b$. Then
+        \begin{align*}
+            \varphi(a\cdot d) & \leq\varphi(c\cdot b) \\
+            \varphi(a)\cdot\varphi(d) & \leq\varphi(c)\cdot\varphi(b) \\
+            \varphi(a)\cdot\varphi(b)^{-1} & \leq\varphi(c)\cdot\varphi(d)^{-1} \\
+            \varphi(a/b) & \leq\varphi(c/d)
+        \end{align*}
+        where we used that $\varphi(b)\geq0$ implies that $\varphi(b)^{-1}\geq0$.
+        \item[Injective.] Let $p=[(a,b)]\in\bbQ$ and $q=[(c,d)]\in\bbQ$ be arbitrary. Suppose that $\varphi(p)=\varphi(q)$. We have,
+        \begin{align*}
+            \varphi\left(\frac{a}{b}\right) & =\varphi\left(\frac{c}{d}\right) \\
+            \varphi(a)\cdot\varphi(b)^{-1} & =\varphi(c)\cdot\varphi(d)^{-1} \\
+            \varphi(a)\cdot\varphi(d) & =\varphi(c)\cdot\varphi(b) \\
+            \varphi(a\cdot d) & =\varphi(c\cdot b).
+        \end{align*}
+        Hence $a\cdot d=c\cdot b$, so $p=q$.
+    \end{description}
+    We thus find that $\varphi(\bbQ)\subseteq\bbK$ is isomorphic to $\bbQ$.
+\end{proof}
+Note that the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:Q_smallest_ordered_field} explicitly constructs a subfield that is isomorphic to $\bbQ$. This is also the unique subfield isomorphic to $\bbQ$. In general, the subfield constructed this way is called the prime subfield. For ordered fields, this prime subfield coincides with $\bbQ$.
+\end{document}

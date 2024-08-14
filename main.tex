@@ -1,0 +1,202 @@
+\documentclass[10pt, a4paper]{report}
+\usepackage{fontspec}
+\newfontfamily\greekfont[Script=Greek]{CMU Serif}
+\newfontfamily\cJKfont[Script=CJK]{Noto Serif CJK TC}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguages{german, greek, chinese}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{mathtools, amsthm, amssymb}
+\usepackage{color}
+\usepackage{float}
+\usepackage[justification=centering, hypcap=false]{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\usepackage[backend=biber, sorting=nty, bibstyle=numeric]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Packages that are best loaded last
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={Zermelo–Fraenkel Set Theory and the Construction of the Real Numbers},
+    pdfauthor={F.M.H. van der Els}
+    pdfpagemode=FullScreen,
+    bookmarksopen=true,
+    breaklinks=true,
+    colorlinks=false,
+    linkbordercolor=red,
+    urlbordercolor=blue,
+    citebordercolor=blue,
+    filebordercolor=blue,
+    pdfborderstyle={/S/U/W 1}
+}
+
+\usepackage{subfiles}
+
+\DeclareMathOperator{\id}{i}
+
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbK}{\mathbb{K}}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\renewcommand{\theenumi}{(\alph{enumi})}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{example}{Example}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\corange}{corange}
+\DeclareMathOperator{\codom}{codom}
+\DeclareMathOperator{\range}{range}
+
+\newcommand{\relR}{\mathrel{R}}
+
+\DeclareMathOperator{\upp}{upp}
+\DeclareMathOperator{\low}{low}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\begin{titlepage}
+    \begin{flushright}
+        \includegraphics[width=.5\linewidth]{figures/tudelft.png}
+    \end{flushright}
+    \begin{center}
+        \makebox[\linewidth]{\makebox[\linewidth + 6em]{
+        \begin{minipage}{\linewidth + 6em}
+            \centering
+            {\large\bfseries Delft University of Technology \\ Faculty Electrical Engineering, Mathematics and Computer Science \\ Delft Institute of Applied Mathematics}
+        \end{minipage}}}
+
+        \vspace*{3em}
+
+        \makebox[\linewidth]{\framebox[\linewidth + 6em]{%
+        \begin{minipage}{\linewidth}
+            \centering
+            \vspace*{3em}
+            {\huge Zermelo–Fraenkel Set Theory and the \\ Construction of the Real Numbers}
+            \vspace*{3em}
+        \end{minipage}}}
+
+        \vspace*{3em}
+
+        {\large Report for the benefit of the \\ Delft Institute of Applied Mathematics \\ as part of obtaining \\[1em] the degree of}
+
+        \vspace{1em}
+
+        {\large\bfseries BACHELOR OF SCIENCE \\ in \\ APPLIED MATHEMATICS \\[1em] by \\[1em] F.M.H. van der Els \\[1em] Delft, The Netherlands \\ August 13, 2024}
+    \end{center}
+\end{titlepage}
+\newpage
+
+\begin{titlepage}
+    \null
+\end{titlepage}
+\newpage
+
+\begin{titlepage}
+    \begin{flushright}
+        \includegraphics[width=.5\linewidth]{figures/tudelft.png}
+    \end{flushright}
+    \begin{center}
+        {\large\bfseries BSc thesis APPLIED MATHEMATICS}
+
+        \vspace*{3em}
+
+        {\large\bfseries ``Zermelo–Fraenkel Set Theory and the \\ Construction of the Real Numbers"}
+
+        \vspace*{3em}
+
+        {\large\bfseries F.M.H. van der Els}
+    \end{center}
+
+    \vspace*{15em}
+
+    \begin{flushleft}
+        {\large\bfseries Supervisor:}
+
+        \vspace*{1em}
+
+        {\large Dr.\ K.P. Hart}
+
+        \vspace*{3em}
+
+        {\large\bfseries Committee members:}
+
+        \vspace*{1em}
+
+        {\large Dr.\ K.P. Hart \\[1em] Dr.\ C. Kraaikamp}
+    \end{flushleft}
+\end{titlepage}
+\newpage
+
+\begin{titlepage}
+    \begin{quote}
+        \textit{Mathematics is the language with which God has written the universe.}
+    \end{quote}
+    \begin{flushright}
+         -- Galileo Galilei
+    \end{flushright}
+\end{titlepage}
+\newpage
+
+\setcounter{page}{5}
+
+\chapter*{Preface}\label{chap:preface}
+\addcontentsline{toc}{chapter}{Preface}
+\subfile{sections/preface}
+\newpage
+
+\chapter*{Layman summary}\label{chap:layman_summary}
+\addcontentsline{toc}{chapter}{Layman summary}
+\subfile{sections/layman_summary}
+\newpage
+
+\chapter*{Summary}\label{chap:summary}
+\addcontentsline{toc}{chapter}{Summary}
+\subfile{sections/summary}
+\newpage
+
+\chapter*{Introduction}\label{chap:introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\subfile{sections/introduction}
+\newpage
+
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\chapter{Zermelo–Fraenkel set theory}\label{chap:zermelo_fraenkel_set_theory}
+\subfile{sections/body/zermelo_fraenkel_set_theory}
+\newpage
+
+\chapter{The natural numbers, integers and rational numbers}\label{chap:the_natural_numbers_integers_and_rational_numbers}
+\subfile{sections/body/the_natural_numbers_integers_and_rational_numbers}
+\newpage
+
+\chapter{The real numbers}\label{chap:the_real_numbers}
+\subfile{sections/body/the_real_numbers}
+\newpage
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography[title={Bibliography}]
+
+\appendix
+
+\chapter{First-order logic}\label{app:first_order_logic}
+\subfile{sections/appendices/first_order_logic}
+
+\end{document}
