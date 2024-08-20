@@ -1,0 +1,19 @@
+name: Compile LaTeX
+on: [push]
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_lualatex: true
+          args: -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=/out
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: out/main.pdf
