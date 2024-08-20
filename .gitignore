@@ -16,3 +16,6 @@ bin/
 
 # macos
 *.DS_Store
+
+# LaTeX
+out/
