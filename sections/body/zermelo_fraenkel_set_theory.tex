@@ -4,7 +4,7 @@
 \section*{Introduction}
 In the beginning of the 20th century, there was a lot of research devoted towards the development of a contradiction-free set theory, and even contradiction-free mathematics in general. This was in part due to the discovery of a mathematical paradox by Russell. We will state the precise paradox later; he himself also considered a hairy variant of it \cite{Russell2009}:
 \begin{quote}
-    You can define the barber as “one who shaves all those, and those only, who do not shave themselves”. The question is, does the barber shave himself?
+    You can define the barber as ``one who shaves all those, and those only, who do not shave themselves". The question is, does the barber shave himself?
 \end{quote}
 If the barber shaves himself, then the barber must not shave himself. If the barber does not shave himself, then the barber must shave himself. Hence the barber shaves himself if and only if he does not shave himself, a contradiction. The paradox is an example of self-referential statement. There are resolutions to this variant of the paradox, but at the time there were no resolutions to the formal statement of his paradox. Any contradictory statement is disastrous for mathematics as a whole. This is no overexaggeration; due to the principle of explosion, once a contradiction exists, any statement at all can be proven both true and false.
 
@@ -51,7 +51,7 @@ We want sets to be equal when they consist of the same elements. This axiom assu
 The converse of this statement follows immediately by the substitution axiom of equality. For reference, the axioms of equality are stated in Appendix~\ref{app:first_order_logic}.
 
 \subsection*{Axiom Schema of Specification}\label{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_specification}
-This axioms allows for (restricted) set-builder notation. It also known as the Axiom Schema of Separation and the Axiom Schema of Comprehension. These names all reflect that one may construct a set by specifying a domain set and a statement every member of the domain must satisfy. Let $\varphi$ be a formula with free variables among which $x$ and $D$ and nonfree variable $A$. Then
+This axioms allows for (restricted) set-builder notation. It is also known as the Axiom Schema of Separation and the Axiom Schema of Comprehension. These names all reflect that one may construct a set by specifying a domain set and a statement every member of the domain must satisfy. Let $\varphi$ be a formula with free variables among which $x,D$ and nonfree variable $A$. Then
 \begin{equation*}
     \forall D\exists A\forall x(x\in A\iff(x\in D\land\varphi(x,D))).
 \end{equation*}
@@ -104,7 +104,7 @@ For any $\mathcal{F}$, take an $A$ which exists by this axiom. Then $A$ contains
     \end{equation*}
     called the union of $\mathcal{F}$.
 \end{definition}
-One can imagine it would also be useful to talk about the union of two sets: the set containing the elements of both sets. This can defined in terms of an arbitrary set union.
+One can imagine it would also be useful to talk about the union of two sets: the set containing the elements of both sets. This can be defined in terms of an arbitrary set union.
 \begin{definition}[Set union]
     For two sets $X$ and $Y$ we introduce the binary function symbol $X\cup Y:=\bigcup\{X,Y\}$. This set is called the union of $X$ and $Y$.
 \end{definition}

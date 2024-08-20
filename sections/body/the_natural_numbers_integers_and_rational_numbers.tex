@@ -25,7 +25,7 @@ These axioms capture the intuition related to counting we alluded to above. Axio
 
 To construct the natural numbers, we will give an explicit definition of a suitable set of natural numbers along with a successor function and prove that they satisfy the Peano-Dedekind axioms. This characterises the natural numbers by their intuition of counting things. Afterwards, we will introduce algebraic operations that one can perform on the natural numbers. We will show these operations also satisfy the properties we expect them to satisfy. We will then give a characterisation of the natural numbers in terms of these operations and their properties.
 
-Now, $\mathbf{ZF}$ comes with the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}. Notice the similarity of this axiom with the Axioms~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1}~and~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_6}. We will use the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} to construct the natural numbers. Note that the it does not produce a unique set however, nor a set that only contains the natural numbers; we will have to extract them. Intuitively, we will define the natural numbers as the smallest set satisfying the requirement in the statement of the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}.
+Now, $\mathbf{ZF}$ comes with the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}. Notice the similarity of this axiom with the Axioms~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_1}~and~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_6}. We will use the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} to construct the natural numbers. Note that it does not produce a unique set however, nor a set that only contains the natural numbers; we will have to extract them. Intuitively, we will define the natural numbers as the smallest set satisfying the requirement in the statement of the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}.
 \begin{definition}[Natural numbers]\label{dfn:the_natural_numbers_integers_and_rational_numbers:natural_numbers}
     Let $S$ be the unary function symbol defined by $S(x)=x\cup\{x\}$. Let $\varphi(X)$ mean $\varnothing\in X\land\forall x\in X(S(x)\in X)$. Define the set $\bbN$ of natural numbers as the unique set satisfying the below formula with free variable $N$.
     \begin{equation*}
@@ -87,7 +87,7 @@ We have now shown that all but one of the Dedekind-Peano axioms apply in $\bbN$.
 
 With the definition of the natural numbers out of the way, we can start to define the basic operations on them. To characterise these operations, we will use some algebraic structures. We will state their definitions as we will need them.
 
-A consequence of the fact that $S$ is is bijective, is that we can define its inverse function.
+A consequence of the fact that $S$ is bijective, is that we can define its inverse function.
 \begin{definition}[Predecessor function]\label{dfn:the_natural_numbers_integers_and_rational_numbers:predecessor_function}
     We define the predecessor function $P:\bbN\setminus\{0\}\to\bbN$ to be the inverse of $S$. That is $P=S^{-1}$.
 \end{definition}
@@ -287,7 +287,7 @@ One can verify that the relation ``unique op to isomorphism" satisfies the prope
 \end{proof}
 This characterisation of the natural numbers lets us talk about the natural numbers without explicitly giving the definition of them. This is because the properties are independent of the definition chosen. For example, one may also define the natural numbers as Zermelo did, where $0=\varnothing$ and $S(n)=\{n\}$\footnote{This was also the way in which the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity} was originally stated. Notably, even without altering the axiom the existence of Zermelo's natural numbers follows from the existence of $\bbN$ and the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement}.}. Zermelo's definition is in a sense just as good, because one can prove all the same properties as we did. However, this definition turns out to be less convenient to do so with. The fact that we can now talk about the natural numbers without giving an explicit definition justifies how one has been doing arithmetic with them throughout ones life: there exists a unique structure that aligns with our intuition for the natural numbers, hence the arithmetic we have been doing was done in some model of this structure. Mathematics have allowed us to formally assure us these numbers actually exist and that they are what we think they are.
 
-Given that that the set $\bbN$ now satisfies our intuition, we can put it to use to define a sequence. Contrary to a set, a sequence is a list where we can distinguish its first, second, third, and so forth element. The natural numbers yield a simple way to define this mathematically.
+Given that the set $\bbN$ now satisfies our intuition, we can put it to use to define a sequence. Contrary to a set, a sequence is a list where we can distinguish its first, second, third, and so forth element. The natural numbers yield a simple way to define this mathematically.
 \begin{definition}[Sequence]
     A function $f:X\to Y$ is called a sequence if $\dom(f)=\bbN$, in which case we write $f_n$ instead of $f(n)$.
 \end{definition}
@@ -348,7 +348,7 @@ As with the natural numbers, we wish to characterise the integers by proving pro
     \begin{description}
         \item[Inverse.] $\forall x\in X\exists y\in X(x+y=0)$.
     \end{description}
-    If $0\in X$, we will write write $-x$ to denote $y$. If not, we will write $x^{-1}$ to denote $y$. The former notation is common for addition, and the latter notation is common for multiplication.
+    If $0\in X$, we will write $-x$ to denote $y$. If not, we will write $x^{-1}$ to denote $y$. The former notation is common for addition, and the latter notation is common for multiplication.
 \end{definition}
 \begin{proposition}\label{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}
     $(\bbZ,+)$ is an abelian group.
