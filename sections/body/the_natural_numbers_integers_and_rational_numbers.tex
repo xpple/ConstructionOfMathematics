@@ -7,9 +7,9 @@ Before constructing the real numbers, we will construct the intermediate number 
 First in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_natural_numbers} the natural numbers will be constructed. It will be in this section that we start defining algebraic structures with which the uniqueness of all number systems will be formulated. These structures are induced by the respective properties of the number system we are working in. The integers are then constructed in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_integers}. The algebraic structures are expanded upon based on the new property the integers enjoy which the natural numbers do not. Lastly the rational numbers are constructed in Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_rational_numbers}, where also the most rich algebraic structure is defined.
 
 \section{The natural numbers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_natural_numbers}
-In his work \textit{\textgerman{Was sind und was sollen die Zahlen}} \cite{Dedekind1888} Dedekind asked the right questions. Before defining what the natural numbers are, we should think about what they should be. One thing that we use the natural numbers for is counting things. Three apples, two books, etc. The gerund (a noun formed from a verb by adding ``-ing") ``counting" suggests this is a process. We do not instantly count three apples. Instead, we start with a count of zero, and for each apple we increment the count by one\footnote{There are all kinds of psychological exceptions to this, where we do instantly count three objects by the shape they are arranged in! This is called ``subitising", but is beyond the scope of this thesis.}. This intuition of counting apples in succession will form the foundation of the natural numbers.
+In his work \textit{\textgerman{Was sind und was sollen die Zahlen}}~\cite{Dedekind1888} Dedekind asked the right questions. Before defining what the natural numbers are, we should think about what they should be. One thing that we use the natural numbers for is counting things. Three apples, two books, etc. The gerund (a noun formed from a verb by adding ``-ing'') ``counting'' suggests this is a process. We do not instantly count three apples. Instead, we start with a count of zero, and for each apple we increment the count by one\footnote{There are all kinds of psychological exceptions to this, where we do instantly count three objects by the shape they are arranged in! This is called ``subitising'', but is beyond the scope of this thesis.}. This intuition of counting apples in succession will form the foundation of the natural numbers.
 
-With this in mind, mathematicians have attempted to characterise the natural numbers. The very first characterisation was given in the aforementioned work by Dedekind. He stated a list of properties that the natural numbers should satisfy. Today, these are known as the Dedekind-Peano axioms ($\mathbf{PA}$). Dedekind initially stated these axioms in \cite{Dedekind1888} and Peano later formalised these statements into a larger theory of sets in \cite{Peano1889}. The axioms are stated in terms of a nullary function symbol $0$ (``zero") and unary function symbol $S$. The function symbol $S$ is called the successor function. Notably, in the formulations of both Dedekind and Peano the first axiom was that $1$ (``one") is a natural number. Today it is more common to start counting from $0$ (``zero"), in accordance with the intuition of starting with a count of zero. Below is an overview of the axioms. Even though these axioms are stated using sets, it should be noted that they are logically separate from $\mathbf{ZF}$.
+With this in mind, mathematicians have attempted to characterise the natural numbers. The very first characterisation was given in the aforementioned work by Dedekind. He stated a list of properties that the natural numbers should satisfy. Today, these are known as the Dedekind-Peano axioms ($\mathbf{PA}$). Dedekind initially stated these axioms in~\cite{Dedekind1888} and Peano later formalised these statements into a larger theory of sets in~\cite{Peano1889}. The axioms are stated in terms of a nullary function symbol $0$ (``zero'') and unary function symbol $S$. The function symbol $S$ is called the successor function. Notably, in the formulations of both Dedekind and Peano the first axiom was that $1$ (``one'') is a natural number. Today it is more common to start counting from $0$, in accordance with the intuition of starting with a count of zero. Below is an overview of the axioms. Even though these axioms are stated using sets, it should be noted that they are logically separate from $\mathbf{ZF}$.
 \begin{enumerate}[label=PA\arabic*]
     \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_1} $0\in\bbN$.
     \item\label{itm:the_natural_numbers_integers_and_rational_numbers:peano_2} $\forall x\in\bbN(x=x)$.
@@ -38,19 +38,19 @@ Now, $\mathbf{ZF}$ comes with the \nameref{subsec:zermelo_fraenkel_set_theory:ax
 \end{proof}
 It is easy to see that $\bbN$ satisfies $\varphi$ as well. In particular $\varnothing\in\bbN$, and if $n\in\bbN$ then also $S(n)\in\bbN$ because $n\in N$. This allows us to transform the successor function symbol to an actual function on $\bbN$.
 \begin{definition}[Successor function]
-    We define $0:=\varnothing$. Define the successor function $S:\bbN\to\bbN\setminus\{0\}$ by $S(n)=n\cup\{n\}$, and also define
+    We define $0\coloneq\varnothing$. Define the successor function $S:\bbN\to\bbN\setminus\{0\}$ by $S(n)=n\cup\{n\}$, and also define
     \begin{align*}
-        1 & :=S(0), & 4 & :=S(3), & 7 & :=S(6), \\
-        2 & :=S(1), & 5 & :=S(4), & 8 & :=S(7), \\
-        3 & :=S(2), & 6 & :=S(5), & 9 & :=S(8).
+        1 & \coloneqS(0), & 4 & \coloneqS(3), & 7 & \coloneqS(6), \\
+        2 & \coloneqS(1), & 5 & \coloneqS(4), & 8 & \coloneqS(7), \\
+        3 & \coloneqS(2), & 6 & \coloneqS(5), & 9 & \coloneqS(8).
     \end{align*}
     Notice that $0\notin\range(S)$ because $S(n)$ is nonempty for all $n\in\bbN$. We continue counting according to any positional number system.
 \end{definition}
-Notice that each natural number contains all ``previous" natural numbers as elements. For example, $4=\{0,1,2,3\}$. Previous is in quotes, because we have not technically defined yet what it means for two natural numbers to be less than each other. This definition yields a straightforward way to do so, as we will see later.
+Notice that each natural number contains all ``previous'' natural numbers as elements. For example, $4=\{0,1,2,3\}$. Previous is in quotes, because we have not technically defined yet what it means for two natural numbers to be less than each other. This definition yields a straightforward way to do so, as we will see later.
 
 As the name suggests, the successor function resembles the successor function symbol from the Dedekind-Peano axioms. It differs in a key aspect, though. Its codomain by definition does not include $0$, making Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_8} satisfied by definition. This is by design, and will prove useful.
 
-Integrally tied to the successor function is the principle of mathematical induction. For this reason Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} is sometimes also called the ``axiom of induction". It states that if a statement is true for $0$, and its truth for any $n\in\bbN$ implies the truth of the statement for $S(n)$, then the statement is true for all $n\in\bbN$. Figure~\ref{fig:the_natural_numbers_integers_and_rational_numbers:axiom_of_induction} illustrates how this idea of induction forces $\bbN$ to exclude any unreachable numbers.
+Integrally tied to the successor function is the principle of mathematical induction. For this reason Axiom~\ref{itm:the_natural_numbers_integers_and_rational_numbers:peano_9} is sometimes also called the ``axiom of induction''. It states that if a statement is true for $0$, and its truth for any $n\in\bbN$ implies the truth of the statement for $S(n)$, then the statement is true for all $n\in\bbN$. Figure~\ref{fig:the_natural_numbers_integers_and_rational_numbers:axiom_of_induction} illustrates how this idea of induction forces $\bbN$ to exclude any unreachable numbers.
 
 \begin{figure}[!htbp]
     \centering
@@ -112,7 +112,7 @@ This definition indeed boils down to repeatedly applying the successor function.
 \end{example}
 One could use the predecessor function to find a direct expression for $m+n$. Namely for $n\neq0$ we have $m+n=S(m+P(n))$. It is however more common to adhere to the language of $\mathbf{PA}$, only using the successor function.
 
-The first step into characterising the natural numbers is to show some properties of addition we expect addition to have. That is, if we add zero to something it remains unchanged, the grouping with which we evaluate a sum like ``$1+2+3$" (either as ``$(1+2)+3$" or as ``$1+(2+3)$") should not matter and the order should not matter. Structures where these rules apply, are called commutative monoids.
+The first step into characterising the natural numbers is to show some properties of addition we expect addition to have. That is, if we add zero to something it remains unchanged, the grouping with which we evaluate a sum like ``$1+2+3$'' (either as ``$(1+2)+3$'' or as ``$1+(2+3)$'') should not matter and the order should not matter. Structures where these rules apply, are called commutative monoids.
 \begin{definition}[Commutative monoid]
     Let $+$ be a binary operation on $X$. Then $(X,+)$ is a commutative monoid if the following properties apply.
     \begin{description}
@@ -153,7 +153,7 @@ Similar to how we defined addition as repeated succession, we can define multipl
 \end{definition}
 The reader is invited to evaluate $2\cdot2$ using this definition to see that this definition of multiplication indeed captures the notion of repeated addition. Like with addition, one can use the predecessor function to write $m\cdot n=(m\cdot P(n))+m$ for $n\neq0$.
 
-By convention, we will assume that multiplication has a higher precedence than addition. That is, we will read $x+y\cdot z$ as $x+(y\cdot z)$ and $x\cdot y+z$ as $(x\cdot y)+z$. Now that we have defined multiplication, we will show that it satisfies all the properties we want it to have. Along with the properties we saw addition had that multiplication should have too, we want addition and multiplication to interact as expected. That means that multiplication distributes over addition; ``$1\cdot(1+2)$" should equal ``$1\cdot 1+1\cdot 2$". This yields the definition for the following important structure.
+By convention, we will assume that multiplication has a higher precedence than addition. That is, we will read $x+y\cdot z$ as $x+(y\cdot z)$ and $x\cdot y+z$ as $(x\cdot y)+z$. Now that we have defined multiplication, we will show that it satisfies all the properties we want it to have. Along with the properties we saw addition had that multiplication should have too, we want addition and multiplication to interact as expected. That means that multiplication distributes over addition; ``$1\cdot(1+2)$'' should equal ``$1\cdot 1+1\cdot 2$''. This yields the definition for the following important structure.
 \begin{definition}[Commutative semiring]
     Let $+$ and $\cdot$ be binary operations on $X$. Then $(X,+,\cdot)$ is a commutative semiring if $(X,+)$ and $(X\setminus\{0\},\cdot)$ are commutative monoids, $0\neq1$ and the distributive property applies.
     \begin{description}
@@ -189,7 +189,7 @@ By convention, we will assume that multiplication has a higher precedence than a
         \end{align*}
     \end{description}
 \end{proof}
-Lastly we will define the order on $\bbN$. The fact that each natural number contains every ``previous" natural number will allow for a very simple definition.
+Lastly we will define the order on $\bbN$. The fact that each natural number contains every ``previous'' natural number will allow for a very simple definition.
 \begin{definition}[Order on natural numbers]\label{dfn:the_natural_numbers_integers_and_rational_numbers:N_order}
     For two natural numbers $m$ and $n$ define the relation $\leq$ on $\bbN$ by $m\leq n$ if $m\in n\lor m=n$.
 \end{definition}
@@ -245,7 +245,7 @@ Note that this proof is technically superfluous because we already established t
         \item[OR2.] Suppose $x\leq y$. We need to show that for all $z\in\bbN$ we have $x\cdot z\leq y\cdot z$. We will argue by induction on $z$. Suppose $x\leq y$. The base case trivially holds. Suppose $x\cdot z\leq y\cdot z$ for some $z\in\bbN$ with $z\geq0$. Then $x\cdot S(z)=x\cdot(z+1)=x\cdot z+x\leq y\cdot z+x\leq y\cdot z+y=y\cdot S(z)$.
     \end{description}
 \end{proof}
-We have now shown various properties of $\bbN$ along with its operations $+$, $\cdot$ and $\leq$. These properties, along with the fact that every nonzero natural number has a predecessor, yield a characterisation in terms of a well-ordered semiring structure that uniquely pinpoints the natural numbers. Here unique means ``unique up to isomorphism". That is, if two sets satisfy these requirements, there exists an isomorphism between them. An isomorphism is a correspondence between two sets that preserves the operations in that set. We will only give the relevant precise definitions for ordered semiring structures; variants are easily derivable.
+We have now shown various properties of $\bbN$ along with its operations $+$, $\cdot$ and $\leq$. These properties, along with the fact that every nonzero natural number has a predecessor, yield a characterisation in terms of a well-ordered semiring structure that uniquely pinpoints the natural numbers. Here unique means ``unique up to isomorphism''. That is, if two sets satisfy these requirements, there exists an isomorphism between them. An isomorphism is a correspondence between two sets that preserves the operations in that set. We will only give the relevant precise definitions for ordered semiring structures; variants are easily derivable.
 \begin{definition}[Ordered semiring homomorphism]\label{dfn:the_natural_numbers_integers_and_rational_numbers:ordered_semiring_homomorphism}
         Let $(X,+,\cdot,\leq)$ and \linebreak$(Y,\oplus,\odot,\preceq)$ be ordered semirings. Then a function $f:X\to Y$ is an ordered semiring homomorphism if $f(0_X)=0_Y$, $f(1_X)=1_Y$ and $\forall x\in X\forall y\in X$
     \begin{align*}
@@ -258,7 +258,7 @@ We have now shown various properties of $\bbN$ along with its operations $+$, $\
 \begin{definition}[Ordered semiring isomorphism]
     Let $(X,+,\cdot,\leq)$ and \linebreak$(Y,\oplus,\odot,\preceq)$ be ordered semirings. Then a function $f:X\to Y$ is an ordered semiring isomorphism if it is an ordered semiring homomorphism as well as bijective. We regard sets to be the same if there exists an isomorphism between them.
 \end{definition}
-One can verify that the relation ``unique op to isomorphism" satisfies the properties of an equivalence relation, which allows us to regard the structure as unique\footnote{It is not a relation in the sense of Definition~\ref{dfn:zermelo_fraenkel_set_theory:relation} because it would have to be a relation on the set of all sets, which as we have shown does not exist.}. With that, the uniqueness of $\bbN$ is expressed in the following theorem.
+One can verify that the relation ``unique op to isomorphism'' satisfies the properties of an equivalence relation, which allows us to regard the structure as unique\footnote{It is not a relation in the sense of Definition~\ref{dfn:zermelo_fraenkel_set_theory:relation} because it would have to be a relation on the set of all sets, which as we have shown does not exist.}. With that, the uniqueness of $\bbN$ is expressed in the following theorem.
 \begin{theorem}[Uniqueness of $\bbN$]\label{thm:the_natural_numbers_integers_and_rational_numbers:uniqueness_N}
     $(\bbN,+,\cdot,\leq)$ is the unique well-ordered commutative semiring in which every nonzero element has a predecessor.
 \end{theorem}
@@ -305,7 +305,7 @@ Another common operation on the natural numbers is exponentiation. The reader ma
 \end{definition}
 
 \section{The integers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_integers}
-For a long time negative quantities were considered nonsense. One can count to three apples, but certainly not to negative three apples. This changed when many years after the discovery of the natural numbers, Chinese mathematicians explained how to do arithmetic with them in \textit{Nine Chapters on Arithmetic} \cite{NineChapters20}:
+For a long time negative quantities were considered nonsense. One can count to three apples, but certainly not to negative three apples. This changed when many years after the discovery of the natural numbers, Chinese mathematicians explained how to do arithmetic with them in \textit{Nine Chapters on Arithmetic}~\cite{NineChapters20}:
 \begin{quote}
     \textchinese[variant=traditional]{正負術曰：同名相除，異名相益，正無入負之，負無入正之。\\ 其異名相除，同名相益，正無入正之，負無入負之。}
 \end{quote}
@@ -316,7 +316,7 @@ A useful interpretation of negative numbers is debt. When in debt, ones balance 
 
 Intuitively the integers can be thought of as natural numbers with a sign; plus or minus. Mathematically, this is indeed also a way to construct them. For instance, one could consider the union of all pairs $(+,n)$ and $(-,n)$ for $n\in\bbN$ where $+$ and $-$ are any two distinct sets. Immediately a problem arises though, there should be only one additive identity, but currently both $(+,0)$ and $(-,0)$ exist. This can be fixed by excluding $0$ and manually adding in an additive identity. Already this construction creates a lot of case-work.
 
-Instead of this, one could think of the integers as differences of natural numbers. For example ``$-2=2-4$", so the integer $-2$ would be represented by the pair $(2,4)$. Of course, there are many such pairs that yield $-2$, the most natural of which being $0-2$ as we can just leave out the zero. We need to unify all these pairs in equivalence classes. Two integers should be equivalent when ``$a-b=c-d$". Since we have not defined what subtraction is, we must rephrase this in terms of addition. We reach the following definition. Define the relation $\sim$ on $\bbN\times\bbN$ by
+Instead of this, one could think of the integers as differences of natural numbers. For example ``$-2=2-4$'', so the integer $-2$ would be represented by the pair $(2,4)$. Of course, there are many such pairs that yield $-2$, the most natural of which being $0-2$ as we can just leave out the zero. We need to unify all these pairs in equivalence classes. Two integers should be equivalent when ``$a-b=c-d$''. Since we have not defined what subtraction is, we must rephrase this in terms of addition. We reach the following definition. Define the relation $\sim$ on $\bbN\times\bbN$ by
 \begin{equation}\label{eqn:the_natural_numbers_integers_and_rational_numbers:relation_integers}
     (a,b)\sim(c,d)\iff a+d=c+b.
 \end{equation}
@@ -329,9 +329,9 @@ The relation is now completely stated in terms of addition of natural numbers, w
 \end{proof}
 With this, we can define the integers as the quotient set of $\sim$.
 \begin{definition}[Integers]
-    Define the set $\bbZ$ of integers by $\bbZ:=(\bbN\times\bbN)/{\sim}$.
+    Define the set $\bbZ$ of integers by $\bbZ\coloneq(\bbN\times\bbN)/{\sim}$.
 \end{definition}
-For $x\in\bbN$ we will denote the integer $[(x,0)]$ by $x$ and $[(0,x)]$ by $-x$. For example, the integer $[(0,2)]$ is written $-2$. With the definition of the integers done, we can start to define the basic operations on them. Note that all these definitions can be informally derived by thinking of $[(a,b)]$ as ``$a-b$".
+For $x\in\bbN$ we will denote the integer $[(x,0)]$ by $x$ and $[(0,x)]$ by $-x$. For example, the integer $[(0,2)]$ is written $-2$. With the definition of the integers done, we can start to define the basic operations on them. Note that all these definitions can be informally derived by thinking of $[(a,b)]$ as ``$a-b$''.
 \begin{definition}[Addition of integers]
     We define addition as the map $\bbZ\times\bbZ\to\bbZ$ defined by
     \begin{equation*}
@@ -356,7 +356,7 @@ As with the natural numbers, we wish to characterise the integers by proving pro
 \begin{proof}
     With all the hard word done for the natural numbers in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_monoid_natural_numbers}, we can simply delegate the proofs for the integers to properties about the natural numbers. The identity element is $[(0,0)]$ as $0$ is the identity element for the natural numbers. Associativity and commutativity follow because addition is associative and commutative in the natural numbers. What is new is that the integers have additive inverses.
     \begin{description}
-        \item[Inverse.] Let $[(a,b)]\in\bbZ$ be arbitrary. Then for $-[(a,b)]:=[(b,a)]\in\bbZ$ we have $[(a,b)]+[(b,a)]=[(a+b,b+a)]=[(a+b,a+b)]=[(0,0)]$.
+        \item[Inverse.] Let $[(a,b)]\in\bbZ$ be arbitrary. Then for $-[(a,b)]\coloneq[(b,a)]\in\bbZ$ we have $[(a,b)]+[(b,a)]=[(a+b,b+a)]=[(a+b,a+b)]=[(0,0)]$.
     \end{description}
 \end{proof}
 The next operation we will define is multiplication. This definition can be derived similar to how addition was derived.
@@ -376,7 +376,7 @@ Again, note that multiplication is no longer repeated addition as this will fail
     $(\bbZ,+,\cdot)$ is a commutative ring.
 \end{proposition}
 \begin{proof}
-    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers} we have already established that $(\bbZ,+)$ is an abelian group. The multiplicative identity is $1:=[(1,0)]\in\bbZ$ as for all $[(a,b)]\in\bbZ$ we have $[(a,b)]\cdot[(1,0)]=[(a+0,0+b)]=[(a,b)]$. The fact that $(\bbZ,\cdot)$ is a commutative monoid follows quite directly from the properties of multiplication of natural numbers we proved in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_semiring_natural_numbers}. For instructiveness, we will give the proof for associativity.
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers} we have already established that $(\bbZ,+)$ is an abelian group. The multiplicative identity is $1\coloneq[(1,0)]\in\bbZ$ as for all $[(a,b)]\in\bbZ$ we have $[(a,b)]\cdot[(1,0)]=[(a+0,0+b)]=[(a,b)]$. The fact that $(\bbZ,\cdot)$ is a commutative monoid follows quite directly from the properties of multiplication of natural numbers we proved in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_semiring_natural_numbers}. For instructiveness, we will give the proof for associativity.
     \begin{description}
         \item[Associativity.] We must show that for $x\in\bbZ$, $y\in\bbZ$ and $z\in\bbZ$ we have $(x\cdot y)\cdot z=x\cdot(y\cdot z)$. The symbol for multiplication of natural numbers will be omitted for readability. We have
         \begin{align*}
@@ -463,14 +463,14 @@ Even though the integers are not well-ordered, by Proposition~\ref{prp:the_natur
 \end{proof} 
 
 \section{The rational numbers}\label{sec:the_natural_numbers_integers_and_rational_numbers:the_rational_numbers}
-Rational numbers arise naturally as fractions or ratios. The following is Definition~3 in Book~V of Euclid's\footnote{Much of Book~V was likely inspired by Eudoxus' theory of proportion.} \textit{Elements} \cite{Heath1926}:
+Rational numbers arise naturally as fractions or ratios. The following is Definition~3 in Book~V of Euclid's\footnote{Much of Book~V was likely inspired by Eudoxus' theory of proportion.} \textit{Elements}~\cite{Heath1926}:
 \begin{quote}
     \textgreek{Λόγος ἐστὶ δύο μεγεθῶν ὁμογενῶν ἡ κατὰ πηλικότητά ποια σχέσις.}
 \end{quote}
 \begin{quote}
     \textit{A ratio is a sort of relation in respect of size between two magnitudes of the same kind.}
 \end{quote}
-That is, the fraction (ratio) ``$\frac{1}{4}$" is meant to denote one-fourths of something. Four times this quantity yields the whole. Mathematically this would mean that ``$4\cdot\frac{1}{4}=1$". In other words, by definition ``$\frac{1}{4}$" would be the multiplicative inverse of $4$. Therefore mathematically the fractions add multiplicative inverses to the integers.
+That is, the fraction (ratio) ``$\frac{1}{4}$'' is meant to denote one-fourths of something. Four times this quantity yields the whole. Mathematically this would mean that ``$4\cdot\frac{1}{4}=1$''. In other words, by definition ``$\frac{1}{4}$'' would be the multiplicative inverse of $4$. Therefore mathematically the fractions add multiplicative inverses to the integers.
 
 Out of any number system, perhaps the rational numbers have the most intuitive construction. When thinking of rational numbers as fractions, we know more than one fraction can represent a single rational number. For example $4/2=2/1$. In general, two rational numbers $a/b$ and $c/d$ are equal if $a\cdot d=c\cdot b$. This is precisely the relation that we will use to define the rational numbers. Define the relation $\sim$ on $\bbZ\times(\bbZ\setminus\{0\})$ by
 \begin{equation}\label{eqn:the_natural_numbers_integers_and_rational_numbers:relation_rational_numbers}
@@ -485,7 +485,7 @@ Here the pair $(a,b)$ represents the fraction $a/b$. We now wish to consider the
 \end{proof}
 We will now define the rational numbers.
 \begin{definition}[Rational numbers]
-    Define the set $\bbQ$ of rational numbers by $\bbQ:=(\bbZ\times\bbZ\setminus\{0\})/{\sim}$.
+    Define the set $\bbQ$ of rational numbers by $\bbQ\coloneq(\bbZ\times\bbZ\setminus\{0\})/{\sim}$.
 \end{definition}
 We will denote the rational number $[(a,b)]$ by $a/b$ or $\frac{a}{b}$. Additionally if $b=1$ we will write just $a$. The integer $a$ is called the numerator, and the integer $b$ is called the denominator. The fact that the rational numbers are equivalence classes is baked in to the notation of them as fractions. Compare this to the integers, where one never writes $a-b$ to denote an integer. Because of the fact that fractions represent equivalence classes, we can pick representations that are convenient for proving statements about the rational numbers. For example, we can assume without loss of generality that every fraction has a positive denominator. This is because $(a,b)\sim(-a,-b)$, one of which necessarily has a positive denominator.
 
@@ -501,7 +501,7 @@ It can be verified that this defines a function. Addition of rational numbers ha
     $(\bbQ,+)$ is an abelian group.
 \end{proposition}
 \begin{proof}
-    The properties all follow by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}. The additive identity is $0:=[(0,1)]\in\bbQ$ as $[(a,b)]+[(0,1)]=[(a+0,b)]=[(a,b)]$. The additive inverse for $[(a,b)]\in\bbQ$ is $-[(a,b)]:=[(-a,b)]\in\bbQ$ as $[(a,b)]+[(-a,b)]=[(a\cdot b+-a\cdot b,b\cdot b)]=[(0,1)]$.
+    The properties all follow by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}. The additive identity is $0\coloneq[(0,1)]\in\bbQ$ as $[(a,b)]+[(0,1)]=[(a+0,b)]=[(a,b)]$. The additive inverse for $[(a,b)]\in\bbQ$ is $-[(a,b)]\coloneq[(-a,b)]\in\bbQ$ as $[(a,b)]+[(-a,b)]=[(a\cdot b+-a\cdot b,b\cdot b)]=[(0,1)]$.
 \end{proof}
 For fractions, multiplication is performed componentwise. This allows for the following simple definition.
 \begin{definition}[Multiplication of rational numbers]
@@ -518,9 +518,9 @@ It can be verified that $\cdot$ is a function. Unlike rational number addition, 
     $(\bbQ,+,\cdot)$ is a field.
 \end{proposition}
 \begin{proof}
-    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_rational_numbers} we have that $(\bbQ,+)$ is an abelian group. It follows by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_ring_integers} that $(\bbQ,\cdot)$ is a commutative monoid. It is easy to see that the multiplicative identity is $1:=[(1,1)]\in\bbQ$. Additionally, the rational numbers have multiplicative inverses.
+    By Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_rational_numbers} we have that $(\bbQ,+)$ is an abelian group. It follows by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:commutative_ring_integers} that $(\bbQ,\cdot)$ is a commutative monoid. It is easy to see that the multiplicative identity is $1\coloneq[(1,1)]\in\bbQ$. Additionally, the rational numbers have multiplicative inverses.
     \begin{description}
-        \item[Inverse.] Let $[(a,b)]\in\bbQ$ with $[(a,b)]\neq0$ be arbitrary. Then for $[(a,b)]^{-1}:=[(b,a)]\in\bbQ$ we have $[(a,b)]\cdot[(b,a)]=[(a\cdot b,b\cdot a)]=[(1,1)]$.
+        \item[Inverse.] Let $[(a,b)]\in\bbQ$ with $[(a,b)]\neq0$ be arbitrary. Then for $[(a,b)]^{-1}\coloneq[(b,a)]\in\bbQ$ we have $[(a,b)]\cdot[(b,a)]=[(a\cdot b,b\cdot a)]=[(1,1)]$.
     \end{description}
     For distributivity, one should note that $[(ca,cb)]=[(a,b)]$ for all nonzero $c\in\bbZ$ and $[(a,b)]\in\bbQ$, after which it follows quickly.
 \end{proof}

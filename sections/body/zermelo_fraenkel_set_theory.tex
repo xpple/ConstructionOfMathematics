@@ -2,15 +2,15 @@
 \graphicspath{{\subfix{../images/}}}
 \begin{document}
 \section*{Introduction}
-In the beginning of the 20th century, there was a lot of research devoted towards the development of a contradiction-free set theory, and even contradiction-free mathematics in general. This was in part due to the discovery of a mathematical paradox by Russell. We will state the precise paradox later; he himself also considered a hairy variant of it \cite{Russell2009}:
+In the beginning of the 20th century, there was a lot of research devoted towards the development of a contradiction-free set theory, and even contradiction-free mathematics in general. This was in part due to the discovery of a mathematical paradox by Russell. We will state the precise paradox later; he himself also considered a hairy variant of it~\cite{Russell2009}:
 \begin{quote}
-    You can define the barber as ``one who shaves all those, and those only, who do not shave themselves". The question is, does the barber shave himself?
+    You can define the barber as ``one who shaves all those, and those only, who do not shave themselves''. The question is, does the barber shave himself?
 \end{quote}
 If the barber shaves himself, then the barber must not shave himself. If the barber does not shave himself, then the barber must shave himself. Hence the barber shaves himself if and only if he does not shave himself, a contradiction. The paradox is an example of self-referential statement. There are resolutions to this variant of the paradox, but at the time there were no resolutions to the formal statement of his paradox. Any contradictory statement is disastrous for mathematics as a whole. This is no overexaggeration; due to the principle of explosion, once a contradiction exists, any statement at all can be proven both true and false.
 
 After a lot of unsatisfactory attempts, finally through the combined work of mostly Zermelo, Fraenkel and Skolem a formalisation of mathematics in terms of axioms was established that satisfied all the requirements the set theorists of that time had. It is for example, free of Russell's paradox. This set theory is now known as Zermelo-Fraenkel set theory, and is abbreviated to $\mathbf{ZF}$. To this day, this set of axioms forms the most common foundation of mathematics.
 
-First in Section~\ref{sec:zermelo_fraenkel_set_theory:preliminaries} we will introduce some preliminary definitions that will help to state the axioms in Section~\ref{sec:zermelo_fraenkel_set_theory:axioms_of_zf}. With these axioms we will first define relations in Section~\ref{sec:zermelo_fraenkel_set_theory:relations} and lastly functions in Section~\ref{sec:zermelo_fraenkel_set_theory:functions}. For a comprehensive overview of basic set theory see \cite{Levy1979} and also \cite{Kunen1992}.
+First in Section~\ref{sec:zermelo_fraenkel_set_theory:preliminaries} we will introduce some preliminary definitions that will help to state the axioms in Section~\ref{sec:zermelo_fraenkel_set_theory:axioms_of_zf}. With these axioms we will first define relations in Section~\ref{sec:zermelo_fraenkel_set_theory:relations} and lastly functions in Section~\ref{sec:zermelo_fraenkel_set_theory:functions}. For a comprehensive overview of basic set theory see~\cite{Levy1979} and also~\cite{Kunen1992}.
 
 \section{Preliminaries}\label{sec:zermelo_fraenkel_set_theory:preliminaries}
 To abbreviate and increase the readability of the axiom statements, it is useful to define a few shorthands. To do this we will use concepts from mathematical logic. If not explained, these notions will be understandable from the context. Additionally one may consult Appendix~\ref{app:first_order_logic} for a brief overview of $\mathbf{ZF}$ as a first-order theory with equality. See also this appendix for justifying adding new symbols to the theory of $\mathbf{ZF}$, without actually changing it.
@@ -33,18 +33,18 @@ To abbreviate and increase the readability of the axiom statements, it is useful
 \begin{definition}[(Improper) subset]
     Define the binary relation symbol $\subseteq$ by $X\subseteq Y$ when $\forall x\in X(x\in Y)$.
 \end{definition}
-\begin{definition}[Unequality\footnote{``Unequality" is used as opposed to ``inequality" because the latter is usually reserved for relations of the type ``$\leq$".}.]
+\begin{definition}[Unequality\footnote{``Unequality'' is used as opposed to ``inequality'' because the latter is usually reserved for relations of the type ``$\leq$''.}.]
     Define the binary relation symbol $\neq$ by $x\neq y$ when $\lnot(x=y)$.
 \end{definition}
 One could also define proper subsets, (im)proper supersets and negations thereof, but we will not need those.
 
 \section{Axioms of \texorpdfstring{$\mathbf{ZF}$}{ZF}}\label{sec:zermelo_fraenkel_set_theory:axioms_of_zf}
-As mentioned in the introduction, $\mathbf{ZF}$ consists of a set of axioms; colloquially these are starting points that are assumed to be true. These axioms were given names to reflect their purpose. Below is an overview of these axioms written purely in the language of $\mathbf{ZF}$ along with the notational extensions from the previous section. We will use that any interpretation (model) of the theory $\mathbf{ZF}$ is required to be nonempty. This stems from the semantics of $\mathbf{ZF}$ being a first-order theory \cite{Enderton2001}. In other words, we may use that a set exists without needing any axiom\footnote{In \textit{Set Theory: An Introduction to Independence Proofs} Kunen acknowledges this too, but includes a zeroth axiom that stipulates the existence of a set for emphasis \cite{Kunen1992}.}.
+As mentioned in the introduction, $\mathbf{ZF}$ consists of a set of axioms; colloquially these are starting points that are assumed to be true. These axioms were given names to reflect their purpose. Below is an overview of these axioms written purely in the language of $\mathbf{ZF}$ along with the notational extensions from the previous section. We will use that any interpretation (model) of the theory $\mathbf{ZF}$ is required to be nonempty. This stems from the semantics of $\mathbf{ZF}$ being a first-order theory~\cite{Enderton2001}. In other words, we may use that a set exists without needing any axiom\footnote{In \textit{Set Theory: An Introduction to Independence Proofs} Kunen acknowledges this too, but includes a zeroth axiom that stipulates the existence of a set for emphasis~\cite{Kunen1992}.}.
 
 Note that some of the axioms depend on each other. That is, some cannot be stated without assuming others. This imposes a certain partial order in which they are stated. This order is unimportant however. This is because we are interested in the statements that $\mathbf{ZF}$ can prove after all the axioms are stated, after which the order no longer matters.
 
 \subsection*{Axiom of Extensionality}\label{subsec:zermelo_fraenkel_set_theory:axiom_of_extensionality}
-We want sets to be equal when they consist of the same elements. This axiom assures that two sets having the same elements make them actually equal as prescribed by the primitive logical symbol ``$=$".
+We want sets to be equal when they consist of the same elements. This axiom assures that two sets having the same elements make them actually equal as prescribed by the primitive logical symbol ``$=$''.
 \begin{equation*}
     \forall x\forall y(x\subseteq y\land y\subseteq x\implies x=y).
 \end{equation*}
@@ -59,7 +59,7 @@ The set $A$ is unique by the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_o
 \begin{definition}[Set-builder notation]
     We add the unary function symbol
     \begin{equation*}
-        \{x\in D\mid\varphi(x,D)\}:=A.
+        \{x\in D\mid\varphi(x,D)\}\coloneq A.
     \end{equation*}
     This function symbol is called set-builder notation, because it allows one to build a set of elements that satisfy a given constraint.
 \end{definition}
@@ -67,7 +67,7 @@ An example set that is not allowed to be created is $R=\{a\mid a\notin a\}$. One
 
 Moreover, because a set is known to exist, using this axiom we can construct a set that contains no elements. This set is then unique by the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_extensionality}. We will introduce a new function symbol to denote this set.
 \begin{definition}[Empty set]
-    Let $x$ be any set. Define the nullary function symbol $\varnothing:=\{y\in x\mid y\neq y\}$.
+    Let $x$ be any set. Define the nullary function symbol $\varnothing\coloneq\{y\in x\mid y\neq y\}$.
 \end{definition}
 The empty set is convenient to have, and it allows some of the remaining axioms to be formulated more concisely. In fact, we will put it to use in the next axiom.
 
@@ -100,56 +100,56 @@ For any $\mathcal{F}$, take an $A$ which exists by this axiom. Then $A$ contains
 \begin{definition}[Arbitrary set union]
     We introduce the new unary function symbol $\bigcup\mathcal{F}$ by
     \begin{equation*}
-        \bigcup\mathcal{F}:=\{x\in A\mid\exists Y\in\mathcal{F}(x\in Y)\}
+        \bigcup\mathcal{F}\coloneq\{x\in A\mid\exists Y\in\mathcal{F}(x\in Y)\}
     \end{equation*}
     called the union of $\mathcal{F}$.
 \end{definition}
 One can imagine it would also be useful to talk about the union of two sets: the set containing the elements of both sets. This can be defined in terms of an arbitrary set union.
 \begin{definition}[Set union]
-    For two sets $X$ and $Y$ we introduce the binary function symbol $X\cup Y:=\bigcup\{X,Y\}$. This set is called the union of $X$ and $Y$.
+    For two sets $X$ and $Y$ we introduce the binary function symbol $X\cup Y\coloneq\bigcup\{X,Y\}$. This set is called the union of $X$ and $Y$.
 \end{definition}
 Using set unions, we can extend Definition~\ref{dfn:zermelo_fraenkel_set_theory:two_element_roster_notation} to arbitrarily many elements.
 \begin{definition}[Roster notation]
-    For $n>2$ we introduce the $n$-ary function symbol $\{x_1,\dots,x_n\}:=\{x_1\}\cup\cdots\cup\{x_n\}$.
+    For $n>2$ we introduce the $n$-ary function symbol $\{x_1,\dots,x_n\}\coloneq\{x_1\}\cup\cdots\cup\{x_n\}$.
 \end{definition}
 Note that we can omit brackets because $\cup$ is associative, which boils down to the fact $\lor$ is associative. Similar to set unions, we wish to consider the set of common elements of subsets.
 \begin{definition}[Arbitrary set intersection]
     We introduce the unary function symbol $\bigcap\mathcal{F}$ by
     \begin{equation*}
-        \bigcap\mathcal{F}:=\{x\in\bigcup\mathcal{F}\mid\forall Y\in\mathcal{F}(x\in Y)\}
+        \bigcap\mathcal{F}\coloneq\{x\in\bigcup\mathcal{F}\mid\forall Y\in\mathcal{F}(x\in Y)\}
     \end{equation*}
     called the intersection of $\mathcal{F}$.
 \end{definition}
 Similar to the union, it is useful to talk about the intersection of two sets. This can be defined in terms of an arbitrary set intersection.
 \begin{definition}[Set intersection]
-    We define the binary function symbol $X\cap Y:=\bigcap\{X,Y\}$. This set is called the intersection of $X$ and $Y$.
+    We define the binary function symbol $X\cap Y\coloneq\bigcap\{X,Y\}$. This set is called the intersection of $X$ and $Y$.
 \end{definition}
 Lastly we will define the difference between two sets.
 \begin{definition}[Set difference]
     We define the binary function symbol denoted $X\setminus Y$ by
     \begin{equation*}
-        X\setminus Y:=\{x\in X\mid x\notin Y\}.
+        X\setminus Y\coloneq\{x\in X\mid x\notin Y\}.
     \end{equation*}
 \end{definition}
 Similar to the definition of the difference of two sets, one could have chosen to define the intersection of two sets as $X\cap Y=\{x\in X\mid x\in Y\}$.
 
 \subsection*{Axiom of Infinity}\label{subsec:zermelo_fraenkel_set_theory:axiom_of_infinity}
-We saw that the existence of a set was a consequence of $\mathbf{ZF}$ being first-order theory. This axiom additionally assures a set exist, and even an ``infinite" one. Define the unary function symbol $S(x)=x\cup\{x\}$.
+We saw that the existence of a set was a consequence of $\mathbf{ZF}$ being first-order theory. This axiom additionally assures a set exist, and even an ``infinite'' one. Define the unary function symbol $S(x)=x\cup\{x\}$.
 \begin{equation*}
     \exists X(\varnothing\in X\land\forall x\in X(S(x)\in X)).
 \end{equation*}
 In Section~\ref{sec:the_natural_numbers_integers_and_rational_numbers:the_natural_numbers} we will re-encounter the function symbol $S$, where it will play an important role in defining the natural numbers.
 
 \subsection*{Axiom Schema of Replacement}\label{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement}
-The axiom schema of replacement asserts that the ``range" of a ``function" is again a set. Even though we have not defined what those words mean, we can write it down formally in terms of formulas. Let $\varphi$ be a formula with free variables among which $x,y,A$ and nonfree variable $B$.
+The axiom schema of replacement asserts that the ``range'' of a ``function'' is again a set. Even though we have not defined what those words mean, we can write it down formally in terms of formulas. Let $\varphi$ be a formula with free variables among which $x,y,A$ and nonfree variable $B$.
 \begin{equation*}
     \forall A(\forall x\in A\exists!y(\varphi(x,y,A))\implies\exists B\forall y(y\in B\iff\exists x\in A(\varphi(x,y,A)))).
 \end{equation*}
-That is, if for all $x\in A$ there exists a unique $y$ satisfying $\varphi(x,y,A)$, then there exists a set $B$ such that $y\in B$ precisely when there is an $x\in A$ for which $\varphi(x,y,A)$ is satisfied. When $\varphi(x,y,A)$ holds, we write this as $F_\varphi(x)=y$, where $F_\varphi$ is the ``function" described by $\varphi$. This is closely related to a different notion of functions we will define in Section~\ref{sec:zermelo_fraenkel_set_theory:functions}, where the functions are actual sets and not just notation. To denote the set $B$, which is unique by the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_extensionality}, we will introduce the following function symbol.
-\begin{definition}[Image under a ``function"]
+That is, if for all $x\in A$ there exists a unique $y$ satisfying $\varphi(x,y,A)$, then there exists a set $B$ such that $y\in B$ precisely when there is an $x\in A$ for which $\varphi(x,y,A)$ is satisfied. When $\varphi(x,y,A)$ holds, we write this as $F_\varphi(x)=y$, where $F_\varphi$ is the ``function'' described by $\varphi$. This is closely related to a different notion of functions we will define in Section~\ref{sec:zermelo_fraenkel_set_theory:functions}, where the functions are actual sets and not just notation. To denote the set $B$, which is unique by the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_extensionality}, we will introduce the following function symbol.
+\begin{definition}[Image under a ``function'']
     Introduce the unary function symbol $F_\varphi(A)$ by
     \begin{equation*}
-        F_\varphi(A):=B.
+        F_\varphi(A)\coloneq B.
     \end{equation*}
 \end{definition}
 
@@ -162,14 +162,14 @@ Similar to the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_union} asser
 \begin{definition}[Power set]
     We introduce the unary function symbol $\mathcal{P}(X)$ by
     \begin{equation*}
-        \mathcal{P}(X):=\{x\in A\mid x\subseteq X\}
+        \mathcal{P}(X)\coloneq\{x\in A\mid x\subseteq X\}
     \end{equation*}
     called the power set of $X$.
 \end{definition}
 
 These axioms conclude the eight axioms of $\mathbf{ZF}$. Perhaps unexpectedly however, not all axioms are strictly necessary. One may remove the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_specification} and the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_pairing} without weakening the theory. That is, $\mathbf{ZF}$ with these axioms included cannot prove any more statements than $\mathbf{ZF}$ without these axioms. This is because both axioms follow from the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement} along with the existence of the empty set and any set with two (or more) elements. It is for historical and instructional reasons that they are included in most formulations of the theory.
 
-However, it will turn out that we will not need the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement} for the purposes of this thesis. Hence in the case this axiom is not assumed, both the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_pairing} and the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_specification} become necessary. The \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement} becomes relevant for more advanced set theory. The same is true for an axiom that is often assumed along with the axioms of $\mathbf{ZF}$: the Axiom of Choice\footnote{Zermelo included the Axiom of Choice from the beginning, others later removed it to distinguish the two theories \cite{Zermelo1908}.}. Roughly put, the axiom states that one can manifest a set that, given a possibly infinite collection of sets, contains one element of each set of this collection. This axiom is independent of $\mathbf{ZF}$, which means that it cannot be proven or disproven from $\mathbf{ZF}$. We will also not need this axiom.
+However, it will turn out that we will not need the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement} for the purposes of this thesis. Hence in the case this axiom is not assumed, both the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_of_pairing} and the \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_specification} become necessary. The \nameref{subsec:zermelo_fraenkel_set_theory:axiom_schema_of_replacement} becomes relevant for more advanced set theory. The same is true for an axiom that is often assumed along with the axioms of $\mathbf{ZF}$: the Axiom of Choice\footnote{Zermelo included the Axiom of Choice from the beginning, others later removed it to distinguish the two theories~\cite{Zermelo1908}.}. Roughly put, the axiom states that one can manifest a set that, given a possibly infinite collection of sets, contains one element of each set of this collection. This axiom is independent of $\mathbf{ZF}$, which means that it cannot be proven or disproven from $\mathbf{ZF}$. We will also not need this axiom.
 
 \section{Relations}\label{sec:zermelo_fraenkel_set_theory:relations}
 Using these axioms, we can start to define new mathematical objects. To start, we define the ordered pair. We will first define it, and afterwards justify its definition.
@@ -196,12 +196,12 @@ Ordered tuples, and specifically ordered pairs, are ordered in the sense that ge
      \end{align*}
      so by the base case $x_{k+1}=y_{k+1}$ and $(x_1,\dots,x_k)=(y_1,\dots,y_k)$ after which it follows that $x_i=y_i$ for all $1\leq i\leq k+1$ by the induction hypothesis.
 \end{proof}
-We have now shown that the definition of ordered pairs as given in Definition~\ref{dfn:zermelo_fraenkel_set_theory:ordered_pair} yields a pair that is actually ordered. Notably, there are many more definitions possible that would satisfy this property. A reason for accepting this definition is that it ``just works" and is quite simple\footnote{One may seek a more technical justification. In the words of Kuratowski, after whom this definition is due, a simple way to create a structure that encodes ordering is by considering the set of all elements that precede an element. To encode that $a$ comes before $b$, these would be $\varnothing$, $\{a\}$ and $\{a,b\}$. Since $\varnothing$ would always be present, one can dismiss it. Thus one obtains the list $\{\{a\},\{a,b\}\}$ \cite{Kuratowski1921}.}.
+We have now shown that the definition of ordered pairs as given in Definition~\ref{dfn:zermelo_fraenkel_set_theory:ordered_pair} yields a pair that is actually ordered. Notably, there are many more definitions possible that would satisfy this property. A reason for accepting this definition is that it ``just works'' and is quite simple\footnote{One may seek a more technical justification. In the words of Kuratowski, after whom this definition is due, a simple way to create a structure that encodes ordering is by considering the set of all elements that precede an element. To encode that $a$ comes before $b$, these would be $\varnothing$, $\{a\}$ and $\{a,b\}$. Since $\varnothing$ would always be present, one can dismiss it. Thus one obtains the list $\{\{a\},\{a,b\}\}$~\cite{Kuratowski1921}.}.
 
 Given an ordered pair $z=(x,y)$, one can extract $x$ and $y$ as follows.
 \begin{align*}
-    \pi_1(z) & :=\bigcup\bigcap z=\bigcup\bigcap\{\{x\},\{x,y\}\}=\bigcup\{x\}=x, \\
-    \pi_2(z) & :=\bigcup\left\{a\in\bigcup z\mathrel{}\middle\vert\mathrel{}\bigcup z\neq\bigcap z\implies a\notin\bigcap z\right\} \\
+    \pi_1(z) & \coloneq\bigcup\bigcap z=\bigcup\bigcap\{\{x\},\{x,y\}\}=\bigcup\{x\}=x, \\
+    \pi_2(z) & \coloneq\bigcup\left\{a\in\bigcup z\mathrel{}\middle\vert\mathrel{}\bigcup z\neq\bigcap z\implies a\notin\bigcap z\right\} \\
     & =\bigcup\left\{a\in\{x,y\}\mid\{x,y\}\neq\{x\}\implies a\notin\{x\}\right\}=\bigcup\{y\}=y.
 \end{align*}
 Because we can extract the components of a pair, we may let $(x,y)$ be an arbitrary pair, instead of letting $z$ be a pair and defining $x=\pi_1(z)$ and $y=\pi_2(z)$. Henceforth, we will not bother using $\pi_1$ or $\pi_2$.
@@ -210,7 +210,7 @@ Next, we would like to define a certain notion of a product of two sets. One suc
 \begin{definition}[Cartesian product]
     We introduce the binary function symbol $X\times Y$ by
     \begin{equation*}
-        X\times Y:=\{z\in\mathcal{P}(\mathcal{P}(X\cup Y))\mid\exists x\in X\exists y\in Y(z=(x,y))\}
+        X\times Y\coloneq\{z\in\mathcal{P}(\mathcal{P}(X\cup Y))\mid\exists x\in X\exists y\in Y(z=(x,y))\}
     \end{equation*}
     called the Cartesian product.
 \end{definition}
@@ -224,17 +224,17 @@ The elements of the set $X$ are to be related with the elements of the set $Y$. 
 \begin{definition}[Domain, corange, codomain and range]
     We introduce the unary function symbols $\dom$, $\corange$, $\codom$ and $\range$ by
     \begin{align*}
-        \dom(R) & :=X, \\
-        \corange(R) & :=\{x\in X\mid\exists y\in Y((x,y)\in R)\}, \\
-        \codom(R) & :=Y, \\
-        \range(R) & :=\{y\in Y\mid\exists x\in X((x,y)\in R)\}.
+        \dom(R) & \coloneq X, \\
+        \corange(R) & \coloneq\{x\in X\mid\exists y\in Y((x,y)\in R)\}, \\
+        \codom(R) & \coloneq Y, \\
+        \range(R) & \coloneq\{y\in Y\mid\exists x\in X((x,y)\in R)\}.
     \end{align*}
 \end{definition}
 For brevity, we introduce the ternary relation symbol $x\relR y$ to mean $(x,y)\in R$. A relation on a set $X$ is a relation where $\dom(R)=\codom(R)=X$. For a given relation, it will be useful to group the elements that are related to each other. This group will later be called an equivalence class of an equivalence relation. Using these groups we will induce a definition for what an equivalence relation should be.
 \begin{definition}\label{dfn:zermelo_fraenkel_set_theory:equivalence_relation}
     We introduce the following binary function symbol to denote the set of elements that are related to a given representative $x$.
     \begin{equation*}
-        [x]_R:=\{y\in X\mid x\relR y\}.
+        [x]_R\coloneq\{y\in X\mid x\relR y\}.
     \end{equation*}
 \end{definition}
 When the context is clear, the subscript $R$ is often omitted. Since each member of $[x]$ is related, we will want to regard each one of them as the same. It will be the different sets $[x]$ that we are interested in; we wish to consider each $[x]$ as a single object in of itself. That is, for all $x\in X$ and $y\in X$ the following statements should be equivalent.
@@ -269,7 +269,7 @@ To actually consider the equivalence classes as single objects, we introduce a n
 \begin{definition}[Quotient set]
     Introduce the binary function symbol $X/R$ by
     \begin{equation*}
-        X/R:=\{[x]\in\mathcal{P}(X)\mid x\in X\}
+        X/R\coloneq\{[x]\in\mathcal{P}(X)\mid x\in X\}
     \end{equation*}
     called the quotient set.
 \end{definition}
@@ -294,14 +294,14 @@ For functions, Definition~\ref{dfn:zermelo_fraenkel_set_theory:total_relation} s
     Let $\varphi$ be a formula with free variables among which $X,y,Y$.
     Define the ternary function symbol
     \begin{equation*}
-        \{f(x)\in Y\mid\varphi(X,y,Y)\}:=\{y\in Y\mid\exists x\in X(f(x)=y\land\varphi(X,y,Y))\}.
+        \{f(x)\in Y\mid\varphi(X,y,Y)\}\coloneq\{y\in Y\mid\exists x\in X(f(x)=y\land\varphi(X,y,Y))\}.
     \end{equation*}
 \end{definition}
 With this, we can define the set of all function values.
 \begin{definition}[Image of set]
     We introduce the binary function symbol $f(A)$ by
     \begin{equation*}
-        f(A):=\{f(x)\in Y\mid x\in A\}
+        f(A)\coloneq\{f(x)\in Y\mid x\in A\}
     \end{equation*}
     called the image of $A$ under $f$.
 \end{definition}
@@ -325,7 +325,7 @@ Being bijective means that every element of the domain can be associated with a 
 \begin{definition}[Inverse relation]\label{dfn:zermelo_fraenkel_set_theory:inverse_relation}
     Let $(X,Y,R)$ be a relation. We introduce the unary function symbol $R^{-1}$ by
     \begin{equation*}
-        R^{-1}:=\{(y,x)\in Y\times X\mid (x,y)\in R\}
+        R^{-1}\coloneq\{(y,x)\in Y\times X\mid (x,y)\in R\}
     \end{equation*}
     called the inverse relation.
 \end{definition}
@@ -347,7 +347,7 @@ It is often useful to apply one function after the other, so that the output of 
 \begin{definition}[Function composition]
     Let $f:X\to Y$ and $g:Y\to Z$ be functions. Introduce the binary function symbol $g\circ f$ by
     \begin{equation*}
-        g\circ f:=\{(x,z)\in X\times Z\mid\exists y\in Y((x,y)\in f\land(y,z)\in g)\}
+        g\circ f\coloneq\{(x,z)\in X\times Z\mid\exists y\in Y((x,y)\in f\land(y,z)\in g)\}
     \end{equation*}
     called the composition of $g$ and $f$.
 \end{definition}

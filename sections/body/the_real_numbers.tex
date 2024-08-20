@@ -2,7 +2,7 @@
 \graphicspath{{\subfix{../images/}}}
 \begin{document}
 \section*{Introduction}
-While the natural numbers, integers and rational numbers have a mostly standard construction, the real numbers do not. In \textit{The real numbers - a survey of constructions} \cite{Weiss2015} Weiss listed 19 (!) constructions of the real numbers. According to the paper these were most, if not all, constructions known at that time (2015). This increase in the ways the real numbers can be constructed in a way reflects their important distinction from the rational numbers. It is also evidence that their construction is likely not as straightforward as the constructions of the other number systems were. This is then also what makes their construction particularly interesting.
+While the natural numbers, integers and rational numbers have a mostly standard construction, the real numbers do not. In \textit{The real numbers - a survey of constructions}~\cite{Weiss2015} Weiss listed 19 (!) constructions of the real numbers. According to the paper these were most, if not all, constructions known at that time (2015). This increase in the ways the real numbers can be constructed in a way reflects their important distinction from the rational numbers. It is also evidence that their construction is likely not as straightforward as the constructions of the other number systems were. This is then also what makes their construction particularly interesting.
 
 We will give three constructions. The first two constructions are the earliest and also most common formal constructions. They both date back to 1872. They are similar in nature, as they both lead to a central concept in the characterisation of the real numbers: completeness. The fact that the rational numbers seem to be incomplete dates back to as early as Ancient Greece. Completeness is what will distinguish the real numbers from the rational numbers. Intuitively a space is complete when it no longer has any holes. What these holes are precisely is dependent on the notion of completeness that is induced by the construction. Briefly put, by making an observation about something that does not hold in the rational numbers, the real numbers are constructed by addressing this deficiency.
 
@@ -13,14 +13,14 @@ Especially in the first two constructions, we will appeal to our intuition of wh
 In Section~\ref{sec:the_real_numbers:dedekinds_construction} we will give the first construction, the construction by Dede\-kind. In Section~\ref{sec:the_real_numbers:cantors_construction} we will walk through Cantor's construction. The last construction, by Schanuel, will be covered in Section~\ref{sec:the_real_numbers:schanuels_construction}. Their equivalence will be proven in Section~\ref{sec:the_real_numbers:uniqueness_of_R}. We will do this by showing they all satisfy a particular characterisation of the real numbers. A comparison of the constructions will be given in Section~\ref{sec:the_real_numbers:comparison_of_the_constructions}. We will end with some closing remarks and possibilities for further research in Section~\ref{sec:the_real_numbers:further_research}.
 
 \section{Dedekind's construction}\label{sec:the_real_numbers:dedekinds_construction}
-Dedekind observed the following about the rational numbers he denoted $R$ \cite{Dedekind1872}:
+Dedekind observed the following about the rational numbers he denoted $R$~\cite{Dedekind1872}:
 \begin{quote}
-    \textgerman{Ist $a$ eine bestimmte Zahl, so zerfallen alle Zahlen des Systems $R$ in zwei Klassen, $A_1$ und $A_2$, deren jede unendlich viele Individuen enthält; die erste Klasse $A_1$ umfaßt alle Zahlen $a_1$, welche $<a$ sind, die zweite Klasse $A_2$ umfaßt alle Zahlen $a_2$, welche $>a$ sind; [...].}
+    \textgerman{Ist $a$ eine bestimmte Zahl, so zerfallen alle Zahlen des Systems $R$ in zwei Klassen, $A_1$ und $A_2$, deren jede unendlich viele Individuen enthält; die erste Klasse $A_1$ umfaßt alle Zahlen $a_1$, welche $<a$ sind, die zweite Klasse $A_2$ umfaßt alle Zahlen $a_2$, welche $>a$ sind; [\dots].}
 \end{quote}
 \begin{quote}
-    \textit{If $a$ is a certain number, then all numbers in the system $R$ fall into two classes, $A_1$ and $A_2$, each of which contains infinitely many individuals; the first class $A_1$ includes all numbers $a_1$ which are $<a$, the second class $A_2$ includes all numbers $a_2$ which are $>a$; [...].}
+    \textit{If $a$ is a certain number, then all numbers in the system $R$ fall into two classes, $A_1$ and $A_2$, each of which contains infinitely many individuals; the first class $A_1$ includes all numbers $a_1$ which are $<a$, the second class $A_2$ includes all numbers $a_2$ which are $>a$; [\ldots].}
 \end{quote}
-He called such a division a ``\textgerman{Schnitte}" (cut). Curiously, Dedekind did not come up with this idea himself. He was inspired by Euclid, who wrote the following in Definition~5 of Book~V of \textit{Elements} over two millennia earlier \cite{Heath1926}!
+He called such a division a ``\textgerman{Schnitte}'' (cut). Curiously, Dedekind did not come up with this idea himself. He was inspired by Euclid, who wrote the following in Definition~5 of Book~V of \textit{Elements} over two millennia earlier~\cite{Heath1926}!
 \begin{quote}
     \textgreek{Ἐν τῷ αὐτῷ λόγῳ μεγέθη λέγεται εἶναι πρῶτον πρὸς δεύτερον καὶ τρίτον πρὸς τέταρτον, ὅταν τὰ τοῦ πρώτου καὶ τρίτου ἰσάκις πολλαπλάσια τῶν τοῦ δευτέρου καὶ τετάρτου ἰσάκις πολλαπλασίων καθ᾽ ὁποιονοῦν πολλαπλασιασμὸν ἑκάτερον ἑκατέρου ἢ ἅμα ὑπερέχῃ ἢ ἅμα ἴσα ἢ ἅμα ἐλλείπῃ ληφθέντα κατάλληλα.}
 \end{quote}
@@ -45,7 +45,7 @@ He then continues to prove that the cut defined by the squares of rational numbe
 \begin{quote}
     \textit{As I have already said, I do not think I am mistaken in assuming that everyone will immediately admit the truth of this statement; most of my readers will be very disappointed to hear that the secret of continuity is revealed by this triviality.}
 \end{quote}
-that revealed the ``\textgerman{Geheimnis der Stetigkeit}" (secret of continuity). To start, we will first give the following definition.
+that revealed the ``\textgerman{Geheimnis der Stetigkeit}'' (secret of continuity). To start, we will first give the following definition.
 \begin{definition}[Partition]
     A partition $\mathcal{F}$ of a set $X$ is a family of subsets of $X$ such that
     \begin{itemize}
@@ -75,11 +75,11 @@ The cuts, now to be called Dedekind cuts, can then be defined as follows.
     \caption{The Dedekind cut $\{q\in\bbQ\mid q<0\lor q\cdot q<2\}$}
     \label{fig:the_real_numbers:dedekind_cut}
 \end{figure}
-Figure~\ref{fig:the_real_numbers:dedekind_cut} is an example of a Dedekind cut. Hence intuitively, the cuts are of the form ``$(-\infty,a)$" so that every element of $A$ is less than every element in $B$. Notice that $A$ being closed downloads implies $B$ is closed upwards. This means that for a partition $(A,B)$ being a Dedekind cut only imposes restrictions on the first set $A$. The set $B$ is then completely determined by $A$. We can therefore uniquely identify the partition $(A,B)$ by its first component $A$. With this, we can define the real numbers as the set of all Dedekind cuts.
+Figure~\ref{fig:the_real_numbers:dedekind_cut} is an example of a Dedekind cut. Hence intuitively, the cuts are of the form ``$(-\infty,a)$'' so that every element of $A$ is less than every element in $B$. Notice that $A$ being closed downloads implies $B$ is closed upwards. This means that for a partition $(A,B)$ being a Dedekind cut only imposes restrictions on the first set $A$. The set $B$ is then completely determined by $A$. We can therefore uniquely identify the partition $(A,B)$ by its first component $A$. With this, we can define the real numbers as the set of all Dedekind cuts.
 \begin{definition}[Real numbers]
     Define the set $\bbR_D$ of (Dedekind) real numbers by
     \begin{equation*}
-        \bbR_D:=\{A\in\mathcal{P}(\bbQ)\mid A\text{ is a Dedekind cut of }\bbQ\}.
+        \bbR_D\coloneq\{A\in\mathcal{P}(\bbQ)\mid A\text{ is a Dedekind cut of }\bbQ\}.
     \end{equation*}
 \end{definition}
 Most operations on the Dedekind cuts are easy to define, like addition.
@@ -101,7 +101,7 @@ One can verify that $A+B$ is again a Dedekind cut.
             A+B & =\{a+b\in\bbQ\mid a\in A\land b\in B\} \\
             & =\{b+a\in\bbQ\mid b\in B\land a\in A\}=B+A.
         \end{align*}
-        \item[Identity.] Define $0:=\{q\in\bbQ\mid q<0\}$. Then $0$ is a Dedekind cut. Further we need to show that
+        \item[Identity.] Define $0\coloneq\{q\in\bbQ\mid q<0\}$. Then $0$ is a Dedekind cut. Further we need to show that
         \begin{equation*}
             A+0=\{a+q\in\bbQ\mid a\in A\land q<0\}
         \end{equation*}
@@ -116,7 +116,7 @@ One can verify that $A+B$ is again a Dedekind cut.
             & =\{a+b\in\bbQ\mid a\in A\land b\in B\}+C \\
             & =(A+B)+C.
         \end{align*}
-        \item[Inverse.] Let $A\in\bbR_D$ be arbitrary. Take $-A:=\{q-b\in\bbQ\mid q<0\land b\in\bbQ\setminus A\}$. Then $-A$ is a Dedekind cut and
+        \item[Inverse.] Let $A\in\bbR_D$ be arbitrary. Take $-A\coloneq\{q-b\in\bbQ\mid q<0\land b\in\bbQ\setminus A\}$. Then $-A$ is a Dedekind cut and
         \begin{align*}
             A+(-A) & =\{a+(q-b)\in\bbQ\mid q<0\land a\in A\land b\in\bbQ\setminus A\} \\
             & =\{q+(a-b)\in\bbQ\mid q<0\land a\in A\land b\in\bbQ\setminus A\} \\
@@ -125,7 +125,7 @@ One can verify that $A+B$ is again a Dedekind cut.
         \end{align*}
     \end{description}
 \end{proof}
-Unfortunately, multiplication is slightly harder to define. A naive definition would be $A\cdot B=\{a\cdot b\in\bbQ\mid a\in A\land b\in B\}$. Recall that intuitively the cuts are of the form ``$(-\infty,a)$". We would for example want that ``$(-\infty,-1)\cdot(-\infty,-1)=(-\infty,1)$". With this definition however, since $-2$ is in both intervals, $-2\cdot-2=4$ would be in the resulting interval. We therefore need to ignore the negative numbers and add them back in manually. We also need to consider the sign of both numbers in separate cases. For this reason, we will first define the order on the real numbers. Luckily this is very straightforward.
+Unfortunately, multiplication is slightly harder to define. A naive definition would be $A\cdot B=\{a\cdot b\in\bbQ\mid a\in A\land b\in B\}$. Recall that intuitively the cuts are of the form ``$(-\infty,a)$''. We would for example want that ``$(-\infty,-1)\cdot(-\infty,-1)=(-\infty,1)$''. With this definition however, since $-2$ is in both intervals, $-2\cdot-2=4$ would be in the resulting interval. We therefore need to ignore the negative numbers and add them back in manually. We also need to consider the sign of both numbers in separate cases. For this reason, we will first define the order on the real numbers. Luckily this is very straightforward.
 \begin{definition}[Order on real numbers]
     Define the order on $\bbR_D$ as $A\leq B$ if $A\subseteq B$.
 \end{definition}
@@ -165,14 +165,14 @@ It can be verified that $A\cdot B$ is a Dedekind cut. $\bbR_D$ has the following
             A\cdot B & =\{a\cdot b\in\bbQ\mid a\in A\land a\geq0\land b\in B\land b\geq0\}\cup0 \\
             & =\{b\cdot a\in\bbQ\mid b\in B\land b\geq0\land a\in A\land a\geq0\}\cup0=B\cdot A.
         \end{align*}
-        \item[Identity.] Define $1:=\{q\in\bbQ\mid q<1\}$. Then $1$ is a Dedekind cut. Let $A\in\bbR_D^{\geq0}$ be arbitrary. We have
+        \item[Identity.] Define $1\coloneq\{q\in\bbQ\mid q<1\}$. Then $1$ is a Dedekind cut. Let $A\in\bbR_D^{\geq0}$ be arbitrary. We have
         \begin{align*}
             A\cdot1 & =\{a\cdot q\in\bbQ\mid a\in A\land a\geq0\land q<1\land q\geq0\}\cup0 \\
             & =\{a\in\bbQ\mid a\in A\land a\geq0\}\cup0 \\
             & =\{a\in\bbQ\mid a\in A\}=A,
         \end{align*}
         where we used that multiplying $a$ by $0\leq q<1$ cannot result in $a$ leaving $A$ or $a<0$.
-        \item[Inverse.] Let $A\in\bbR_D$ be arbitrary with $A>0$. Define $A^{-1}:=\{q/b\in\bbQ\mid q<1\land b\in\bbQ\setminus A\}$. Then
+        \item[Inverse.] Let $A\in\bbR_D$ be arbitrary with $A>0$. Define $A^{-1}\coloneq\{q/b\in\bbQ\mid q<1\land b\in\bbQ\setminus A\}$. Then
         \begin{align*}
             A\cdot A^{-1} & =\{a\cdot(q/b)\in\bbQ\mid a\in A\land a\geq0\land q<1\land b\in\bbQ\setminus A\land q\geq0\}\cup0 \\
             & =\{q\cdot(a/b)\in\bbQ\mid a\in A\land a\geq0\land q<1\land b\in\bbQ\setminus A\land q\geq0\}\cup0 \\
@@ -219,22 +219,22 @@ We will now prove Dedekind-completeness and the least-upper-bound property are i
 By Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:Q_smallest_ordered_field} there exists an embedding from $\bbQ$ to $\bbR_D$. Even though we gave a constructive proof, it is practical to state the embedding explicitly. The embedding is given by $f:\bbQ\to\bbR_D$ defined by $f(q)=\{a\in\bbQ\mid a<q\}$. It can be readily verified $f$ is indeed an embedding.
 
 \section{Cantor's construction}\label{sec:the_real_numbers:cantors_construction}
-The next construction, usually attributed to Cantor\footnote{It is actually due to Méray, who published his work three years earlier \cite{Meray1869}.}, uses a certain sense of closeness of members of a sequence. In his own words \cite{Cantor1883}:
+The next construction, usually attributed to Cantor\footnote{It is actually due to Méray, who published his work three years earlier~\cite{Meray1869}.}, uses a certain sense of closeness of members of a sequence. In his own words~\cite{Cantor1883}:
 \begin{quote}
-    \textgerman{[...] ich fordre, dass nach Annahme einer beliebig kleinen rationalen Zahl $\epsilon$ eine endliche Anzahl von Gliedern der Menge abgeschieden werden kann, so dass die übrig bleibenden paarweise einen Unterschied haben, der seiner absoluten Grösse nach kleiner ist als $\epsilon$.}
+    \textgerman{[\dots] ich fordre, dass nach Annahme einer beliebig kleinen rationalen Zahl $\epsilon$ eine endliche Anzahl von Gliedern der Menge abgeschieden werden kann, so dass die übrig bleibenden paarweise einen Unterschied haben, der seiner absoluten Grösse nach kleiner ist als $\epsilon$.}
 \end{quote}
 \begin{quote}
-    \textit{[...] I require that after assuming an arbitrarily small rational number $\epsilon$, a finite number of members of the set can be separated so that the remaining pairs have a difference that is smaller in absolute size than $\epsilon$.}
+    \textit{[\ldots] I require that after assuming an arbitrarily small rational number $\epsilon$, a finite number of members of the set can be separated so that the remaining pairs have a difference that is smaller in absolute size than $\epsilon$.}
 \end{quote}
-This notion of closeness may be familiar to the reader. Today sequences with this property are called Cauchy sequences. Cantor used these Cauchy sequences (or ``\textgerman{Fundamentalreihe}" as he called them) to construct the real numbers. See Figure~\ref{fig:the_real_numbers:cauchy_sequence} for an example of a Cauchy sequence\footnote{Decimal expansions are also Cauchy sequences but are hard to define for irrational numbers without prior knowledge of them.}.
+This notion of closeness may be familiar to the reader. Today sequences with this property are called Cauchy sequences. Cantor used these Cauchy sequences (or ``\textgerman{Fundamentalreihe}'' as he called them) to construct the real numbers. See Figure~\ref{fig:the_real_numbers:cauchy_sequence} for an example of a Cauchy sequence\footnote{Decimal expansions are also Cauchy sequences but are hard to define for irrational numbers without prior knowledge of them.}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/cauchy_sequence.png}
+    \includegraphics[width=0.75\linewidth]{figures/cauchy_sequence}
     \caption{The Cauchy sequence $(q_n):\bbN\to\bbQ$ defined by $q_0=2$ and $q_{n+1}=(q_n+2/q_n)/2$}
     \label{fig:the_real_numbers:cauchy_sequence}
 \end{figure}
 
-With ``\textgerman{absoluten Grösse}" (absolute in size) Cantor meant that the sign of a number is unimportant; only its magnitude is. For this, we will introduce a new function.
+With ``\textgerman{absoluten Grösse}'' (absolute in size) Cantor meant that the sign of a number is unimportant; only its magnitude is. For this, we will introduce a new function.
 \begin{definition}[Absolute value function]\label{dfn:the_real_numbers:absolute_value_function}
     We define the absolute value function as the map $\bbQ\to\{q\in\bbQ\mid q\geq0\}$ defined by
     \begin{equation*}
@@ -245,7 +245,7 @@ With ``\textgerman{absoluten Grösse}" (absolute in size) Cantor meant that the 
         \end{cases}.
     \end{equation*}
 \end{definition}
-Cantor considered Cauchy sequences of rational numbers. For a given Cauchy sequence, he stated that ``\textgerman{Der Reihe hat eine bestimmte Grenze $b$}" (the sequence has a certain limit $b$) \cite{Cantor1872}. That is, since a Cauchy sequence is a sequence for which its values get closer and closer together, Cantor argued it must have a limit. These limits are precisely the real numbers. This however, is slightly inaccurate. To see why, we will now formally state what it means for a sequence to be Cauchy, and to have a limit (to converge).
+Cantor considered Cauchy sequences of rational numbers. For a given Cauchy sequence, he stated that ``\textgerman{Der Reihe hat eine bestimmte Grenze $b$}'' (the sequence has a certain limit $b$)~\cite{Cantor1872}. That is, since a Cauchy sequence is a sequence for which its values get closer and closer together, Cantor argued it must have a limit. These limits are precisely the real numbers. This however, is slightly inaccurate. To see why, we will now formally state what it means for a sequence to be Cauchy, and to have a limit (to converge).
 \begin{definition}[Cauchy sequence]
     A sequence $(q_n):\bbN\to\bbQ$ is Cauchy if
     \begin{equation*}
@@ -259,9 +259,9 @@ Cantor considered Cauchy sequences of rational numbers. For a given Cauchy seque
     \end{equation*}
     in which case we write $q_n\to q$.
 \end{definition}
-Crucially convergence of a rational sequence requires the existence of a rational number to which it converges; its limit. Cauchy sequences do not require this. But if every rational Cauchy sequence has a limit (it converges), it too must be a rational number. That is, we would not have constructed the real numbers at all. That must mean that not every rational Cauchy sequence converges. This is indeed the case. In particular, the Cauchy sequences that do not converge, reveal ``holes" in the rational numbers. These holes are precisely the irrational numbers; the real numbers which are not rational. In particular, the Cauchy sequence from Figure~\ref{fig:the_real_numbers:cauchy_sequence} is not convergent.
+Crucially convergence of a rational sequence requires the existence of a rational number to which it converges; its limit. Cauchy sequences do not require this. But if every rational Cauchy sequence has a limit (it converges), it too must be a rational number. That is, we would not have constructed the real numbers at all. That must mean that not every rational Cauchy sequence converges. This is indeed the case. In particular, the Cauchy sequences that do not converge, reveal ``holes'' in the rational numbers. These holes are precisely the irrational numbers; the real numbers which are not rational. In particular, the Cauchy sequence from Figure~\ref{fig:the_real_numbers:cauchy_sequence} is not convergent.
 
-Since the Cauchy sequences reveal the gaps in the rational numbers, the Cauchy sequences are what will represent the real numbers. Note that more than one Cauchy sequence can represent a single real number, though. A trivial case of this is when the first term in a sequence is changed to an arbitrary other rational number. This will not affect the Cauchy property a sequence has. For this reason, we will have to define a relation on these Cauchy sequences and unify them in equivalence classes. We will do this as follows. Define the relation $\sim$ on $C_\bbQ:=\{(q_n)\in\bbQ^\bbN\mid(q_n)\text{ is Cauchy}\}$ by
+Since the Cauchy sequences reveal the gaps in the rational numbers, the Cauchy sequences are what will represent the real numbers. Note that more than one Cauchy sequence can represent a single real number, though. A trivial case of this is when the first term in a sequence is changed to an arbitrary other rational number. This will not affect the Cauchy property a sequence has. For this reason, we will have to define a relation on these Cauchy sequences and unify them in equivalence classes. We will do this as follows. Define the relation $\sim$ on $C_\bbQ\coloneq\{(q_n)\in\bbQ^\bbN\mid(q_n)\text{ is Cauchy}\}$ by
 \begin{equation}\label{eqn:the_real_numbers:cantor_relation_real_numbers}
     (p_n)\sim(q_n)\iff\vert p_n-q_n\vert\to0.
 \end{equation}
@@ -274,7 +274,7 @@ Two Cauchy sequences are related when the sequence defined by the absolute value
 \end{proof}
 As such, we will now define the real numbers as the equivalence classes of $\sim$.
 \begin{definition}[Real numbers]
-    Define the set $\bbR_C$ of (Cantor) real numbers by $\bbR_C:=C_\bbQ/{\sim}$.
+    Define the set $\bbR_C$ of (Cantor) real numbers by $\bbR_C\coloneq C_\bbQ/{\sim}$.
 \end{definition}
 Part of the elegance of this construction is that all operations work pointwise.
 \begin{definition}[Addition of real numbers]
@@ -294,7 +294,7 @@ One should verify that both these functions are well-defined, and in particular 
     $(\bbR_C,+,\cdot)$ is a field.
 \end{proposition}
 \begin{proof}
-    Most properties follow directly by the properties on the rational numbers as shown in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:field_rational_numbers}. The additive identity is $0:=[(0)]$ as for any $[(q_n)]\in\bbR_C$ we have $[(q_n)]+[(0)]=[(q_n+0)]=[(q_n)]$. The additive inverse is $-[(q_n)]:=[(-q_n)]$ as $[(q_n)]+[(-q_n)]=[(q_n-q_n)]=[(0)]=0$. The multiplicative identity is $1:=[(1)]$ as $[(q_n)]\cdot[(1)]=[(q_n\cdot1)]=[(q_n)]$. We need to be a little bit careful for the the multiplicative inverse. We would want to say that it is $[(q_n)]^{-1}:=[(q_n^{-1})]$. However, we might have that $q_n=0$ for various $n\in\bbN$. Furthermore, $(q_n^{-1})$ might not be Cauchy for general $(q_n)$. We will show that when $q_n\not\to0$, there exists an $N\in\bbN$ such that for all $n\geq N$ we have $q_n\neq0$, and moreover that $(q_n^{-1})$ is then Cauchy. Because $q_n\not\to0$, there exists an $\epsilon>0$ such that for all $m\in\bbN$ there exists an $n\geq m$ for which $\vert q_n\vert>\epsilon$. Because $(q_n)$ is Cauchy, there exists an $N\in\bbN$ such that for all $m\geq N$ we have $\vert q_n-q_m\vert<\epsilon/2$. Then $-\epsilon/2<q_n-q_m<\epsilon/2$ so that $-\epsilon/2+q_m<q_n<\epsilon/2+q_m$. Hence $\epsilon<\vert q_n\vert<\epsilon/2+\vert q_m\vert$, so $\vert q_m\vert>\epsilon/2>0$. We will now show $(q_n^{-1})$ is Cauchy. Like before, take $\epsilon>0$ and for any $N\in\bbN$ take $n\geq N$ for which $\vert q_n\vert>\epsilon$. Because $(q_n)$ is Cauchy, there exists an $N\in\bbN$ such that for $m\geq N$ we have $\vert q_m-q_n\vert<\epsilon\cdot\epsilon\cdot\epsilon$. Without loss of generality suppose $q_m>\epsilon$. Then $\vert1/q_m-1/q_n\vert=\vert q_n-q_m\vert/\vert q_m\cdot q_n\vert<\epsilon\cdot\epsilon\cdot\epsilon/(\epsilon\cdot\epsilon)=\epsilon$. We conclude that for $[(q_n)]\neq0$ we can thus pick a nonzero representative $(q_n)$ to define $[(q_n)]^{-1}=[(q_n^{-1})]$. This is the inverse as $[(q_n)]\cdot[(q_n^{-1})]=[(q_n\cdot q_n^{-1})]=[(1)]=1$.
+    Most properties follow directly by the properties on the rational numbers as shown in Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:field_rational_numbers}. The additive identity is $0\coloneq[(0)]$ as for any $[(q_n)]\in\bbR_C$ we have $[(q_n)]+[(0)]=[(q_n+0)]=[(q_n)]$. The additive inverse is $-[(q_n)]\coloneq[(-q_n)]$ as $[(q_n)]+[(-q_n)]=[(q_n-q_n)]=[(0)]=0$. The multiplicative identity is $1\coloneq[(1)]$ as $[(q_n)]\cdot[(1)]=[(q_n\cdot1)]=[(q_n)]$. We need to be a little bit careful for the the multiplicative inverse. We would want to say that it is $[(q_n)]^{-1}\coloneq[(q_n^{-1})]$. However, we might have that $q_n=0$ for various $n\in\bbN$. Furthermore, $(q_n^{-1})$ might not be Cauchy for general $(q_n)$. We will show that when $q_n\not\to0$, there exists an $N\in\bbN$ such that for all $n\geq N$ we have $q_n\neq0$, and moreover that $(q_n^{-1})$ is then Cauchy. Because $q_n\not\to0$, there exists an $\epsilon>0$ such that for all $m\in\bbN$ there exists an $n\geq m$ for which $\vert q_n\vert>\epsilon$. Because $(q_n)$ is Cauchy, there exists an $N\in\bbN$ such that for all $m\geq N$ we have $\vert q_n-q_m\vert<\epsilon/2$. Then $-\epsilon/2<q_n-q_m<\epsilon/2$ so that $-\epsilon/2+q_m<q_n<\epsilon/2+q_m$. Hence $\epsilon<\vert q_n\vert<\epsilon/2+\vert q_m\vert$, so $\vert q_m\vert>\epsilon/2>0$. We will now show $(q_n^{-1})$ is Cauchy. Like before, take $\epsilon>0$ and for any $N\in\bbN$ take $n\geq N$ for which $\vert q_n\vert>\epsilon$. Because $(q_n)$ is Cauchy, there exists an $N\in\bbN$ such that for $m\geq N$ we have $\vert q_m-q_n\vert<\epsilon\cdot\epsilon\cdot\epsilon$. Without loss of generality suppose $q_m>\epsilon$. Then $\vert1/q_m-1/q_n\vert=\vert q_n-q_m\vert/\vert q_m\cdot q_n\vert<\epsilon\cdot\epsilon\cdot\epsilon/(\epsilon\cdot\epsilon)=\epsilon$. We conclude that for $[(q_n)]\neq0$ we can thus pick a nonzero representative $(q_n)$ to define $[(q_n)]^{-1}=[(q_n^{-1})]$. This is the inverse as $[(q_n)]\cdot[(q_n^{-1})]=[(q_n\cdot q_n^{-1})]=[(1)]=1$.
 \end{proof}
 The order also works pointwise, but for the tail of the sequence. The first few terms of the sequence need not obey the order, it only matters how the sequence behaves after a certain point.
 \begin{definition}[Order on real numbers]\label{dfn:the_real_numbers:cantor_order}
@@ -374,7 +374,7 @@ We thus have a set $\bbR_C$ that contains no holes in the sense of Cauchy-comple
     \end{equation*}
     This statement is sometimes also called the axiom of Archimedes.
 \end{definition}
-Although attributed to Archimedes, it was Euclid who essentially stated the Archimedean property in \textit{Elements}. He wrote the following in Definition~4 of Book~V \cite{Heath1926}:
+Although attributed to Archimedes, it was Euclid who essentially stated the Archimedean property in \textit{Elements}. He wrote the following in Definition~4 of Book~V~\cite{Heath1926}:
 \begin{quote}
     \textgreek{Λόγον ἔχειν πρὸς ἄλληλα μεγέθη λέγεται, ἃ δύναται πολλαπλασιαζόμενα ἀλλήλων ὑπερέχειν.}
 \end{quote}
@@ -404,18 +404,18 @@ The above proof can be modified to show that any Cauchy sequence is bounded, som
 \end{proof}
 
 \section{Schanuel's construction}\label{sec:the_real_numbers:schanuels_construction}
-While Cantor and Dedekind pioneered in rigorously defining the real numbers, to this day mathematicians are still trying to invent new ways to define them. One quite recent construction in particular sparked the interest of many mathematicians. This is the construction by Schanuel, developed in the 1980s. Sadly he never published his work. Instead he told other mathematicians about it, who went on to publish it. One of these publications is by Street \cite{Street1985}. We will follow the work of A'Campo \cite{ACampo2003}, who independently rediscovered it. Some proofs are omitted, these can be found in \cite{ACampo2003}.
+While Cantor and Dedekind pioneered in rigorously defining the real numbers, to this day mathematicians are still trying to invent new ways to define them. One quite recent construction in particular sparked the interest of many mathematicians. This is the construction by Schanuel, developed in the 1980s. Sadly he never published his work. Instead he told other mathematicians about it, who went on to publish it. One of these publications is by Street~\cite{Street1985}. We will follow the work of A'Campo~\cite{ACampo2003}, who independently rediscovered it. Some proofs are omitted, these can be found in~\cite{ACampo2003}.
 
 Having (supposedly) constructed the real numbers in the previous two constructions, for this construction we will assume some knowledge about the real numbers. Schanuel noticed that there exists a trivial correspondence between any real number $a\in\bbR$ and the function $f:\bbR\to\bbR$ defined by $f(x)=a\cdot x$. Here the coefficient $a$ is called the slope of $f$. To construct the real numbers, Schanuel's idea was to approximate $f$ by restricting the domain and codomain of $f$ to $\bbZ$. There are however multiple ways to do this, the approximations are not unique. See Figure~\ref{fig:the_real_numbers:schanuel_function_approximation} for a few examples.
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/schanuel_function_approximation.png}
+    \includegraphics[width=\linewidth]{figures/schanuel_function_approximation}
     \caption{A linear function and three of its approximations}
     \label{fig:the_real_numbers:schanuel_function_approximation}
 \end{figure}
 
-Whichever two reasonable approximations one chooses, the following should hold \cite{Piponi2006}.
+Whichever two reasonable approximations one chooses, the following should hold~\cite{Piponi2006}.
 \begin{itemize}
     \item When their underlying functions are equal, their difference should be bounded. That is, no two approximations of the same function can differ too much.
     \item When their underlying function are unequal, their difference should be unbounded. That is, two approximations should differ arbitrarily much when the underlying functions are unequal.
@@ -431,11 +431,11 @@ A function being an almost homomorphism means that it is a reasonable approximat
 
 Note that A'Campo used different, but equivalent, definitions for almost homomorphisms and almost equality. He required that instead of bounded, the sets are finite. While this can be shown to be equivalent, we have not defined finiteness of sets. To avoid this additional overhead we have stated the definitions in terms of boundedness.
 
-This construction has also been given the name ``Eudoxus real numbers", for example by Arthan in \cite{Arthan2004}. This is because they can be interpreted within the theory of proportions by Eudoxus. More specifically Definition~5 in Book~5 of Euclid's \textit{Elements} gives rise to this construction. This is precisely the definition that gave rise to the Dedekind real numbers too. See \cite{Arthan2004} for the details regarding this. We will call them the Schanuel real numbers like we have done for the Dedekind and Cantor real numbers.
+This construction has also been given the name ``Eudoxus real numbers'', for example by Arthan in~\cite{Arthan2004}. This is because they can be interpreted within the theory of proportions by Eudoxus. More specifically Definition~5 in Book~5 of Euclid's \textit{Elements} gives rise to this construction. This is precisely the definition that gave rise to the Dedekind real numbers too. See~\cite{Arthan2004} for the details regarding this. We will call them the Schanuel real numbers like we have done for the Dedekind and Cantor real numbers.
 
 We will now mathematically state the relation on the almost homomorphisms. Define the relation $\sim$ on
 \begin{equation*}
-    \operatorname{AEnd}(\bbZ):=\{f\in\bbZ^\bbZ\mid f\text{ is an almost homomorphism}\}
+    \operatorname{AEnd}(\bbZ)\coloneq\{f\in\bbZ^\bbZ\mid f\text{ is an almost homomorphism}\}
 \end{equation*}
 by
 \begin{equation}\label{eqn:the_real_numbers:schanuels_relation_real_numbers}
@@ -450,7 +450,7 @@ by
 \end{proof}
 
 \begin{definition}[Real numbers]
-    Define the set $\bbR_S$ of (Schanuel) real numbers by $\bbR_S:=\operatorname{AEnd}(\bbZ)/{\sim}$.
+    Define the set $\bbR_S$ of (Schanuel) real numbers by $\bbR_S\coloneq\operatorname{AEnd}(\bbZ)/{\sim}$.
 \end{definition}
 
 \begin{definition}[Addition of real numbers]
@@ -464,7 +464,7 @@ It follows that $f+g$ is an almost homomorphism by the proof of transitivity of 
     $(\bbR_S,+)$ is an abelian group.
 \end{proposition}
 \begin{proof}
-    Because addition works pointwise, all properties follow directly by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}. The identity is the zero function $0:\bbZ\to\bbZ$. The inverse of $[f]\in\bbR_S$ is given by $-[f]:=[-f]$.
+    Because addition works pointwise, all properties follow directly by Proposition~\ref{prp:the_natural_numbers_integers_and_rational_numbers:abelian_group_integers}. The identity is the zero function $0:\bbZ\to\bbZ$. The inverse of $[f]\in\bbR_S$ is given by $-[f]\coloneq[-f]$.
 \end{proof}
 
 \begin{definition}[Multiplication of real numbers]
@@ -493,7 +493,7 @@ By Lemma~\ref{lma:the_real_numbers:homomorphism_equivalent_odd_homomorphism} it 
 \begin{definition}[Well-adjusted almost homomorphism]
     An almost homomorphism $f:\bbZ\to\bbZ$ is well-adjusted if $\vert f(a+b)-f(a)-f(b)\vert\leq1$ for all $a\in\bbZ$ and $b\in\bbZ$.
 \end{definition}
-\begin{lemma}[Concentration lemma, Lemma~4 in \cite{ACampo2003}]\label{lma:the_real_numbers:concentration_lemma}
+\begin{lemma}[Concentration lemma, Lemma~4 in~\cite{ACampo2003}]\label{lma:the_real_numbers:concentration_lemma}
     Every almost homomorphism is equivalent to a well-adjusted almost homomorphism.
 \end{lemma}
 Using this lemma, one can obtain the following properties. Let $[f]\in\bbR_S$ be arbitrary. Assume $f$ is well-adjusted.
@@ -502,7 +502,7 @@ Using this lemma, one can obtain the following properties. Let $[f]\in\bbR_S$ be
     \item We have $[f]>0$ if and only if there exists an $a\in\bbZ$ such that $f(a)>1$.
 \end{enumerate}
 From this lemma, the following result can be proven.
-\begin{lemma}[Lemma~5 in \cite{ACampo2003}]\label{lma:the_real_numbers:almost_homomorphism_each_value_finitely_often}
+\begin{lemma}[Lemma~5 in~\cite{ACampo2003}]\label{lma:the_real_numbers:almost_homomorphism_each_value_finitely_often}
     Let $f:\bbZ\to\bbZ$ be an almost homomorphism. If $f(\bbZ)$ is unbounded then there exists $b\geq0$ and $B\geq0$ such that the following properties hold.
     \begin{align*}
         & \forall a\in\bbZ\forall n\in\bbN(\vert f(a+n)-f(a)\vert\leq n\cdot b), \\
@@ -515,7 +515,7 @@ With this, we are in good shape to prove that $\bbR_S$ is an ordered field.
     $(\bbR_S,+,\cdot,\leq)$ is an ordered field.
 \end{proposition}
 \begin{proof}
-    By Proposition~\ref{prp:the_real_numbers:schanuel_abelian_group_real_numbers} we have that $(\bbR_S,+,\cdot)$ is an abelian group. It remains to show that $(\bbR_S,+,\cdot)$ is a field, that $(\bbR_S,\leq)$ is a total order and that the order is preserved under addition and multiplication. Associativity of $\cdot$ follows because function composition is associative. We define the multiplicative identity as $1:=[\id]$ where $\id:\bbZ\to\bbZ$ is the identity function. Then for all $[f]\in\bbR_S$ we have $[f]\cdot[i]=[f\circ\id]=[f]$.
+    By Proposition~\ref{prp:the_real_numbers:schanuel_abelian_group_real_numbers} we have that $(\bbR_S,+,\cdot)$ is an abelian group. It remains to show that $(\bbR_S,+,\cdot)$ is a field, that $(\bbR_S,\leq)$ is a total order and that the order is preserved under addition and multiplication. Associativity of $\cdot$ follows because function composition is associative. We define the multiplicative identity as $1\coloneq[\id]$ where $\id:\bbZ\to\bbZ$ is the identity function. Then for all $[f]\in\bbR_S$ we have $[f]\cdot[i]=[f\circ\id]=[f]$.
     \begin{description}
         \item[Commutative.] Let $[f]\in\bbR_S$ and $[g]\in\bbR_S$ be arbitrary. Because the almostness of the almost homomorphisms $f$ and $g$ is bound by $S_f$ and $S_g$ respectively, we obtain the following estimate.
         \begin{align*}
@@ -552,7 +552,7 @@ Since this construction did not give rise to a natural new notion of completenes
 \begin{proposition}\label{prp:the_real_numbers:schanuel_R_dedekind_complete}
     $(\bbR_S,+,\cdot,\leq)$ is an ordered Dedekind-complete field.
 \end{proposition}
-See \cite{ACampo2003} for the proof. Note that we have skipped over the rational numbers. Since they are still useful to know, we want to define them anyways. Therefore instead of defining an embedding, we will extract the rational numbers from the real numbers. Note that for integers $a$ and $b$, the rational number ``$a/b$" is the solution of $b\cdot x=a$.
+See~\cite{ACampo2003} for the proof. Note that we have skipped over the rational numbers. Since they are still useful to know, we want to define them anyways. Therefore instead of defining an embedding, we will extract the rational numbers from the real numbers. Note that for integers $a$ and $b$, the rational number ``$a/b$'' is the solution of $b\cdot x=a$.
 \begin{definition}[Rational numbers]
     Define the rational numbers $\bbQ_{\bbR_S}$ by
     \begin{equation*}
@@ -607,7 +607,7 @@ We saw that Cauchy sequences allowed us to expose the real numbers from the rati
 \begin{proof}
     By the Archimedean property there exists an $n\in\bbN$ such that $n>1/(y-x)$. Rewriting yields $n\cdot x+1<n\cdot y$. It can be verified that again by the Archimedean property, along with the well-ordering of $\bbN$, there exists a minimal $m\in\bbZ$ such that $n\cdot x<m$. Because this $m$ is minimal, we have $m-1\leq n\cdot x<m$. Thus $n\cdot x<m\leq n\cdot x+1<n\cdot y$. We conclude $n\cdot x<m<n\cdot y$ so that $x<m/n<y$.
 \end{proof}
-With this, we can now turn to proving the uniqueness of the real numbers. It was Huntington who in 1903 first characterised the real numbers using a set of properties they should satisfy \cite{Huntington1903}. We will state the uniqueness in terms of Cauchy-completeness and the Archimedean property. We will do this because we will use Proposition~\ref{prp:the_real_numbers:Q_dense_in_ordered_archimedean_field} and Cauchy-completeness intensively. Of course, by Theorem~\ref{thm:the_real_numbers:equivalence_cauchy_dedekind_completeness} this can be equivalently stated in terms of Dedekind-completeness.
+With this, we can now turn to proving the uniqueness of the real numbers. It was Huntington who in 1903 first characterised the real numbers using a set of properties they should satisfy~\cite{Huntington1903}. We will state the uniqueness in terms of Cauchy-completeness and the Archimedean property. We will do this because we will use Proposition~\ref{prp:the_real_numbers:Q_dense_in_ordered_archimedean_field} and Cauchy-completeness intensively. Of course, by Theorem~\ref{thm:the_real_numbers:equivalence_cauchy_dedekind_completeness} this can be equivalently stated in terms of Dedekind-completeness.
 \begin{theorem}[Uniqueness of $\bbR$]\label{thm:the_real_numbers:uniqueness_R}
     $(\bbR,+,\cdot,\leq)$ is the unique ordered Cauchy-complete Archimedean field.
 \end{theorem}
@@ -627,7 +627,7 @@ We have done it; we have proven the existence and uniqueness of the real numbers
 \section{Comparison of the constructions}\label{sec:the_real_numbers:comparison_of_the_constructions}
 In this section we will take a step back and remove our blindfolds for knowledge exterior to what we have established so far. That means that we will assume knowledge of other fields in mathematics to give a more informed overview of the constructions.
 
-Before comparing the constructions themselves, we will look at their structure in terms of sets, see also \cite{Borovik2012}. Note that we built the rational numbers as equivalence classes of pairs of integers. Let $\alpha$ extract these equivalence classes from the pairs. That is $\bbQ=(\bbZ\times\bbZ)_\alpha$. We find the following compositions of the real numbers.
+Before comparing the constructions themselves, we will look at their structure in terms of sets, see also~\cite{Borovik2012}. Note that we built the rational numbers as equivalence classes of pairs of integers. Let $\alpha$ extract these equivalence classes from the pairs. That is $\bbQ=(\bbZ\times\bbZ)_\alpha$. We find the following compositions of the real numbers.
 \begin{align*}
     \bbR_D & =\left(\mathcal{P}\left((\bbZ\times\bbZ)_\alpha\right)\right)_\delta, \\
     \bbR_C & =(\bbN\to(\bbZ\times\bbZ)_\alpha)_\gamma, \\
@@ -641,7 +641,7 @@ Dedekind's construction also generalises well to general ordered sets. In fact, 
 
 Contrary to Dedekind real numbers, Cantor real numbers are represented by equivalence classes. Since operations on equivalence classes are defined in terms of their representatives, it is often necessary to verify the operation (relation) is both total and univalent. While this is often readily done, sometimes it is not immediately clear. For example, in general the reciprocal of a Cauchy sequence is not Cauchy. Only because we could cherry-pick the representatives, we were able to make this work.
 
-Similar to Dedekind's construction, Cantor's construction can be easily generalised. Let $X$ be a set and let $d:(X\times X)\to\bbR$ be a function. Then $(X,d)$ is a metric space\footnote{Even more generally, one can consider Cauchy filters in a uniform space. See \cite{Kelley1975} for more information.} when for all $x\in X$, $y\in X$ and $z\in X$ one has
+Similar to Dedekind's construction, Cantor's construction can be easily generalised. Let $X$ be a set and let $d:(X\times X)\to\bbR$ be a function. Then $(X,d)$ is a metric space\footnote{Even more generally, one can consider Cauchy filters in a uniform space. See~\cite{Kelley1975} for more information.} when for all $x\in X$, $y\in X$ and $z\in X$ one has
 \begin{itemize}
     \item $d(x,y)\geq0$,
     \item $d(x,y)=0\iff x=y$,
@@ -655,11 +655,11 @@ Schanuel's construction also relied on equivalence classes, making operations on
 Schanuel's construction skips over the rational numbers, and therefore avoids all proofs related to them. However, one may object that the rational numbers are to be constructed at some point anyway, because of their usefulness in many occasions. Frankly without them, there is no such thing as rational and irrational numbers. However, Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:Q_smallest_ordered_field} asserts that $\bbQ$ must exist in $\bbR_S$, which is sufficient to know for most cases. If explicit representations of rational numbers in $\bbR_S$ are sought after, we saw that one can construct $\bbQ$ as a subfield of $\bbR_S$. It would have to be shown first that they are indeed isomorphic to $\bbQ$, though.
 
 \section{Further research}\label{sec:the_real_numbers:further_research}
-Given that completeness characterised the real numbers, one may wonder wheth\-er there exists a notion of completeness that the real numbers lack. One direction to explore is that of non-Archimedean ordered fields. These include number systems like the surreal \cite{Conway1976} and hyperreal \cite{Goldblatt1998} numbers. These are number systems that contain infinitely small and infinitely large numbers, which the real numbers certainly do not. However, one should wonder in what sense these number systems are actually more complete than the real numbers. They are, for example, still not closed under inversion; infinity (``$1/0$") remains not a number. It turns out that the surreal numbers are ``saturated" \cite{Michael1963}. The saturation property mandates that for any two subsets\footnote{Note that the surreal numbers are too large to form a set, they form a proper class. However the saturation property only applies to subsets.} $A$ and $B$ of surreal numbers such that every element of $A$ is less than every element of $B$, there exists a surreal number larger than all elements of $A$ and smaller than all elements of $B$. This fails in the real numbers: take any Dedekind cut. Note that the saturation property is a stronger property than Dedekind-completeness.
+Given that completeness characterised the real numbers, one may wonder wheth\-er there exists a notion of completeness that the real numbers lack. One direction to explore is that of non-Archimedean ordered fields. These include number systems like the surreal~\cite{Conway1976} and hyperreal~\cite{Goldblatt1998} numbers. These are number systems that contain infinitely small and infinitely large numbers, which the real numbers certainly do not. However, one should wonder in what sense these number systems are actually more complete than the real numbers. They are, for example, still not closed under inversion; infinity (``$1/0$'') remains not a number. It turns out that the surreal numbers are ``saturated''~\cite{Michael1963}. The saturation property mandates that for any two subsets\footnote{Note that the surreal numbers are too large to form a set, they form a proper class. However the saturation property only applies to subsets.} $A$ and $B$ of surreal numbers such that every element of $A$ is less than every element of $B$, there exists a surreal number larger than all elements of $A$ and smaller than all elements of $B$. This fails in the real numbers: take any Dedekind cut. Note that the saturation property is a stronger property than Dedekind-completeness.
 
-Related to the surreal and hyperreal numbers are the extended real numbers. These add two quantities ($\infty$ and $-\infty$) to the real numbers that behave like positive and negative infinity. For example one would have $\infty+a=\infty$ for all $a\in\bbR$. Contrary to the surreal and hyperreal numbers, the extended real numbers are closed under inversion. Furthermore, as we alluded to before, the Dedekind-MacNeille completion of the rational numbers yields the extended real numbers. In these senses it would make them more complete. They are also ``topologically compact"; every subset has a supremum. They however no longer form a field. Even worse, they satisfy none of the properties of a field. This is because expressions like ``$\infty-\infty$" are usually left undefined. The extended real numbers are used in particular in measure theory, where sets are allowed to have infinite measure, functions are allowed to attain infinity and integrals may evaluate to infinity \cite{Veraar2022}.
+Related to the surreal and hyperreal numbers are the extended real numbers. These add two quantities ($\infty$ and $-\infty$) to the real numbers that behave like positive and negative infinity. For example one would have $\infty+a=\infty$ for all $a\in\bbR$. Contrary to the surreal and hyperreal numbers, the extended real numbers are closed under inversion. Furthermore, as we alluded to before, the Dedekind-MacNeille completion of the rational numbers yields the extended real numbers. In these senses it would make them more complete. They are also ``topologically compact''; every subset has a supremum. They however no longer form a field. Even worse, they satisfy none of the properties of a field. This is because expressions like ``$\infty-\infty$'' are usually left undefined. The extended real numbers are used in particular in measure theory, where sets are allowed to have infinite measure, functions are allowed to attain infinity and integrals may evaluate to infinity~\cite{Veraar2022}.
 
-Another direction one might venture is that of complex numbers, quaternions, octonions and further\footnote{They can be indefinitely extended using the Cayley-Dickson construction \cite{Dickson1919}.}. Landau was likely the first to fully describe the construction of the natural numbers all the way to the complex numbers \cite{Landau1930}. As far as completeness goes, the complex numbers are the most interesting. They satisfy ``algebraic closure", meaning that any (nonconstant) polynomial has a root in the complex numbers. This fails in the real numbers: consider the function $f:\bbR\to\bbR$ defined by $f(x)=x\cdot x+1$. Beyond the complex numbers it is unclear whether they satisfy any reasonable notion of completeness that the complex numbers do not satisfy. The octonions and further are interesting mostly for other reasons.
+Another direction one might venture is that of complex numbers, quaternions, octonions and further\footnote{They can be indefinitely extended using the Cayley-Dickson construction~\cite{Dickson1919}.}. Landau was likely the first to fully describe the construction of the natural numbers all the way to the complex numbers~\cite{Landau1930}. As far as completeness goes, the complex numbers are the most interesting. They satisfy ``algebraic closure'', meaning that any (nonconstant) polynomial has a root in the complex numbers. This fails in the real numbers: consider the function $f:\bbR\to\bbR$ defined by $f(x)=x\cdot x+1$. Beyond the complex numbers it is unclear whether they satisfy any reasonable notion of completeness that the complex numbers do not satisfy. The octonions and further are interesting mostly for other reasons.
 
 It is in general hard to define what a completion or completeness property is or would have to be. If anything, they are classified by the following principle: the space achieved by a completion must be complete with respect to the completeness property the space was completed with. For instance, the Dedekind real numbers are Dedekind-complete and the Cantor real numbers are Cauchy-complete.
 
