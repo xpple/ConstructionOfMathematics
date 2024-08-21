@@ -24,10 +24,14 @@ jobs:
           args: -file-line-error -halt-on-error -interaction=nonstopmode -bibtex -output-directory=out -jobname=ConstructionOfMathematics
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Create temporary deployment directory
+        run: |
+          mkdir deploy
+          cp out/ConstructionOfMathematics.pdf deploy/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out/ConstructionOfMathematics.pdf
+          path: deploy
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
