@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir deploy
           cp out/ConstructionOfMathematics.pdf deploy/
+          echo '<html><head><meta http-equiv="refresh" content="0;url=ConstructionOfMathematics.pdf"></head><body></body></html>' > deploy/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
