@@ -11,7 +11,7 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
-          args: -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=/out
+          args: -file-line-error -halt-on-error -interaction=nonstopmode -bibtex -output-directory=/out
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
