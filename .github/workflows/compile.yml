@@ -1,7 +1,17 @@
-name: Compile LaTeX
+name: Compile LaTeX and deploy to GitHub pages
 on: [push]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 jobs:
-  compile:
+  compile-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -11,10 +21,13 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
-          args: -file-line-error -halt-on-error -interaction=nonstopmode -bibtex -output-directory=out
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
+          args: -file-line-error -halt-on-error -interaction=nonstopmode -bibtex -output-directory=out -jobname="Construction of Mathematics"
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: PDF
-          path: out/main.pdf
-      - run: ls out
+          path: "out/Construction of Mathematics.pdf"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
