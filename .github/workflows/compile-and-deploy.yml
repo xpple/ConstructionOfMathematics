@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Insert short commit hash
+        run: sed -i "s/SHORTCOMMITHASH/$(git rev-parse --short $GITHUB_SHA)/" main.tex
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
