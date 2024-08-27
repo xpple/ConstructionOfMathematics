@@ -1,0 +1,153 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+\section*{Introduction}
+Introduction.
+
+\section{The complex numbers}\label{sec:the_complex_numbers:the_complex_numbers}
+A complex number consists of a real part and an imaginary part, both of which are real numbers. Therefore as set, the complex numbers can be defined easily.
+\begin{definition}[Complex numbers]
+    Define the set $\bbC$ of complex numbers by $\bbC\coloneq\bbR\times\bbR$.
+\end{definition}
+For example, the complex number ``$a+bi$'' is in reality the pair $(a,b)$. To mathematically reason with the real and imaginary part of a complex number, we introduce two definitions\footnote{These definitions are rephrasings of $\pi_1$ and $\pi_2$.}.
+\begin{definition}[Real part of a complex number]
+    Define the real part of a complex number as the map $\bbC\to\bbR$ defined by
+    \begin{equation*}
+        \Re((a,b))=a.
+    \end{equation*}
+\end{definition}
+\begin{definition}[Imaginary part of a complex number]
+    Define the imaginary part of a complex number as the map $\bbC\to\bbR$ defined by
+    \begin{equation*}
+        \Im((a,b))=b.
+    \end{equation*}
+\end{definition}
+
+Notably, what makes the complex numbers is the structure they have. That is, how the pairs add and multiply. Expectedly addition works pointwise.
+\begin{definition}[Addition of complex numbers]
+    Define addition as the map $\bbC\times\bbC\to\bbC$ defined by
+    \begin{equation*}
+        (a,b)+(c,d)=(a+c,b+d).
+    \end{equation*}
+\end{definition}
+\begin{proposition}\label{prp:the_complex_numbers:abelian_group_complex_numbers}
+    $(\bbC,+)$ is an abelian group.
+\end{proposition}
+\begin{proof}
+    All properties follow by properties of the real numbers.
+\end{proof}
+A useful definition will be the following.
+\begin{definition}[Complex conjugate]
+    Define the complex conjugate as the map $\bbC\to\bbC$ by defined by
+    \begin{equation*}
+        \overline{(a,b)}=(a,-b).
+    \end{equation*}
+\end{definition}
+Crucially, multiplication does not work pointwise. Indeed, the definition for multiplication can be derived by distributing ``$(a+bi)\cdot(c+di)$'' as if the algebra was done on the real numbers, using that ``$i\cdot i=-1$''.
+\begin{definition}[Multiplication of complex numbers]
+    Define multiplication as the map $\bbC\times\bbC\to\bbC$ defined by
+    \begin{equation*}
+        (a,b)\cdot(c,d)=(a\cdot c-b\cdot d,a\cdot d+b\cdot c).
+    \end{equation*}
+\end{definition}
+This definition of multiplication is what allows squares to be negative. For example the imaginary unit $i\coloneq(0,1)$ squares to negative one: $(0,1)\cdot(0,1)=(-1,0)$.
+\begin{proposition}\label{prp:the_complex_numbers:field_complex_numbers}
+    $(\bbC,+,\cdot)$ is a field.
+\end{proposition}
+\begin{proof}
+    All properties follow by the properties of the real numbers. The multiplicative inverse is $(a,b)^{-1}=(a/(a\cdot a+b\cdot b),-b/(a\cdot a+b\cdot b))$, as can be found by multiplying by the complex conjugate.
+\end{proof}
+Similar to the notion of magnitudes as given by the absolute value function on the real numbers, the complex have a notion of magnitude too. Since complex numbers are elements of $\bbR\times\bbR$, the definition of their magnitude can be derived through Pythagoras' theorem. This theorem however involves the square root function, which we have not defined yet. We will make clever use of the Dedekind real numbers to define it.
+\begin{definition}[Square root function]
+    Define the function $\sqrt{\Box}:\bbR_D^{\geq0}\to\bbR_D^{\geq0}$ by
+    \begin{equation*}
+        \sqrt{x}=\{q\in\bbQ\mid q\cdot q<x\}.
+    \end{equation*}
+    Then $\sqrt{x}$ is a Dedekind cut, so indeed $\sqrt{x}\in\bbR_D$.
+\end{definition}
+It can be proven that the square root function is the inverse function of the square function.
+\begin{definition}[Norm on complex numbers]
+    Define the function $\Vert\Box\Vert:\bbC\to\bbR^{\geq0}$ by
+    \begin{equation*}
+        \Vert z\Vert=\sqrt{\Re(z)^2+\Im(z)^2}.
+    \end{equation*}
+\end{definition}
+When a complex number has no imaginary part, we will want to think of it as just a real number. For this, we show the real numbers can be embedded in the complex numbers. The embedding is given by $f:\bbR\to\bbC$ defined by $f(x)=(x,0)$. It is routine to verify $f$ is an embedding. With this, the complex conjugate allows us to algebraically extract the real and imaginary part of a complex number. That is,
+\begin{align*}
+    \Re(z) & =(z+\overline{z})/2, \\
+    \Im(z) & =(z-\overline{z})/(2i).
+\end{align*}
+Furthermore
+\begin{equation}\label{eqn:the_complex_numbers:norm}
+    \Vert z\Vert=\sqrt{z\overline{z}}.
+\end{equation}
+Due to the nature of the complex numbers, it is impossible to define an order on it such that it becomes an ordered field. This is captured in the following proposition.
+\begin{proposition}
+    There does not exist an order $\leq$ on $\bbC$ such that $(\bbC,+,\cdot,\leq)$ is an ordered field.
+\end{proposition}
+\begin{proof}
+    If we assume the contrary, that is assume such an ordering exists, by the ordered fields axioms we must have $(-1,0)=(0,1)\cdot(0,1)\geq(0,0)$. We further have $(1,0)=(1,0)\cdot(1,0)\geq(0,0)$, so that $(-1,0)=-(1,0)\leq(0,0)$. This implies $(-1,0)=(0,0)$, a contradiction.
+\end{proof}
+To characterise the complex numbers, we therefore cannot do this in terms of an ordered semiring with additional structure. Instead, we will make use of an ordering in a different sense. The following two definitions will be for this purpose.
+\begin{definition}[Absolute value]
+    Let $R$ be a ring. Then an absolute value is a function $\vert\Box\vert:R\to\bbR$ that satisfies the following properties.
+    \begin{description}
+        \item[Nonnegative.] $\forall x\in R(\vert x\vert\geq0)$.
+        \item[Positive definite.] $\forall x\in R(\vert x\vert=0\iff x=0)$.
+        \item[Multiplicative.] $\forall x\in R\forall y\in R(\vert x\cdot y\vert=\vert x\vert\cdot\vert y\vert)$.
+        \item[Triangle inequality.] $\forall x\in R\forall y\in R(\vert x+y\vert\leq\vert x\vert+\vert y\vert)$.
+    \end{description}
+\end{definition}
+\begin{definition}[Archimedean absolute value]
+    An absolute value $\vert\Box\vert:R\to\bbR$ is Archimedean if the following property applies.
+    \begin{equation*}
+        \forall x\in R(x\neq0\implies\forall y\in R(\vert x\vert\leq\vert y\vert\implies\exists n\in\bbN(\vert n\cdot x\vert\geq\vert y\vert))).
+    \end{equation*}
+\end{definition}
+An absolute value induces a metric, a way of measuring distance.
+\begin{definition}[Metric space]
+    Let $d:X\times X\to\bbR$ be a function. Then $(X,d)$ is a metric space if the following properties apply.
+    \begin{description}
+        \item[Zero distance.] $\forall x\in X(d(x,x)=0)$.
+        \item[Nonnegative.] $\forall x\in X\forall y\in x(d(x,y)\geq0)$.
+        \item[Symmetric.] $\forall x\in X\forall y\in X(d(x,y)=d(y,x))$.
+        \item[Triangle inequality.] $\forall x\in X\forall y\in X\forall z\in X(d(x,z)\leq d(x,y)+d(y,z))$.
+    \end{description}
+    In this case the function $d$ is called the metric.
+\end{definition}
+An absolute value then induces a metric by defining $d(x,y)=\vert y-x\vert$. Another important property of the complex numbers is the topology they have. This for example becomes clear when studying complex functions and their derivatives. We will therefore also introduce the notion of continuity, phrased in terms of the metric.
+\begin{definition}[Continuous function]
+    Let $(X,d)$ and $(Y,\delta)$ be metric spaces. Let $f:X\to Y$ be a function. Then $f$ is continuous if
+    \begin{equation*}
+        \forall y\in X\forall\epsilon>0\exists\delta>0\forall x\in X(d(x,y)<\delta\implies\delta(f(x),f(y))<\epsilon).
+    \end{equation*}
+\end{definition}
+\begin{definition}[Complete Archimedean valued field]
+    Let $(\bbK,+,\cdot)$ be a field with Archimedean absolute value $\vert\Box\vert$. Then $(\bbK,+,\cdot,\vert\Box\vert)$ is a complete Archimedean valued field if $+$ and $\cdot$ are continuous and it is Cauchy-complete, all of which with respect to the induced metrics.
+\end{definition}
+\begin{proposition}
+    $(\bbK,+,\cdot,\Vert\Box\Vert)$ is a complete Archimedean valued field.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prp:the_complex_numbers:field_complex_numbers} we have that $\bbC$ is a field. It is clear $\Vert\Box\Vert$ is nonnegative and positive definite. Multiplicativity follows quite quickly from Equation~\eqref{eqn:the_complex_numbers:norm} and the properties of the complex conjugate. The triangle inequality requires a bit more work, but can also be shown to hold. To show that $\bbC$ is complete, let $(z_n)\in\bbC^\bbN$ be a Cauchy sequence. We will show $(\Re(z_n))$ and $(\Im(z_n))$ are Cauchy too. Then $\Re(z_n)\to a$ and $\Im(z_n)\to b$ for some $a\in\bbR$ and $b\in\bbR$ so that $z_n\to(a,b)$. Let $\epsilon>0$ be arbitrary. Because $(z_n)$ is Cauchy, there exists an $N\in\bbN$ such that for $m\geq N$ and $n\geq N$ we have
+    \begin{align*}
+        \Vert z_m-z_n\Vert & <\epsilon \\
+        \Vert\Re(z_m)+i\cdot\Im(z_m)-(\Re(z_n)+i\cdot\Im(z_n))\Vert & <\epsilon \\
+        \Vert\Re(z_m)-\Re(z_n)+i\cdot(\Im(z_m)-\Im(z_n))\Vert & <\epsilon \\
+        (\Re(z_m)-\Re(z_n))^2+(\Im(z_m)-\Im(z_n))^2 & <\epsilon^2,
+    \end{align*}
+    where the last step follows from the fact that the square function is increasing. Hence both $(\Re(z_m)-\Re(z_n))^2<\epsilon^2$ and $(\Im(z_m)-\Im(z_n))^2<\epsilon^2$ so that it follows that $(\Re(z_n))$ and $(\Im(z_n))$ are Cauchy. Although tedious, it can be shown that addition and multiplication are continuous.
+\end{proof}
+Notice that the real numbers are also a complete Archimedean valued field. Similar to both the rational and the real numbers being an ordered field, one may wonder what distinguishes the complex numbers from the real numbers. However, much thought is not necessary, as shown by the following theorem.
+\begin{theorem}[Ostrowski's second theorem]\label{thm:the_complex_numbers:ostrowskis_second_theorem}
+    Let $(\bbK,+,\cdot,\vert\Box\vert)$ be a complete Archimedean valued field. Then $\bbK$ is isomorphic, both as a field and as a topological space, to either $\bbR$ or $\bbC$.
+\end{theorem}
+\begin{proof}
+    Let $(\bbK,+,\cdot,\vert\Box\vert)$ be a complete Archimedean valued field. Notice that the proof of Theorem~\ref{thm:the_natural_numbers_integers_and_rational_numbers:Q_smallest_ordered_field} can be adjusted such that one obtains that $\bbQ$ is a subfield of $\bbK$. The absolute value on $\bbQ$ inherited from $\bbK$ is Archimedean, so that it is equivalent to the standard absolute value on $\bbQ$. Hence by completeness of $\bbK$ the completion $\bbR$ of $\bbQ$ must be a subfield of $\bbK$. From here $\bbR$ is either isomorphic to $\bbK$, or there exists a $k\in\bbK$ such that $k\notin\bbR$. We will show that in this case $\bbK$ is isomorphic to $\bbC$. Consider the smallest subfield $S$ of $\bbK$ that contains $\bbR$ and $k$. We will show that $S$ is isomorphic to $\bbC$, whereafter we will show that in fact $S=\bbK$. ...
+\end{proof}
+Using this theorem, one can characterise the complex numbers by choosing any property whatsoever that $\bbC$ enjoys, but $\bbR$ does not.
+\begin{corollary}
+    $(\bbC,+,\cdot,\vert\Box\vert)$ is the unique complete Archimedean valued field that has an element that squares to $-1$.
+\end{corollary}
+Note that just as good is: $\bbC$ is the unique complete Archimedean valued field that is not $\bbR$.
+\end{document}
