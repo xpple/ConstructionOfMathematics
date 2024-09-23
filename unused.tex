@@ -8,3 +8,35 @@
         & =n\cup S(n)=n\cup n\cup\{n\}=n\cup\{n\}=S(n).
     \end{align*}
 \end{proof}
+\begin{definition}[Polynomial]
+    Let $R$ be a commutative ring. Then a polynomial $p$ is a sequence $(p_n):\bbN\to R$ that is eventually zero.
+\end{definition}
+\begin{definition}[Constant polynomial]
+    Let $p:\bbN\to R$ be a polynomial. Then $p$ is constant if $p_n=0$ for all $n\geq 1$. Additionally, the polynomial is the zero polynomial when also $p_0=0$.
+\end{definition}
+We distinguish the zero polynomial as the polynomial represented by the zero sequence. Note that the polynomial itself is not a function $R\to R$, it is just a finite sequence of nonzero coefficients. To define polynomial functions, we wish to pair each coefficient with a power of the identity function and sum the results. To avoid infinite sums, we will only sum until the last term. The index of the last term is the degree of the polynomial.
+\begin{definition}[Set of polynomials]
+    We denote the set of polynomials with coefficients in a commutative ring $R$ by $R[X]\coloneq\{p\in R^\bbN\mid p\text{ is a polynomial}\}$.
+\end{definition}
+\begin{definition}[Degree of a polynomial]
+    Let $R$ be a ring. We define the degree of a polynomial as the map $R[X]\setminus\{0\}\to\bbN$ defined by $\deg(p)=\max\{n\in\bbN\mid p_n\neq0\}$.
+\end{definition}
+To now sum the terms, we will first define the finite sum function. Notice the similarity between this definition and the definition of multiplication of natural numbers in Definition~\ref{dfn:the_natural_numbers_integers_and_rational_numbers:N_multiplication}.
+\begin{definition}[Finite summation]
+    Let $R$ be a commutative ring. Define the finite summation function $\sum_{i=0}:\bbN\times R^\bbN\to R$ by
+    \begin{align*}
+        \sum_{i=0}^0a_i & =a_0, \\
+        \sum_{i=0}^{n+1}a_i & =a_{n+1}+\sum_{i=0}^na_i.
+    \end{align*}
+\end{definition}
+Exponentiation is then defined analogously to exponentiation of natural numbers as defined in Definition~\ref{dfn:the_natural_numbers_integers_and_rational_numbers:N_exponentiation}. We can now define polynomial functions.
+\begin{definition}[Polynomial function]
+    Let $(p_n):\bbN\to R$ be polynomial. Then the function $p:R\to R$ defined by $p(x)=\sum_{i=1}^{\deg(p)}p_i\cdot x^i$ is a polynomial function.
+\end{definition}
+Although polynomials and polynomial functions are distinct objects, we often use the term polynomial to also refer to its associated function. We will be explicit in which of the two is meant when necessary.
+\begin{definition}[Root of a polynomial]
+    Let $p:R\to R$ be a polynomial. Then $x\in R$ is a root of $p$ if $p(x)=0$.
+\end{definition}
+\begin{definition}[Algebraically closed field]
+    A field $\bbK$ is algebraically closed if every nonconstant polynomial $p\in\bbK[X]$ has a root.
+\end{definition}
