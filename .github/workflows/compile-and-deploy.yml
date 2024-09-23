@@ -1,5 +1,8 @@
 name: Compile LaTeX and deploy to GitHub pages
-on: [push]
+on:
+  push:
+    branches:
+      - master
 permissions:
   contents: read
   pages: write
